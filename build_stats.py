@@ -224,7 +224,7 @@ def build_html(stats):
     def team_link(name, team_id=None):
         t_id = team_id or tid_map.get(name)
         if t_id:
-            return f'<a href="{RATING}/team/{t_id}" target="_blank" class="entity-link">{name}</a>'
+            return f'<a href="{RATING}/teams/{t_id}" target="_blank" class="entity-link">{name}</a>'
         return name
 
     def tournament_link(tid, text):
