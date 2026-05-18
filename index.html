@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ЧВБ -- Статистика Чемпионатов Великобритании по ЧГК</title>
+<style>
+:root {
+  --bg: #0a0e1a;
+  --card: #151d30;
+  --card-border: #1e2a45;
+  --text: #e0e6f0;
+  --text-muted: #8892a8;
+  --accent: #1877F2;
+  --gold: #f59e0b;
+  --silver: #94a3b8;
+  --bronze: #cd7f32;
+  --green: #02e2ac;
+  --red: #ef4444;
+  --purple: #a855f7;
+  --uk-badge: #1877F2;
+}
+[data-theme="light"] {
+  --bg: #f0f2f5;
+  --card: #ffffff;
+  --card-border: #dde1e6;
+  --text: #1c1e21;
+  --text-muted: #65676b;
+  --accent: #1877F2;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  padding: 0;
+}
+.container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+
+/* Header */
+header {
+  background: linear-gradient(135deg, #0a1628 0%, #162544 100%);
+  padding: 40px 20px;
+  text-align: center;
+  border-bottom: 3px solid var(--accent);
+}
+[data-theme="light"] header {
+  background: linear-gradient(135deg, #e8f0fe 0%, #d2e3fc 100%);
+}
+header h1 { font-size: 2em; margin-bottom: 8px; }
+header h1 span { color: var(--accent); }
+header p { color: var(--text-muted); font-size: 1.1em; }
+
+/* Theme toggle */
+.theme-toggle {
+  position: fixed; top: 16px; right: 16px; z-index: 100;
+  background: var(--card); border: 1px solid var(--card-border);
+  color: var(--text); padding: 8px 14px; border-radius: 20px;
+  cursor: pointer; font-size: 14px;
+}
+
+/* Nav */
+nav {
+  position: sticky; top: 0; z-index: 50;
+  background: var(--card); border-bottom: 1px solid var(--card-border);
+  padding: 10px 20px; display: flex; gap: 8px; flex-wrap: wrap;
+  justify-content: center;
+}
+nav a {
+  color: var(--text-muted); text-decoration: none; padding: 6px 14px;
+  border-radius: 16px; font-size: 13px; transition: all 0.2s;
+}
+nav a:hover, nav a.active { background: var(--accent); color: #fff; }
+
+/* Cards */
+.card {
+  background: var(--card); border: 1px solid var(--card-border);
+  border-radius: 12px; padding: 24px; margin-bottom: 20px;
+}
+.card h2 { font-size: 1.3em; margin-bottom: 16px; color: var(--accent); }
+.card h3 { font-size: 1.1em; margin: 16px 0 8px; }
+
+/* Stats grid */
+.stats-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px; margin-bottom: 20px;
+}
+.stat-box {
+  background: var(--bg); border-radius: 8px; padding: 16px; text-align: center;
+}
+.stat-box .num { font-size: 2em; font-weight: 700; color: var(--accent); }
+.stat-box .label { font-size: 0.85em; color: var(--text-muted); }
+
+/* Tables */
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th { text-align: left; padding: 8px 10px; border-bottom: 2px solid var(--card-border); color: var(--text-muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+td { padding: 6px 10px; border-bottom: 1px solid var(--card-border); }
+tr:hover { background: rgba(24,119,242,0.05); }
+.pos { font-weight: 700; width: 40px; text-align: center; }
+.score { text-align: right; font-weight: 600; }
+.uk-badge { display: inline-block; background: var(--uk-badge); color: #fff; font-size: 10px; padding: 1px 6px; border-radius: 8px; margin-left: 4px; }
+.team-name { font-weight: 500; }
+.town { color: var(--text-muted); font-size: 13px; }
+.year-tag { display: inline-block; background: var(--bg); padding: 2px 8px; border-radius: 10px; font-size: 12px; margin: 1px; }
+
+/* Bar chart */
+.bar-row { display: flex; align-items: center; margin: 4px 0; gap: 8px; }
+.bar-label { min-width: 180px; font-size: 13px; text-align: right; }
+.bar-track { flex: 1; height: 24px; background: var(--bg); border-radius: 4px; overflow: hidden; position: relative; }
+.bar { height: 100%; border-radius: 4px; transition: width 0.5s; }
+.bar-value { font-size: 12px; min-width: 30px; font-weight: 600; }
+
+/* Timeline */
+.timeline { display: flex; gap: 2px; flex-wrap: wrap; margin: 8px 0; }
+.timeline .dot {
+  width: 24px; height: 24px; border-radius: 4px; display: flex;
+  align-items: center; justify-content: center; font-size: 10px; font-weight: 700;
+}
+.dot.gold { background: var(--gold); color: #000; }
+.dot.silver { background: var(--silver); color: #000; }
+.dot.bronze { background: var(--bronze); color: #fff; }
+.dot.played { background: var(--card-border); color: var(--text-muted); }
+.dot.empty { background: transparent; border: 1px dashed var(--card-border); color: var(--text-muted); }
+
+/* Section */
+section { scroll-margin-top: 60px; }
+section h2 { padding: 20px 0 10px; font-size: 1.4em; }
+
+/* Tabs */
+.tabs { display: flex; gap: 4px; margin-bottom: 16px; }
+.tab {
+  padding: 6px 16px; border-radius: 8px; cursor: pointer;
+  background: var(--bg); color: var(--text-muted); font-size: 13px; border: none;
+}
+.tab.active { background: var(--accent); color: #fff; }
+
+/* Tournament detail toggle */
+.toggle-btn {
+  background: none; border: 1px solid var(--card-border); color: var(--text-muted);
+  padding: 4px 12px; border-radius: 6px; cursor: pointer; font-size: 12px; margin-top: 8px;
+}
+.toggle-btn:hover { border-color: var(--accent); color: var(--accent); }
+.details { display: none; margin-top: 12px; }
+.details.open { display: block; }
+
+/* Responsive */
+@media (max-width: 600px) {
+  .bar-label { min-width: 120px; font-size: 12px; }
+  header h1 { font-size: 1.4em; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+<button class="theme-toggle" onclick="toggleTheme()">🌙 / ☀️</button>
+
+
+<header>
+  <h1>🏆 <span>ЧВБ</span> -- Чемпионат Великобритании по ЧГК</h1>
+  <p>Полная статистика 2008--2025 | rating.chgk.info</p>
+</header>
+
+<nav>
+  <a href="#overview">Обзор</a>
+  <a href="#champions">Чемпионы</a>
+  <a href="#players">Игроки</a>
+  <a href="#teams">Команды</a>
+  <a href="#tournaments">Турниры</a>
+</nav>
+
+<div class="container">
+
+<section id="overview">
+<div class="card">
+  <h2>Обзор</h2>
+  <div class="stats-grid">
+    <div class="stat-box"><div class="num">17</div><div class="label">турниров</div></div>
+    <div class="stat-box"><div class="num">525</div><div class="label">игроков</div></div>
+    <div class="stat-box"><div class="num">216</div><div class="label">команд-участий</div></div>
+    <div class="stat-box"><div class="num">23</div><div class="label">макс. команд (2024)</div></div>
+  </div>
+
+  <h3>Рост турнира</h3>
+
+
+  <div class="bar-row">
+    <div class="bar-label">2008</div>
+    <div class="bar-track">
+      <div class="bar" style="width:30.434782608695656%;background:var(--accent);opacity:0.4;position:absolute"></div>
+      <div class="bar" style="width:26.08695652173913%;background:var(--accent);position:absolute"></div>
+    </div>
+    <div class="bar-value">7 (6 UK)</div>
+  </div>
+
+  <div class="bar-row">
+    <div class="bar-label">2009</div>
+    <div class="bar-track">
+      <div class="bar" style="width:26.08695652173913%;background:var(--accent);opacity:0.4;position:absolute"></div>
+      <div class="bar" style="width:26.08695652173913%;background:var(--accent);position:absolute"></div>
+    </div>
+    <div class="bar-value">6 (6 UK)</div>
+  </div>
+
+  <div class="bar-row">
+    <div class="bar-label">2010</div>
+    <div class="bar-track">
+      <div class="bar" style="width:26.08695652173913%;background:var(--accent);opacity:0.4;position:absolute"></div>
+      <div class="bar" style="width:26.08695652173913%;background:var(--accent);position:absolute"></div>
+    </div>
+    <div class="bar-value">6 (6 UK)</div>
+  </div>
+
+  <div class="bar-row">
+    <div class="bar-label">2011</div>
+    <div class="bar-track">
+      <div class="bar" style="width:21.73913043478261%;background:var(--accent);opacity:0.4;position:absolute"></div>
+      <div class="bar" style="width:21.73913043478261%;background:var(--accent);position:absolute"></div>
+    </div>
+    <div class="bar-value">5 (5 UK)</div>
+  </div>
+
+  <div class="bar-row">
+    <div class="bar-label">2012</div>
+    <div class="bar-track">
+      <div class="bar" style="width:39.130434782608695%;background:var(--accent);opacity:0.4;position:absolute"></div>
+      <div class="bar" style="width:39.130434782608695%;background:var(--accent);position:absolute"></div>
+    </div>
+    <div class="bar-value">9 (9 UK)</div>
+  </div>
+
+  <div class="bar-row">
+    <div class="bar-label">2013</div>
+    <div class="bar-track">
+      <div class="bar" style="width:43.47826086956522%;background:var(--accent);opacity:0.4;position:absolute"></div>
+      <div class="bar" style="width:43.47826086956522%;background:var(--accent);position:absolute"></div>
+    </div>
+    <div class="bar-value">10 (10 UK)</div>
+  </div>
+
+  <div class="bar-row">
+    <div class="bar-label">2014</div>
+    <div class="bar-track">
+      <div class="bar" style="width:39.130434782608695%;background:var(--accent);opacity:0.4;position:absolute"></div>
+      <div class="bar" style="width:39.130434782608695%;background:var(--accent);position:absolute"></div>
+    </div>
+    <div class="bar-value">9 (9 UK)</div>
+  </div>
+
+  <div class="bar-row">
+    <div class="bar-label">2015</div>
+    <div class="bar-track">
+      <div class="bar" style="width:47.82608695652174%;background:var(--accent);opacity:0.4;position:absolute"></div>
+      <div class="bar" style="width:47.82608695652174%;background:var(--accent);position:absolute"></div>
+    </div>
+    <div class="bar-value">11 (11 UK)</div>
+  </div>
+
+  <div class="bar-row">
+    <div class="bar-label">2016</div>
+    <div class="bar-track">
+      <div class="bar" style="width:56.52173913043478%;background:var(--accent);opacity:0.4;position:absolute"></div>
+      <div class="bar" style="width:56.52173913043478%;background:var(--accent);position:absolute"></div>
+    </div>
+    <div class="bar-value">13 (13 UK)</div>
+  </div>
+
+  <div class="bar-row">
+    <div class="bar-label">2017</div>
+    <div class="bar-track">
+      <div class="bar" style="width:56.52173913043478%;background:var(--accent);opacity:0.4;position:absolute"></div>
+      <div class="bar" style="width:56.52173913043478%;background:var(--accent);position:absolute"></div>
+    </div>
+    <div class="bar-value">13 (13 UK)</div>
+  </div>
+
+  <div class="bar-row">
+    <div class="bar-label">2018</div>
+    <div class="bar-track">
+      <div class="bar" style="width:69.56521739130434%;background:var(--accent);opacity:0.4;position:absolute"></div>
+      <div class="bar" style="width:65.21739130434783%;background:var(--accent);position:absolute"></div>
+    </div>
+    <div class="bar-value">16 (15 UK)</div>
+  </div>
+
+  <div class="bar-row">
+    <div class="bar-label">2019</div>
+    <div class="bar-track">
+      <div class="bar" style="width:65.21739130434783%;background:var(--accent);opacity:0.4;position:absolute"></div>
+      <div class="bar" style="width:56.52173913043478%;background:var(--accent);position:absolute"></div>
+    </div>
+    <div class="bar-value">15 (13 UK)</div>
+  </div>
+
+  <div class="bar-row">
+    <div class="bar-label">2021</div>
+    <div class="bar-track">
+      <div class="bar" style="width:65.21739130434783%;background:var(--accent);opacity:0.4;position:absolute"></div>
+      <div class="bar" style="width:65.21739130434783%;background:var(--accent);position:absolute"></div>
+    </div>
+    <div class="bar-value">15 (15 UK)</div>
+  </div>
+
+  <div class="bar-row">
+    <div class="bar-label">2022</div>
+    <div class="bar-track">
+      <div class="bar" style="width:69.56521739130434%;background:var(--accent);opacity:0.4;position:absolute"></div>
+      <div class="bar" style="width:65.21739130434783%;background:var(--accent);position:absolute"></div>
+    </div>
+    <div class="bar-value">16 (15 UK)</div>
+  </div>
+
+  <div class="bar-row">
+    <div class="bar-label">2023</div>
+    <div class="bar-track">
+      <div class="bar" style="width:86.95652173913044%;background:var(--accent);opacity:0.4;position:absolute"></div>
+      <div class="bar" style="width:69.56521739130434%;background:var(--accent);position:absolute"></div>
+    </div>
+    <div class="bar-value">20 (16 UK)</div>
+  </div>
+
+  <div class="bar-row">
+    <div class="bar-label">2024</div>
+    <div class="bar-track">
+      <div class="bar" style="width:100.0%;background:var(--accent);opacity:0.4;position:absolute"></div>
+      <div class="bar" style="width:73.91304347826086%;background:var(--accent);position:absolute"></div>
+    </div>
+    <div class="bar-value">23 (17 UK)</div>
+  </div>
+
+  <div class="bar-row">
+    <div class="bar-label">2025</div>
+    <div class="bar-track">
+      <div class="bar" style="width:95.65217391304348%;background:var(--accent);opacity:0.4;position:absolute"></div>
+      <div class="bar" style="width:69.56521739130434%;background:var(--accent);position:absolute"></div>
+    </div>
+    <div class="bar-value">22 (16 UK)</div>
+  </div>
+</div></section>
+
+<section id="champions">
+<div class="card">
+  <h2>Чемпионы по годам</h2>
+  <table>
+    <tr><th>Год</th><th>Чемпион (общий)</th><th>Взято</th><th>Чемпион UK</th><th>Взято</th><th>Место UK в общем</th><th>Команд</th></tr>
+
+    <tr>
+      <td class="pos">2008</td>
+      <td class="team-name">Greedy Squirrel</td>
+      <td class="score">—</td>
+      <td class="team-name">Greedy Squirrel</td>
+      <td class="score">—</td>
+      <td class="pos">1</td>
+      <td class="pos">7</td>
+    </tr>
+    <tr>
+      <td class="pos">2009</td>
+      <td class="team-name">Стрела</td>
+      <td class="score">—</td>
+      <td class="team-name">Стрела</td>
+      <td class="score">—</td>
+      <td class="pos">1</td>
+      <td class="pos">6</td>
+    </tr>
+    <tr>
+      <td class="pos">2010</td>
+      <td class="team-name">Greedy Squirrel</td>
+      <td class="score">—</td>
+      <td class="team-name">Greedy Squirrel</td>
+      <td class="score">—</td>
+      <td class="pos">1</td>
+      <td class="pos">6</td>
+    </tr>
+    <tr>
+      <td class="pos">2011</td>
+      <td class="team-name">Стрела</td>
+      <td class="score">30</td>
+      <td class="team-name">Стрела</td>
+      <td class="score">30</td>
+      <td class="pos">1</td>
+      <td class="pos">5</td>
+    </tr>
+    <tr>
+      <td class="pos">2012</td>
+      <td class="team-name">Greedy Squirrel</td>
+      <td class="score">23</td>
+      <td class="team-name">Greedy Squirrel</td>
+      <td class="score">23</td>
+      <td class="pos">1</td>
+      <td class="pos">9</td>
+    </tr>
+    <tr>
+      <td class="pos">2013</td>
+      <td class="team-name">Сова нашла хвост</td>
+      <td class="score">20</td>
+      <td class="team-name">Сова нашла хвост</td>
+      <td class="score">20</td>
+      <td class="pos">1</td>
+      <td class="pos">10</td>
+    </tr>
+    <tr>
+      <td class="pos">2014</td>
+      <td class="team-name">Сова нашла хвост</td>
+      <td class="score">28</td>
+      <td class="team-name">Сова нашла хвост</td>
+      <td class="score">28</td>
+      <td class="pos">1</td>
+      <td class="pos">9</td>
+    </tr>
+    <tr>
+      <td class="pos">2015</td>
+      <td class="team-name">SteamPug</td>
+      <td class="score">25</td>
+      <td class="team-name">SteamPug</td>
+      <td class="score">25</td>
+      <td class="pos">1</td>
+      <td class="pos">11</td>
+    </tr>
+    <tr>
+      <td class="pos">2016</td>
+      <td class="team-name">Сова нашла хвост</td>
+      <td class="score">28</td>
+      <td class="team-name">Сова нашла хвост</td>
+      <td class="score">28</td>
+      <td class="pos">1</td>
+      <td class="pos">13</td>
+    </tr>
+    <tr>
+      <td class="pos">2017</td>
+      <td class="team-name">Сова нашла хвост</td>
+      <td class="score">30</td>
+      <td class="team-name">Сова нашла хвост</td>
+      <td class="score">30</td>
+      <td class="pos">1</td>
+      <td class="pos">13</td>
+    </tr>
+    <tr>
+      <td class="pos">2018</td>
+      <td class="team-name">Жрецы Хамона</td>
+      <td class="score">28</td>
+      <td class="team-name">Жрецы Хамона</td>
+      <td class="score">28</td>
+      <td class="pos">1</td>
+      <td class="pos">16</td>
+    </tr>
+    <tr>
+      <td class="pos">2019</td>
+      <td class="team-name">Вист!</td>
+      <td class="score">22</td>
+      <td class="team-name" style="color:var(--gold)">Жрецы Хамона</td>
+      <td class="score">21</td>
+      <td class="pos">2</td>
+      <td class="pos">15</td>
+    </tr>
+    <tr>
+      <td class="pos">2021</td>
+      <td class="team-name">2,5 человека</td>
+      <td class="score">31</td>
+      <td class="team-name">2,5 человека</td>
+      <td class="score">31</td>
+      <td class="pos">1</td>
+      <td class="pos">15</td>
+    </tr>
+    <tr>
+      <td class="pos">2022</td>
+      <td class="team-name">Стэнфордский эксперимент</td>
+      <td class="score">37</td>
+      <td class="team-name" style="color:var(--gold)">Жрецы Хамона</td>
+      <td class="score">36</td>
+      <td class="pos">2</td>
+      <td class="pos">16</td>
+    </tr>
+    <tr>
+      <td class="pos">2023</td>
+      <td class="team-name">Awkward</td>
+      <td class="score">37</td>
+      <td class="team-name">Awkward</td>
+      <td class="score">37</td>
+      <td class="pos">1</td>
+      <td class="pos">20</td>
+    </tr>
+    <tr>
+      <td class="pos">2024</td>
+      <td class="team-name">Олеги Литвы</td>
+      <td class="score">46</td>
+      <td class="team-name" style="color:var(--gold)">Совет в Финчлях</td>
+      <td class="score">45</td>
+      <td class="pos">2</td>
+      <td class="pos">23</td>
+    </tr>
+    <tr>
+      <td class="pos">2025</td>
+      <td class="team-name">Acquired Taste</td>
+      <td class="score">57</td>
+      <td class="team-name">Acquired Taste</td>
+      <td class="score">57</td>
+      <td class="pos">1</td>
+      <td class="pos">22</td>
+    </tr>
+</table></div></section>
+<section id="players"><div class="card"><h2>Игроки -- победы (зачёт UK)</h2>
+
+  <div class="bar-row">
+    <div class="bar-label">Татьяна Снеговская-Арш</div>
+    <div class="bar-track"><div class="bar" style="width:100.0%;background:#f59e0b"></div></div>
+    <div class="bar-value">6</div>
+  </div>
+
+  <div class="bar-row">
+    <div class="bar-label">Дмитрий Арш</div>
+    <div class="bar-track"><div class="bar" style="width:100.0%;background:#f59e0b"></div></div>
+    <div class="bar-value">6</div>
+  </div>
+
+  <div class="bar-row">
+    <div class="bar-label">Ирина Михлина</div>
+    <div class="bar-track"><div class="bar" style="width:66.66666666666666%;background:#f59e0b"></div></div>
+    <div class="bar-value">4</div>
+  </div>
+
+  <div class="bar-row">
+    <div class="bar-label">Леонид Михлин</div>
+    <div class="bar-track"><div class="bar" style="width:66.66666666666666%;background:#f59e0b"></div></div>
+    <div class="bar-value">4</div>
+  </div>
+
+  <div class="bar-row">
+    <div class="bar-label">Вадим Молдавский</div>
+    <div class="bar-track"><div class="bar" style="width:66.66666666666666%;background:#f59e0b"></div></div>
+    <div class="bar-value">4</div>
+  </div>
+
+  <div class="bar-row">
+    <div class="bar-label">Вадим Бейлин</div>
+    <div class="bar-track"><div class="bar" style="width:66.66666666666666%;background:#f59e0b"></div></div>
+    <div class="bar-value">4</div>
+  </div>
+
+  <div class="bar-row">
+    <div class="bar-label">Дмитрий Барский</div>
+    <div class="bar-track"><div class="bar" style="width:50.0%;background:#f59e0b"></div></div>
+    <div class="bar-value">3</div>
+  </div>
+
+  <div class="bar-row">
+    <div class="bar-label">Светлана Барская</div>
+    <div class="bar-track"><div class="bar" style="width:50.0%;background:#f59e0b"></div></div>
+    <div class="bar-value">3</div>
+  </div>
+
+  <div class="bar-row">
+    <div class="bar-label">Виктор Глухов</div>
+    <div class="bar-track"><div class="bar" style="width:50.0%;background:#f59e0b"></div></div>
+    <div class="bar-value">3</div>
+  </div>
+
+  <div class="bar-row">
+    <div class="bar-label">Илья Гончаров</div>
+    <div class="bar-track"><div class="bar" style="width:50.0%;background:#f59e0b"></div></div>
+    <div class="bar-value">3</div>
+  </div>
+
+  <div class="bar-row">
+    <div class="bar-label">Алёна Тарасова</div>
+    <div class="bar-track"><div class="bar" style="width:50.0%;background:#f59e0b"></div></div>
+    <div class="bar-value">3</div>
+  </div>
+
+  <div class="bar-row">
+    <div class="bar-label">Софья Окунь</div>
+    <div class="bar-track"><div class="bar" style="width:50.0%;background:#f59e0b"></div></div>
+    <div class="bar-value">3</div>
+  </div>
+
+  <div class="bar-row">
+    <div class="bar-label">Борис Окунь</div>
+    <div class="bar-track"><div class="bar" style="width:50.0%;background:#f59e0b"></div></div>
+    <div class="bar-value">3</div>
+  </div>
+
+  <div class="bar-row">
+    <div class="bar-label">Анастасия Гордеева</div>
+    <div class="bar-track"><div class="bar" style="width:50.0%;background:#f59e0b"></div></div>
+    <div class="bar-value">3</div>
+  </div>
+
+  <div class="bar-row">
+    <div class="bar-label">Константин Шлыков</div>
+    <div class="bar-track"><div class="bar" style="width:33.33333333333333%;background:#f59e0b"></div></div>
+    <div class="bar-value">2</div>
+  </div>
+
+  <div class="bar-row">
+    <div class="bar-label">Илья Карасик</div>
+    <div class="bar-track"><div class="bar" style="width:33.33333333333333%;background:#f59e0b"></div></div>
+    <div class="bar-value">2</div>
+  </div>
+
+  <div class="bar-row">
+    <div class="bar-label">Альберт Геворкян</div>
+    <div class="bar-track"><div class="bar" style="width:33.33333333333333%;background:#f59e0b"></div></div>
+    <div class="bar-value">2</div>
+  </div>
+
+  <div class="bar-row">
+    <div class="bar-label">Дмитрий Белицкий</div>
+    <div class="bar-track"><div class="bar" style="width:33.33333333333333%;background:#f59e0b"></div></div>
+    <div class="bar-value">2</div>
+  </div>
+
+  <div class="bar-row">
+    <div class="bar-label">Наталья Викулина</div>
+    <div class="bar-track"><div class="bar" style="width:33.33333333333333%;background:#f59e0b"></div></div>
+    <div class="bar-value">2</div>
+  </div>
+
+  <div class="bar-row">
+    <div class="bar-label">Мария Тимохова</div>
+    <div class="bar-track"><div class="bar" style="width:33.33333333333333%;background:#f59e0b"></div></div>
+    <div class="bar-value">2</div>
+  </div>
+</div>
+<div class="card"><h2>Игроки -- подиумы (зачёт UK, топ-3)</h2>
+<table><tr><th>#</th><th>Игрок</th><th>Подиумов</th><th>Побед</th><th>Детали</th></tr>
+<tr><td class="pos">1</td><td class="team-name">Ирина Михлина</td><td class="score">13</td><td class="score">4</td><td><span class="year-tag">🥇2008</span> <span class="year-tag">🥈2009</span> <span class="year-tag">🥇2010</span> <span class="year-tag">🥈2011</span> <span class="year-tag">🥇2012</span> <span class="year-tag">🥉2013</span> <span class="year-tag">🥉2014</span> <span class="year-tag">🥇2015</span> <span class="year-tag">🥈2016</span> <span class="year-tag">🥈2017</span> <span class="year-tag">🥈2018</span> <span class="year-tag">🥉2019</span> <span class="year-tag">🥉2023</span></td></tr>
+<tr><td class="pos">2</td><td class="team-name">Леонид Михлин</td><td class="score">10</td><td class="score">4</td><td><span class="year-tag">🥇2008</span> <span class="year-tag">🥈2009</span> <span class="year-tag">🥇2010</span> <span class="year-tag">🥈2011</span> <span class="year-tag">🥇2012</span> <span class="year-tag">🥉2014</span> <span class="year-tag">🥇2015</span> <span class="year-tag">🥈2016</span> <span class="year-tag">🥈2017</span> <span class="year-tag">🥉2023</span></td></tr>
+<tr><td class="pos">3</td><td class="team-name">Галина Локшина</td><td class="score">10</td><td class="score">1</td><td><span class="year-tag">🥉2009</span> <span class="year-tag">🥉2013</span> <span class="year-tag">🥉2014</span> <span class="year-tag">🥇2015</span> <span class="year-tag">🥈2016</span> <span class="year-tag">🥈2017</span> <span class="year-tag">🥈2018</span> <span class="year-tag">🥉2019</span> <span class="year-tag">🥉2021</span> <span class="year-tag">🥉2022</span></td></tr>
+<tr><td class="pos">4</td><td class="team-name">Тогрул Багиров</td><td class="score">10</td><td class="score">1</td><td><span class="year-tag">🥉2009</span> <span class="year-tag">🥉2013</span> <span class="year-tag">🥉2014</span> <span class="year-tag">🥇2015</span> <span class="year-tag">🥈2016</span> <span class="year-tag">🥈2017</span> <span class="year-tag">🥈2018</span> <span class="year-tag">🥉2019</span> <span class="year-tag">🥉2021</span> <span class="year-tag">🥉2023</span></td></tr>
+<tr><td class="pos">5</td><td class="team-name">Дмитрий Арш</td><td class="score">9</td><td class="score">6</td><td><span class="year-tag">🥇2008</span> <span class="year-tag">🥈2009</span> <span class="year-tag">🥇2010</span> <span class="year-tag">🥈2011</span> <span class="year-tag">🥇2013</span> <span class="year-tag">🥇2014</span> <span class="year-tag">🥈2015</span> <span class="year-tag">🥇2016</span> <span class="year-tag">🥇2017</span></td></tr>
+<tr><td class="pos">6</td><td class="team-name">Татьяна Снеговская-Арш</td><td class="score">8</td><td class="score">6</td><td><span class="year-tag">🥇2008</span> <span class="year-tag">🥈2009</span> <span class="year-tag">🥇2010</span> <span class="year-tag">🥈2011</span> <span class="year-tag">🥇2013</span> <span class="year-tag">🥇2014</span> <span class="year-tag">🥇2016</span> <span class="year-tag">🥇2017</span></td></tr>
+<tr><td class="pos">7</td><td class="team-name">Ольга Резницкая</td><td class="score">8</td><td class="score">1</td><td><span class="year-tag">🥇2015</span> <span class="year-tag">🥈2016</span> <span class="year-tag">🥈2017</span> <span class="year-tag">🥈2018</span> <span class="year-tag">🥉2019</span> <span class="year-tag">🥉2021</span> <span class="year-tag">🥉2022</span> <span class="year-tag">🥉2023</span></td></tr>
+<tr><td class="pos">8</td><td class="team-name">Алексей Новаков</td><td class="score">8</td><td class="score">1</td><td><span class="year-tag">🥇2015</span> <span class="year-tag">🥈2016</span> <span class="year-tag">🥈2017</span> <span class="year-tag">🥈2018</span> <span class="year-tag">🥉2019</span> <span class="year-tag">🥉2021</span> <span class="year-tag">🥉2022</span> <span class="year-tag">🥉2023</span></td></tr>
+<tr><td class="pos">9</td><td class="team-name">Софья Окунь</td><td class="score">7</td><td class="score">3</td><td><span class="year-tag">🥇2018</span> <span class="year-tag">🥇2019</span> <span class="year-tag">🥈2021</span> <span class="year-tag">🥈2022</span> <span class="year-tag">🥈2023</span> <span class="year-tag">🥇2024</span> <span class="year-tag">🥈2025</span></td></tr>
+<tr><td class="pos">10</td><td class="team-name">Борис Окунь</td><td class="score">7</td><td class="score">3</td><td><span class="year-tag">🥇2018</span> <span class="year-tag">🥇2019</span> <span class="year-tag">🥈2021</span> <span class="year-tag">🥈2022</span> <span class="year-tag">🥈2023</span> <span class="year-tag">🥇2024</span> <span class="year-tag">🥈2025</span></td></tr>
+<tr><td class="pos">11</td><td class="team-name">Анна Казарновская</td><td class="score">7</td><td class="score">0</td><td><span class="year-tag">🥉2013</span> <span class="year-tag">🥉2014</span> <span class="year-tag">🥈2016</span> <span class="year-tag">🥈2018</span> <span class="year-tag">🥉2019</span> <span class="year-tag">🥉2021</span> <span class="year-tag">🥉2022</span></td></tr>
+<tr><td class="pos">12</td><td class="team-name">Константин Шлыков</td><td class="score">6</td><td class="score">2</td><td><span class="year-tag">🥈2008</span> <span class="year-tag">🥇2009</span> <span class="year-tag">🥈2010</span> <span class="year-tag">🥇2011</span> <span class="year-tag">🥈2012</span> <span class="year-tag">🥉2016</span></td></tr>
+<tr><td class="pos">13</td><td class="team-name">Дмитрий Белицкий</td><td class="score">6</td><td class="score">2</td><td><span class="year-tag">🥈2008</span> <span class="year-tag">🥇2009</span> <span class="year-tag">🥈2010</span> <span class="year-tag">🥇2011</span> <span class="year-tag">🥈2012</span> <span class="year-tag">🥉2016</span></td></tr>
+<tr><td class="pos">14</td><td class="team-name">Константин Лихоманов</td><td class="score">6</td><td class="score">2</td><td><span class="year-tag">🥇2019</span> <span class="year-tag">🥈2021</span> <span class="year-tag">🥈2022</span> <span class="year-tag">🥈2023</span> <span class="year-tag">🥇2024</span> <span class="year-tag">🥈2025</span></td></tr>
+<tr><td class="pos">15</td><td class="team-name">Вадим Молдавский</td><td class="score">5</td><td class="score">4</td><td><span class="year-tag">🥇2013</span> <span class="year-tag">🥇2014</span> <span class="year-tag">🥈2015</span> <span class="year-tag">🥇2016</span> <span class="year-tag">🥇2017</span></td></tr>
+<tr><td class="pos">16</td><td class="team-name">Вадим Бейлин</td><td class="score">5</td><td class="score">4</td><td><span class="year-tag">🥇2013</span> <span class="year-tag">🥇2014</span> <span class="year-tag">🥈2015</span> <span class="year-tag">🥇2016</span> <span class="year-tag">🥇2017</span></td></tr>
+<tr><td class="pos">17</td><td class="team-name">Дмитрий Барский</td><td class="score">5</td><td class="score">3</td><td><span class="year-tag">🥇2008</span> <span class="year-tag">🥈2009</span> <span class="year-tag">🥇2010</span> <span class="year-tag">🥈2011</span> <span class="year-tag">🥇2012</span></td></tr>
+<tr><td class="pos">18</td><td class="team-name">Светлана Барская</td><td class="score">5</td><td class="score">3</td><td><span class="year-tag">🥇2008</span> <span class="year-tag">🥈2009</span> <span class="year-tag">🥇2010</span> <span class="year-tag">🥈2011</span> <span class="year-tag">🥇2012</span></td></tr>
+<tr><td class="pos">19</td><td class="team-name">Альберт Геворкян</td><td class="score">5</td><td class="score">2</td><td><span class="year-tag">🥈2008</span> <span class="year-tag">🥇2009</span> <span class="year-tag">🥈2010</span> <span class="year-tag">🥇2011</span> <span class="year-tag">🥉2016</span></td></tr>
+<tr><td class="pos">20</td><td class="team-name">Евгений Горбатиков</td><td class="score">5</td><td class="score">1</td><td><span class="year-tag">🥉2017</span> <span class="year-tag">🥉2018</span> <span class="year-tag">🥇2021</span> <span class="year-tag">🥈2024</span> <span class="year-tag">🥉2025</span></td></tr>
+<tr><td class="pos">21</td><td class="team-name">Никита Иоффе</td><td class="score">5</td><td class="score">1</td><td><span class="year-tag">🥈2021</span> <span class="year-tag">🥈2022</span> <span class="year-tag">🥈2023</span> <span class="year-tag">🥇2024</span> <span class="year-tag">🥈2025</span></td></tr>
+<tr><td class="pos">22</td><td class="team-name">Ирина Соколова</td><td class="score">5</td><td class="score">1</td><td><span class="year-tag">🥈2021</span> <span class="year-tag">🥈2022</span> <span class="year-tag">🥈2023</span> <span class="year-tag">🥇2024</span> <span class="year-tag">🥈2025</span></td></tr>
+<tr><td class="pos">23</td><td class="team-name">Андрей Зеленеев</td><td class="score">5</td><td class="score">1</td><td><span class="year-tag">🥈2021</span> <span class="year-tag">🥈2022</span> <span class="year-tag">🥈2023</span> <span class="year-tag">🥇2024</span> <span class="year-tag">🥈2025</span></td></tr>
+<tr><td class="pos">24</td><td class="team-name">Виолетта Скрипникова</td><td class="score">5</td><td class="score">0</td><td><span class="year-tag">🥈2018</span> <span class="year-tag">🥉2019</span> <span class="year-tag">🥉2021</span> <span class="year-tag">🥉2022</span> <span class="year-tag">🥉2023</span></td></tr>
+<tr><td class="pos">25</td><td class="team-name">Виктор Глухов</td><td class="score">4</td><td class="score">3</td><td><span class="year-tag">🥇2013</span> <span class="year-tag">🥇2014</span> <span class="year-tag">🥈2015</span> <span class="year-tag">🥇2016</span></td></tr>
+</table></div>
+<div class="card"><h2>Игроки -- больше всего ЧВБ</h2>
+<table><tr><th>#</th><th>Игрок</th><th>Турниров</th><th>Годы</th></tr>
+<tr><td class="pos">1</td><td class="team-name">Дмитрий Белицкий</td><td class="score">16</td><td><span class="year-tag">2008</span> <span class="year-tag">2009</span> <span class="year-tag">2010</span> <span class="year-tag">2011</span> <span class="year-tag">2012</span> <span class="year-tag">2013</span> <span class="year-tag">2014</span> <span class="year-tag">2015</span> <span class="year-tag">2016</span> <span class="year-tag">2017</span> <span class="year-tag">2018</span> <span class="year-tag">2019</span> <span class="year-tag">2021</span> <span class="year-tag">2022</span> <span class="year-tag">2023</span> <span class="year-tag">2024</span></td></tr>
+<tr><td class="pos">2</td><td class="team-name">Ирина Михлина</td><td class="score">14</td><td><span class="year-tag">2008</span> <span class="year-tag">2009</span> <span class="year-tag">2010</span> <span class="year-tag">2011</span> <span class="year-tag">2012</span> <span class="year-tag">2013</span> <span class="year-tag">2014</span> <span class="year-tag">2015</span> <span class="year-tag">2016</span> <span class="year-tag">2017</span> <span class="year-tag">2018</span> <span class="year-tag">2019</span> <span class="year-tag">2023</span> <span class="year-tag">2024</span></td></tr>
+<tr><td class="pos">3</td><td class="team-name">Галина Локшина</td><td class="score">14</td><td><span class="year-tag">2008</span> <span class="year-tag">2009</span> <span class="year-tag">2010</span> <span class="year-tag">2011</span> <span class="year-tag">2012</span> <span class="year-tag">2013</span> <span class="year-tag">2014</span> <span class="year-tag">2015</span> <span class="year-tag">2016</span> <span class="year-tag">2017</span> <span class="year-tag">2018</span> <span class="year-tag">2019</span> <span class="year-tag">2021</span> <span class="year-tag">2022</span></td></tr>
+<tr><td class="pos">4</td><td class="team-name">Тогрул Багиров</td><td class="score">14</td><td><span class="year-tag">2009</span> <span class="year-tag">2010</span> <span class="year-tag">2011</span> <span class="year-tag">2012</span> <span class="year-tag">2013</span> <span class="year-tag">2014</span> <span class="year-tag">2015</span> <span class="year-tag">2016</span> <span class="year-tag">2017</span> <span class="year-tag">2018</span> <span class="year-tag">2019</span> <span class="year-tag">2021</span> <span class="year-tag">2023</span> <span class="year-tag">2024</span></td></tr>
+<tr><td class="pos">5</td><td class="team-name">Альберт Геворкян</td><td class="score">12</td><td><span class="year-tag">2008</span> <span class="year-tag">2009</span> <span class="year-tag">2010</span> <span class="year-tag">2011</span> <span class="year-tag">2013</span> <span class="year-tag">2014</span> <span class="year-tag">2015</span> <span class="year-tag">2016</span> <span class="year-tag">2017</span> <span class="year-tag">2021</span> <span class="year-tag">2022</span> <span class="year-tag">2023</span></td></tr>
+<tr><td class="pos">6</td><td class="team-name">Илья Карасик</td><td class="score">12</td><td><span class="year-tag">2009</span> <span class="year-tag">2011</span> <span class="year-tag">2012</span> <span class="year-tag">2013</span> <span class="year-tag">2014</span> <span class="year-tag">2015</span> <span class="year-tag">2016</span> <span class="year-tag">2018</span> <span class="year-tag">2019</span> <span class="year-tag">2021</span> <span class="year-tag">2022</span> <span class="year-tag">2024</span></td></tr>
+<tr><td class="pos">7</td><td class="team-name">Василий Соколов</td><td class="score">11</td><td><span class="year-tag">2009</span> <span class="year-tag">2010</span> <span class="year-tag">2011</span> <span class="year-tag">2012</span> <span class="year-tag">2013</span> <span class="year-tag">2014</span> <span class="year-tag">2015</span> <span class="year-tag">2016</span> <span class="year-tag">2017</span> <span class="year-tag">2018</span> <span class="year-tag">2019</span></td></tr>
+<tr><td class="pos">8</td><td class="team-name">Леонид Михлин</td><td class="score">10</td><td><span class="year-tag">2008</span> <span class="year-tag">2009</span> <span class="year-tag">2010</span> <span class="year-tag">2011</span> <span class="year-tag">2012</span> <span class="year-tag">2014</span> <span class="year-tag">2015</span> <span class="year-tag">2016</span> <span class="year-tag">2017</span> <span class="year-tag">2023</span></td></tr>
+<tr><td class="pos">9</td><td class="team-name">Анна Казарновская</td><td class="score">10</td><td><span class="year-tag">2008</span> <span class="year-tag">2010</span> <span class="year-tag">2012</span> <span class="year-tag">2013</span> <span class="year-tag">2014</span> <span class="year-tag">2016</span> <span class="year-tag">2018</span> <span class="year-tag">2019</span> <span class="year-tag">2021</span> <span class="year-tag">2022</span></td></tr>
+<tr><td class="pos">10</td><td class="team-name">Евгений Затуловский</td><td class="score">10</td><td><span class="year-tag">2009</span> <span class="year-tag">2010</span> <span class="year-tag">2011</span> <span class="year-tag">2012</span> <span class="year-tag">2013</span> <span class="year-tag">2018</span> <span class="year-tag">2022</span> <span class="year-tag">2023</span> <span class="year-tag">2024</span> <span class="year-tag">2025</span></td></tr>
+<tr><td class="pos">11</td><td class="team-name">Дмитрий Степаненко</td><td class="score">10</td><td><span class="year-tag">2011</span> <span class="year-tag">2012</span> <span class="year-tag">2015</span> <span class="year-tag">2016</span> <span class="year-tag">2018</span> <span class="year-tag">2021</span> <span class="year-tag">2022</span> <span class="year-tag">2023</span> <span class="year-tag">2024</span> <span class="year-tag">2025</span></td></tr>
+<tr><td class="pos">12</td><td class="team-name">Дмитрий Арш</td><td class="score">9</td><td><span class="year-tag">2008</span> <span class="year-tag">2009</span> <span class="year-tag">2010</span> <span class="year-tag">2011</span> <span class="year-tag">2013</span> <span class="year-tag">2014</span> <span class="year-tag">2015</span> <span class="year-tag">2016</span> <span class="year-tag">2017</span></td></tr>
+<tr><td class="pos">13</td><td class="team-name">Константин Шлыков</td><td class="score">9</td><td><span class="year-tag">2008</span> <span class="year-tag">2009</span> <span class="year-tag">2010</span> <span class="year-tag">2011</span> <span class="year-tag">2012</span> <span class="year-tag">2015</span> <span class="year-tag">2016</span> <span class="year-tag">2017</span> <span class="year-tag">2018</span></td></tr>
+<tr><td class="pos">14</td><td class="team-name">Сергей Пономарёв</td><td class="score">9</td><td><span class="year-tag">2008</span> <span class="year-tag">2009</span> <span class="year-tag">2015</span> <span class="year-tag">2016</span> <span class="year-tag">2017</span> <span class="year-tag">2018</span> <span class="year-tag">2019</span> <span class="year-tag">2021</span> <span class="year-tag">2022</span></td></tr>
+<tr><td class="pos">15</td><td class="team-name">Денис Билас</td><td class="score">9</td><td><span class="year-tag">2009</span> <span class="year-tag">2010</span> <span class="year-tag">2011</span> <span class="year-tag">2012</span> <span class="year-tag">2013</span> <span class="year-tag">2014</span> <span class="year-tag">2016</span> <span class="year-tag">2017</span> <span class="year-tag">2024</span></td></tr>
+<tr><td class="pos">16</td><td class="team-name">Ольга Резницкая</td><td class="score">9</td><td><span class="year-tag">2015</span> <span class="year-tag">2016</span> <span class="year-tag">2017</span> <span class="year-tag">2018</span> <span class="year-tag">2019</span> <span class="year-tag">2021</span> <span class="year-tag">2022</span> <span class="year-tag">2023</span> <span class="year-tag">2024</span></td></tr>
+<tr><td class="pos">17</td><td class="team-name">Алексей Новаков</td><td class="score">9</td><td><span class="year-tag">2015</span> <span class="year-tag">2016</span> <span class="year-tag">2017</span> <span class="year-tag">2018</span> <span class="year-tag">2019</span> <span class="year-tag">2021</span> <span class="year-tag">2022</span> <span class="year-tag">2023</span> <span class="year-tag">2024</span></td></tr>
+<tr><td class="pos">18</td><td class="team-name">Ирина Миндлина</td><td class="score">9</td><td><span class="year-tag">2016</span> <span class="year-tag">2017</span> <span class="year-tag">2018</span> <span class="year-tag">2019</span> <span class="year-tag">2021</span> <span class="year-tag">2022</span> <span class="year-tag">2023</span> <span class="year-tag">2024</span> <span class="year-tag">2025</span></td></tr>
+<tr><td class="pos">19</td><td class="team-name">Алёна Тарасова</td><td class="score">9</td><td><span class="year-tag">2016</span> <span class="year-tag">2017</span> <span class="year-tag">2018</span> <span class="year-tag">2019</span> <span class="year-tag">2021</span> <span class="year-tag">2022</span> <span class="year-tag">2023</span> <span class="year-tag">2024</span> <span class="year-tag">2025</span></td></tr>
+<tr><td class="pos">20</td><td class="team-name">Татьяна Снеговская-Арш</td><td class="score">8</td><td><span class="year-tag">2008</span> <span class="year-tag">2009</span> <span class="year-tag">2010</span> <span class="year-tag">2011</span> <span class="year-tag">2013</span> <span class="year-tag">2014</span> <span class="year-tag">2016</span> <span class="year-tag">2017</span></td></tr>
+<tr><td class="pos">21</td><td class="team-name">Анна Билас</td><td class="score">8</td><td><span class="year-tag">2009</span> <span class="year-tag">2010</span> <span class="year-tag">2011</span> <span class="year-tag">2012</span> <span class="year-tag">2013</span> <span class="year-tag">2014</span> <span class="year-tag">2016</span> <span class="year-tag">2024</span></td></tr>
+<tr><td class="pos">22</td><td class="team-name">Денис Рубцов</td><td class="score">8</td><td><span class="year-tag">2012</span> <span class="year-tag">2013</span> <span class="year-tag">2014</span> <span class="year-tag">2015</span> <span class="year-tag">2017</span> <span class="year-tag">2018</span> <span class="year-tag">2022</span> <span class="year-tag">2025</span></td></tr>
+<tr><td class="pos">23</td><td class="team-name">Мария Тимохова</td><td class="score">8</td><td><span class="year-tag">2015</span> <span class="year-tag">2016</span> <span class="year-tag">2018</span> <span class="year-tag">2021</span> <span class="year-tag">2022</span> <span class="year-tag">2023</span> <span class="year-tag">2024</span> <span class="year-tag">2025</span></td></tr>
+<tr><td class="pos">24</td><td class="team-name">Илья Гончаров</td><td class="score">8</td><td><span class="year-tag">2016</span> <span class="year-tag">2017</span> <span class="year-tag">2018</span> <span class="year-tag">2019</span> <span class="year-tag">2021</span> <span class="year-tag">2022</span> <span class="year-tag">2023</span> <span class="year-tag">2024</span></td></tr>
+<tr><td class="pos">25</td><td class="team-name">Роман Шаповалов</td><td class="score">8</td><td><span class="year-tag">2016</span> <span class="year-tag">2017</span> <span class="year-tag">2018</span> <span class="year-tag">2021</span> <span class="year-tag">2022</span> <span class="year-tag">2023</span> <span class="year-tag">2024</span> <span class="year-tag">2025</span></td></tr>
+</table></div></section>
+<section id="teams"><div class="card"><h2>Команды -- победы (зачёт UK)</h2>
+
+  <div class="bar-row">
+    <div class="bar-label">Сова нашла хвост</div>
+    <div class="bar-track"><div class="bar" style="width:100.0%;background:#02e2ac"></div></div>
+    <div class="bar-value">4</div>
+  </div>
+
+  <div class="bar-row">
+    <div class="bar-label">Greedy Squirrel</div>
+    <div class="bar-track"><div class="bar" style="width:75.0%;background:#02e2ac"></div></div>
+    <div class="bar-value">3</div>
+  </div>
+
+  <div class="bar-row">
+    <div class="bar-label">Жрецы Хамона</div>
+    <div class="bar-track"><div class="bar" style="width:75.0%;background:#02e2ac"></div></div>
+    <div class="bar-value">3</div>
+  </div>
+
+  <div class="bar-row">
+    <div class="bar-label">Стрела</div>
+    <div class="bar-track"><div class="bar" style="width:50.0%;background:#02e2ac"></div></div>
+    <div class="bar-value">2</div>
+  </div>
+
+  <div class="bar-row">
+    <div class="bar-label">SteamPug</div>
+    <div class="bar-track"><div class="bar" style="width:25.0%;background:#02e2ac"></div></div>
+    <div class="bar-value">1</div>
+  </div>
+
+  <div class="bar-row">
+    <div class="bar-label">2,5 человека</div>
+    <div class="bar-track"><div class="bar" style="width:25.0%;background:#02e2ac"></div></div>
+    <div class="bar-value">1</div>
+  </div>
+
+  <div class="bar-row">
+    <div class="bar-label">Awkward</div>
+    <div class="bar-track"><div class="bar" style="width:25.0%;background:#02e2ac"></div></div>
+    <div class="bar-value">1</div>
+  </div>
+
+  <div class="bar-row">
+    <div class="bar-label">Совет в Финчлях</div>
+    <div class="bar-track"><div class="bar" style="width:25.0%;background:#02e2ac"></div></div>
+    <div class="bar-value">1</div>
+  </div>
+
+  <div class="bar-row">
+    <div class="bar-label">Acquired Taste</div>
+    <div class="bar-track"><div class="bar" style="width:25.0%;background:#02e2ac"></div></div>
+    <div class="bar-value">1</div>
+  </div>
+</div>
+<div class="card"><h2>Команды -- участия</h2>
+<table><tr><th>#</th><th>Команда</th><th>Турниров</th><th>Годы</th></tr>
+<tr><td class="pos">1</td><td class="team-name">Стрела</td><td class="score">16</td><td><span class="year-tag">2008</span> <span class="year-tag">2009</span> <span class="year-tag">2010</span> <span class="year-tag">2011</span> <span class="year-tag">2012</span> <span class="year-tag">2013</span> <span class="year-tag">2014</span> <span class="year-tag">2015</span> <span class="year-tag">2016</span> <span class="year-tag">2017</span> <span class="year-tag">2018</span> <span class="year-tag">2019</span> <span class="year-tag">2021</span> <span class="year-tag">2022</span> <span class="year-tag">2023</span> <span class="year-tag">2024</span></td></tr>
+<tr><td class="pos">2</td><td class="team-name">SteamPug</td><td class="score">16</td><td><span class="year-tag">2008</span> <span class="year-tag">2009</span> <span class="year-tag">2010</span> <span class="year-tag">2011</span> <span class="year-tag">2012</span> <span class="year-tag">2013</span> <span class="year-tag">2014</span> <span class="year-tag">2015</span> <span class="year-tag">2016</span> <span class="year-tag">2017</span> <span class="year-tag">2018</span> <span class="year-tag">2019</span> <span class="year-tag">2021</span> <span class="year-tag">2022</span> <span class="year-tag">2023</span> <span class="year-tag">2024</span></td></tr>
+<tr><td class="pos">3</td><td class="team-name">Жрецы Хамона</td><td class="score">15</td><td><span class="year-tag">2009</span> <span class="year-tag">2010</span> <span class="year-tag">2011</span> <span class="year-tag">2012</span> <span class="year-tag">2013</span> <span class="year-tag">2014</span> <span class="year-tag">2016</span> <span class="year-tag">2017</span> <span class="year-tag">2018</span> <span class="year-tag">2019</span> <span class="year-tag">2021</span> <span class="year-tag">2022</span> <span class="year-tag">2023</span> <span class="year-tag">2024</span> <span class="year-tag">2025</span></td></tr>
+<tr><td class="pos">4</td><td class="team-name">Британские учёные</td><td class="score">13</td><td><span class="year-tag">2011</span> <span class="year-tag">2012</span> <span class="year-tag">2013</span> <span class="year-tag">2015</span> <span class="year-tag">2016</span> <span class="year-tag">2017</span> <span class="year-tag">2018</span> <span class="year-tag">2019</span> <span class="year-tag">2021</span> <span class="year-tag">2022</span> <span class="year-tag">2023</span> <span class="year-tag">2024</span> <span class="year-tag">2025</span></td></tr>
+<tr><td class="pos">5</td><td class="team-name">2,5 человека</td><td class="score">10</td><td><span class="year-tag">2015</span> <span class="year-tag">2016</span> <span class="year-tag">2017</span> <span class="year-tag">2018</span> <span class="year-tag">2019</span> <span class="year-tag">2021</span> <span class="year-tag">2022</span> <span class="year-tag">2023</span> <span class="year-tag">2024</span> <span class="year-tag">2025</span></td></tr>
+<tr><td class="pos">6</td><td class="team-name">Бар и бал</td><td class="score">9</td><td><span class="year-tag">2016</span> <span class="year-tag">2017</span> <span class="year-tag">2018</span> <span class="year-tag">2019</span> <span class="year-tag">2021</span> <span class="year-tag">2022</span> <span class="year-tag">2023</span> <span class="year-tag">2024</span> <span class="year-tag">2025</span></td></tr>
+<tr><td class="pos">7</td><td class="team-name">Ахиллесова Пьета</td><td class="score">6</td><td><span class="year-tag">2018</span> <span class="year-tag">2019</span> <span class="year-tag">2021</span> <span class="year-tag">2022</span> <span class="year-tag">2023</span> <span class="year-tag">2024</span></td></tr>
+<tr><td class="pos">8</td><td class="team-name">Greedy Squirrel</td><td class="score">5</td><td><span class="year-tag">2008</span> <span class="year-tag">2009</span> <span class="year-tag">2010</span> <span class="year-tag">2011</span> <span class="year-tag">2012</span></td></tr>
+<tr><td class="pos">9</td><td class="team-name">Рыцари и Роза</td><td class="score">5</td><td><span class="year-tag">2010</span> <span class="year-tag">2012</span> <span class="year-tag">2013</span> <span class="year-tag">2014</span> <span class="year-tag">2015</span></td></tr>
+<tr><td class="pos">10</td><td class="team-name">Сова нашла хвост</td><td class="score">5</td><td><span class="year-tag">2013</span> <span class="year-tag">2014</span> <span class="year-tag">2015</span> <span class="year-tag">2016</span> <span class="year-tag">2017</span></td></tr>
+<tr><td class="pos">11</td><td class="team-name">Три топора</td><td class="score">5</td><td><span class="year-tag">2018</span> <span class="year-tag">2021</span> <span class="year-tag">2022</span> <span class="year-tag">2024</span> <span class="year-tag">2025</span></td></tr>
+<tr><td class="pos">12</td><td class="team-name">Король червей</td><td class="score">5</td><td><span class="year-tag">2019</span> <span class="year-tag">2021</span> <span class="year-tag">2022</span> <span class="year-tag">2023</span> <span class="year-tag">2024</span></td></tr>
+<tr><td class="pos">13</td><td class="team-name">Совет в Финчлях</td><td class="score">5</td><td><span class="year-tag">2021</span> <span class="year-tag">2022</span> <span class="year-tag">2023</span> <span class="year-tag">2024</span> <span class="year-tag">2025</span></td></tr>
+<tr><td class="pos">14</td><td class="team-name">Пабло Дискобар</td><td class="score">5</td><td><span class="year-tag">2021</span> <span class="year-tag">2022</span> <span class="year-tag">2023</span> <span class="year-tag">2024</span> <span class="year-tag">2025</span></td></tr>
+<tr><td class="pos">15</td><td class="team-name">Апельсиновый джем</td><td class="score">4</td><td><span class="year-tag">2013</span> <span class="year-tag">2014</span> <span class="year-tag">2015</span> <span class="year-tag">2018</span></td></tr>
+<tr><td class="pos">16</td><td class="team-name">Пони М</td><td class="score">4</td><td><span class="year-tag">2015</span> <span class="year-tag">2016</span> <span class="year-tag">2017</span> <span class="year-tag">2018</span></td></tr>
+<tr><td class="pos">17</td><td class="team-name">Стэнфордский эксперимент</td><td class="score">4</td><td><span class="year-tag">2018</span> <span class="year-tag">2022</span> <span class="year-tag">2023</span> <span class="year-tag">2024</span></td></tr>
+<tr><td class="pos">18</td><td class="team-name">6 жён Генриха 8</td><td class="score">4</td><td><span class="year-tag">2018</span> <span class="year-tag">2019</span> <span class="year-tag">2021</span> <span class="year-tag">2022</span></td></tr>
+<tr><td class="pos">19</td><td class="team-name">Gap the mind</td><td class="score">4</td><td><span class="year-tag">2018</span> <span class="year-tag">2019</span> <span class="year-tag">2021</span> <span class="year-tag">2022</span></td></tr>
+<tr><td class="pos">20</td><td class="team-name">Порапопабам</td><td class="score">4</td><td><span class="year-tag">2021</span> <span class="year-tag">2023</span> <span class="year-tag">2024</span> <span class="year-tag">2025</span></td></tr>
+</table></div></section>
+<section id="tournaments"><div class="card"><h2>Все турниры -- подробные результаты</h2></div>
+
+<div class="card">
+  <h3>Чемпионат Великобритании 2008</h3>
+  <p style="color:var(--text-muted);font-size:13px">7 команд | 48 вопросов | ID 333</p>
+  <table>
+    <tr><th>М</th><th>Команда</th><th>Город</th><th>Взято</th><th></th></tr>
+
+    <tr><td class="pos">🥇 1</td><td class="team-name">Greedy Squirrel<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">—</td><td></td></tr>
+    <tr><td class="pos">🥈 2</td><td class="team-name">Глюки</td><td class="town">Рига</td><td class="score">—</td><td></td></tr>
+    <tr><td class="pos">🥉 3</td><td class="team-name">Стрела<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">—</td><td></td></tr>
+    <tr><td class="pos"> 4</td><td class="team-name">Веник<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">—</td><td></td></tr>
+    <tr><td class="pos"> 5</td><td class="team-name">SteamPug<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">—</td><td></td></tr>
+    <tr><td class="pos"> 6</td><td class="team-name">Йес!<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">—</td><td></td></tr>
+    <tr><td class="pos"> 7</td><td class="team-name">Незнайки<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">—</td><td></td></tr>
+</table></div>
+
+<div class="card">
+  <h3>Чемпионат Великобритании 2009</h3>
+  <p style="color:var(--text-muted);font-size:13px">6 команд | 48 вопросов | ID 444</p>
+  <table>
+    <tr><th>М</th><th>Команда</th><th>Город</th><th>Взято</th><th></th></tr>
+
+    <tr><td class="pos">🥇 1</td><td class="team-name">Стрела<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">—</td><td></td></tr>
+    <tr><td class="pos">🥈 2</td><td class="team-name">Greedy Squirrel<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">—</td><td></td></tr>
+    <tr><td class="pos">🥉 3</td><td class="team-name">SteamPug<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">—</td><td></td></tr>
+    <tr><td class="pos"> 4</td><td class="team-name">Жрецы Хамона<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">—</td><td></td></tr>
+    <tr><td class="pos"> 5</td><td class="team-name">Веник<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">—</td><td></td></tr>
+    <tr><td class="pos"> 6</td><td class="team-name">Незнайки<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">—</td><td></td></tr>
+</table></div>
+
+<div class="card">
+  <h3>Чемпионат Великобритании 2010</h3>
+  <p style="color:var(--text-muted);font-size:13px">6 команд | 48 вопросов | ID 619</p>
+  <table>
+    <tr><th>М</th><th>Команда</th><th>Город</th><th>Взято</th><th></th></tr>
+
+    <tr><td class="pos">🥇 1</td><td class="team-name">Greedy Squirrel<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">—</td><td></td></tr>
+    <tr><td class="pos">🥈 2</td><td class="team-name">Стрела<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">—</td><td></td></tr>
+    <tr><td class="pos">🥉 3</td><td class="team-name">Жрецы Хамона<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">—</td><td></td></tr>
+    <tr><td class="pos"> 4</td><td class="team-name">SteamPug<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">—</td><td></td></tr>
+    <tr><td class="pos"> 5</td><td class="team-name">Рыцари и Роза<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">—</td><td></td></tr>
+    <tr><td class="pos"> 6</td><td class="team-name">WWW<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">—</td><td></td></tr>
+</table></div>
+
+<div class="card">
+  <h3>Чемпионат Великобритании 2011</h3>
+  <p style="color:var(--text-muted);font-size:13px">5 команд | 48 вопросов | ID 1821</p>
+  <table>
+    <tr><th>М</th><th>Команда</th><th>Город</th><th>Взято</th><th></th></tr>
+
+    <tr><td class="pos">🥇 1</td><td class="team-name">Стрела<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">30</td><td></td></tr>
+    <tr><td class="pos">🥈 2</td><td class="team-name">Greedy Squirrel<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">28</td><td></td></tr>
+    <tr><td class="pos">🥉 3</td><td class="team-name">Британские учёные<span class="uk-badge">UK</span></td><td class="town">Кембридж</td><td class="score">19</td><td></td></tr>
+    <tr><td class="pos"> 4</td><td class="team-name">SteamPug<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">12</td><td></td></tr>
+    <tr><td class="pos"> 5</td><td class="team-name">Жрецы Хамона<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">8</td><td></td></tr>
+</table></div>
+
+<div class="card">
+  <h3>Чемпионат Великобритании 2012</h3>
+  <p style="color:var(--text-muted);font-size:13px">9 команд | 48 вопросов | ID 2091</p>
+  <table>
+    <tr><th>М</th><th>Команда</th><th>Город</th><th>Взято</th><th></th></tr>
+
+    <tr><td class="pos">🥇 1</td><td class="team-name">Greedy Squirrel<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">23</td><td></td></tr>
+    <tr><td class="pos"> 2.5</td><td class="team-name">Стрела<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">21</td><td></td></tr>
+    <tr><td class="pos"> 2.5</td><td class="team-name">Британские учёные<span class="uk-badge">UK</span></td><td class="town">Кембридж</td><td class="score">21</td><td></td></tr>
+    <tr><td class="pos"> 4</td><td class="team-name">SteamPug<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">17</td><td></td></tr>
+    <tr><td class="pos"> 5</td><td class="team-name">Жрецы Хамона<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">13</td><td></td></tr>
+    <tr><td class="pos"> 6</td><td class="team-name">Geim Over<span class="uk-badge">UK</span></td><td class="town">Манчестер</td><td class="score">11</td><td></td></tr>
+    <tr><td class="pos"> 7.5</td><td class="team-name">Рыцари и Роза<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">9</td><td></td></tr>
+    <tr><td class="pos"> 7.5</td><td class="team-name">ВИА им. ЖД<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">9</td><td></td></tr>
+    <tr><td class="pos"> 9</td><td class="team-name">БАТут<span class="uk-badge">UK</span></td><td class="town">Бат</td><td class="score">3</td><td></td></tr>
+</table></div>
+
+<div class="card">
+  <h3>Чемпионат Великобритании 2013</h3>
+  <p style="color:var(--text-muted);font-size:13px">10 команд | 48 вопросов | ID 2347</p>
+  <table>
+    <tr><th>М</th><th>Команда</th><th>Город</th><th>Взято</th><th></th></tr>
+
+    <tr><td class="pos">🥇 1</td><td class="team-name">Сова нашла хвост<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">20</td><td></td></tr>
+    <tr><td class="pos">🥈 2</td><td class="team-name">Апельсиновые учёные<span class="uk-badge">UK</span></td><td class="town">Кембридж</td><td class="score">17</td><td></td></tr>
+    <tr><td class="pos">🥉 3</td><td class="team-name">SteamPug<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">16</td><td></td></tr>
+    <tr><td class="pos"> 4</td><td class="team-name">Британские учёные<span class="uk-badge">UK</span></td><td class="town">Кембридж</td><td class="score">13</td><td></td></tr>
+    <tr><td class="pos"> 5</td><td class="team-name">Мохнатая Лошадка<span class="uk-badge">UK</span></td><td class="town">Глазго</td><td class="score">11</td><td></td></tr>
+    <tr><td class="pos"> 6</td><td class="team-name">Апельсиновый джем<span class="uk-badge">UK</span></td><td class="town">Оксфорд</td><td class="score">10</td><td></td></tr>
+    <tr><td class="pos"> 7</td><td class="team-name">Стрела<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">9</td><td></td></tr>
+    <tr><td class="pos"> 9</td><td class="team-name">Рыцари и Роза<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">8</td><td></td></tr>
+    <tr><td class="pos"> 9</td><td class="team-name">Жрецы Хамона<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">8</td><td></td></tr>
+    <tr><td class="pos"> 9</td><td class="team-name">Фортуна<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">8</td><td></td></tr>
+</table></div>
+
+<div class="card">
+  <h3>Чемпионат Великобритании 2014</h3>
+  <p style="color:var(--text-muted);font-size:13px">9 команд | 48 вопросов | ID 2823</p>
+  <table>
+    <tr><th>М</th><th>Команда</th><th>Город</th><th>Взято</th><th></th></tr>
+
+    <tr><td class="pos">🥇 1</td><td class="team-name">Сова нашла хвост<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">28</td><td></td></tr>
+    <tr><td class="pos">🥈 2</td><td class="team-name">Мохнатые учёные<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">26</td><td></td></tr>
+    <tr><td class="pos">🥉 3</td><td class="team-name">SteamPug<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">24</td><td></td></tr>
+    <tr><td class="pos"> 4</td><td class="team-name">Стрела<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">22</td><td></td></tr>
+    <tr><td class="pos"> 5</td><td class="team-name">Апельсиновый джем<span class="uk-badge">UK</span></td><td class="town">Оксфорд</td><td class="score">18</td><td></td></tr>
+    <tr><td class="pos"> 6</td><td class="team-name">Рыцари и Роза<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">17</td><td></td></tr>
+    <tr><td class="pos"> 7</td><td class="team-name">Жрецы Хамона<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">14</td><td></td></tr>
+    <tr><td class="pos"> 8</td><td class="team-name">Змей Горыныч<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">6</td><td></td></tr>
+    <tr><td class="pos"> 9</td><td class="team-name">NoMads<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">3</td><td></td></tr>
+</table></div>
+
+<div class="card">
+  <h3>Чемпионат Великобритании 2015</h3>
+  <p style="color:var(--text-muted);font-size:13px">11 команд | 48 вопросов | ID 3214</p>
+  <table>
+    <tr><th>М</th><th>Команда</th><th>Город</th><th>Взято</th><th></th></tr>
+
+    <tr><td class="pos">🥇 1</td><td class="team-name">SteamPug<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">25</td><td></td></tr>
+    <tr><td class="pos">🥈 2</td><td class="team-name">Сова нашла хвост<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">22</td><td></td></tr>
+    <tr><td class="pos">🥉 3</td><td class="team-name">Овечка Долли<span class="uk-badge">UK</span></td><td class="town">Эдинбург</td><td class="score">20</td><td></td></tr>
+    <tr><td class="pos"> 4</td><td class="team-name">Стрела<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">19</td><td></td></tr>
+    <tr><td class="pos"> 5</td><td class="team-name">2,5 человека<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">14</td><td></td></tr>
+    <tr><td class="pos"> 6</td><td class="team-name">Апельсиновый джем<span class="uk-badge">UK</span></td><td class="town">Оксфорд</td><td class="score">11</td><td></td></tr>
+    <tr><td class="pos"> 7</td><td class="team-name">Пони М<span class="uk-badge">UK</span></td><td class="town">Эдинбург</td><td class="score">10</td><td></td></tr>
+    <tr><td class="pos"> 8.5</td><td class="team-name">Рыцари и Роза<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">7</td><td></td></tr>
+    <tr><td class="pos"> 8.5</td><td class="team-name">Британские учёные<span class="uk-badge">UK</span></td><td class="town">Кембридж</td><td class="score">7</td><td></td></tr>
+    <tr><td class="pos"> 10</td><td class="team-name">Наташа уехала<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">5</td><td></td></tr>
+    <tr><td class="pos"> 11</td><td class="team-name">Друзья Друзя<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">—</td><td></td></tr>
+</table></div>
+
+<div class="card">
+  <h3>Чемпионат Великобритании 2016</h3>
+  <p style="color:var(--text-muted);font-size:13px">13 команд | 48 вопросов | ID 3797</p>
+  <table>
+    <tr><th>М</th><th>Команда</th><th>Город</th><th>Взято</th><th></th></tr>
+
+    <tr><td class="pos">🥇 1</td><td class="team-name">Сова нашла хвост<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">28</td><td></td></tr>
+    <tr><td class="pos">🥈 2</td><td class="team-name">SteamPug<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">25</td><td></td></tr>
+    <tr><td class="pos">🥉 3</td><td class="team-name">Стрела<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">21</td><td></td></tr>
+    <tr><td class="pos"> 4.5</td><td class="team-name">Жрецы Хамона<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">20</td><td></td></tr>
+    <tr><td class="pos"> 4.5</td><td class="team-name">Бар и бал<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">20</td><td></td></tr>
+    <tr><td class="pos"> 7</td><td class="team-name">Британские учёные<span class="uk-badge">UK</span></td><td class="town">Кембридж</td><td class="score">16</td><td></td></tr>
+    <tr><td class="pos"> 7</td><td class="team-name">Овечка Долли<span class="uk-badge">UK</span></td><td class="town">Эдинбург</td><td class="score">16</td><td></td></tr>
+    <tr><td class="pos"> 7</td><td class="team-name">2,5 человека<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">16</td><td></td></tr>
+    <tr><td class="pos"> 9</td><td class="team-name">Пони М<span class="uk-badge">UK</span></td><td class="town">Эдинбург</td><td class="score">15</td><td></td></tr>
+    <tr><td class="pos"> 10</td><td class="team-name">Берёзовый смуси<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">13</td><td></td></tr>
+    <tr><td class="pos"> 11</td><td class="team-name">Новая Команда<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">9</td><td></td></tr>
+    <tr><td class="pos"> 12</td><td class="team-name">Британские неучи<span class="uk-badge">UK</span></td><td class="town">Кембридж</td><td class="score">6</td><td></td></tr>
+    <tr><td class="pos"> 13</td><td class="team-name">Квинта<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">5</td><td></td></tr>
+</table></div>
+
+<div class="card">
+  <h3>Чемпионат Великобритании 2017</h3>
+  <p style="color:var(--text-muted);font-size:13px">13 команд | 48 вопросов | ID 4255</p>
+  <table>
+    <tr><th>М</th><th>Команда</th><th>Город</th><th>Взято</th><th></th></tr>
+
+    <tr><td class="pos">🥇 1</td><td class="team-name">Сова нашла хвост<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">30</td><td></td></tr>
+    <tr><td class="pos"> 2.5</td><td class="team-name">SteamPug<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">27</td><td></td></tr>
+    <tr><td class="pos"> 2.5</td><td class="team-name">2,5 человека<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">27</td><td></td></tr>
+    <tr><td class="pos"> 4</td><td class="team-name">Стрела<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">25</td><td></td></tr>
+    <tr><td class="pos"> 5</td><td class="team-name">Британские учёные<span class="uk-badge">UK</span></td><td class="town">Кембридж</td><td class="score">22</td><td></td></tr>
+    <tr><td class="pos"> 6.5</td><td class="team-name">Берёзовый смуси<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">21</td><td></td></tr>
+    <tr><td class="pos"> 6.5</td><td class="team-name">Долли<span class="uk-badge">UK</span></td><td class="town">Эдинбург</td><td class="score">21</td><td></td></tr>
+    <tr><td class="pos"> 8</td><td class="team-name">Жрецы Хамона<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">18</td><td></td></tr>
+    <tr><td class="pos"> 9.5</td><td class="team-name">Бар и бал<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">15</td><td></td></tr>
+    <tr><td class="pos"> 9.5</td><td class="team-name">Британские неучи<span class="uk-badge">UK</span></td><td class="town">Кембридж</td><td class="score">15</td><td></td></tr>
+    <tr><td class="pos"> 11</td><td class="team-name">Пони М<span class="uk-badge">UK</span></td><td class="town">Эдинбург</td><td class="score">11</td><td></td></tr>
+    <tr><td class="pos"> 12</td><td class="team-name">Азия-Микс<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">6</td><td></td></tr>
+    <tr><td class="pos"> 13</td><td class="team-name">Команда им. Бродского<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">5</td><td></td></tr>
+</table></div>
+
+<div class="card">
+  <h3>Чемпионат Великобритании 2018</h3>
+  <p style="color:var(--text-muted);font-size:13px">16 команд | 48 вопросов | ID 4856</p>
+  <table>
+    <tr><th>М</th><th>Команда</th><th>Город</th><th>Взято</th><th></th></tr>
+
+    <tr><td class="pos">🥇 1</td><td class="team-name">Жрецы Хамона<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">28</td><td></td></tr>
+    <tr><td class="pos"> 2.5</td><td class="team-name">SteamPug<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">27</td><td></td></tr>
+    <tr><td class="pos"> 2.5</td><td class="team-name">Стэнфордский эксперимент</td><td class="town">Стэнфорд</td><td class="score">27</td><td></td></tr>
+    <tr><td class="pos"> 4.5</td><td class="team-name">2,5 человека<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">22</td><td></td></tr>
+    <tr><td class="pos"> 4.5</td><td class="team-name">Три топора<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">22</td><td></td></tr>
+    <tr><td class="pos"> 6</td><td class="team-name">Стрела<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">20</td><td></td></tr>
+    <tr><td class="pos"> 7</td><td class="team-name">Долли<span class="uk-badge">UK</span></td><td class="town">Эдинбург</td><td class="score">15</td><td></td></tr>
+    <tr><td class="pos"> 8</td><td class="team-name">Бар и бал<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">14</td><td></td></tr>
+    <tr><td class="pos"> 9</td><td class="team-name">6 жён Генриха 8<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">13</td><td></td></tr>
+    <tr><td class="pos"> 10</td><td class="team-name">Пони М<span class="uk-badge">UK</span></td><td class="town">Эдинбург</td><td class="score">12</td><td></td></tr>
+    <tr><td class="pos"> 12</td><td class="team-name">Апельсиновый джем<span class="uk-badge">UK</span></td><td class="town">Оксфорд</td><td class="score">11</td><td></td></tr>
+    <tr><td class="pos"> 12</td><td class="team-name">Квинта<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">11</td><td></td></tr>
+    <tr><td class="pos"> 12</td><td class="team-name">Британские неучи<span class="uk-badge">UK</span></td><td class="town">Кембридж</td><td class="score">11</td><td></td></tr>
+    <tr><td class="pos"> 14.5</td><td class="team-name">Британские учёные<span class="uk-badge">UK</span></td><td class="town">Кембридж</td><td class="score">10</td><td></td></tr>
+    <tr><td class="pos"> 14.5</td><td class="team-name">Gap the mind<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">10</td><td></td></tr>
+    <tr><td class="pos"> 16</td><td class="team-name">Ахиллесова Пьета<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">6</td><td></td></tr>
+</table></div>
+
+<div class="card">
+  <h3>Чемпионат Великобритании 2019</h3>
+  <p style="color:var(--text-muted);font-size:13px">15 команд | 48 вопросов | ID 5448</p>
+  <table>
+    <tr><th>М</th><th>Команда</th><th>Город</th><th>Взято</th><th></th></tr>
+
+    <tr><td class="pos">🥇 1</td><td class="team-name">Вист!</td><td class="town">Герцлия</td><td class="score">22</td><td></td></tr>
+    <tr><td class="pos">🥈 2</td><td class="team-name">Жрецы Хамона<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">21</td><td></td></tr>
+    <tr><td class="pos">🥉 3</td><td class="team-name">Сборная Ирландии</td><td class="town">Дублин</td><td class="score">21</td><td></td></tr>
+    <tr><td class="pos"> 4</td><td class="team-name">6 жён Генриха 8<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">21</td><td></td></tr>
+    <tr><td class="pos"> 5</td><td class="team-name">SteamPug<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">20</td><td></td></tr>
+    <tr><td class="pos"> 6.5</td><td class="team-name">Британские учёные<span class="uk-badge">UK</span></td><td class="town">Кембридж</td><td class="score">19</td><td></td></tr>
+    <tr><td class="pos"> 6.5</td><td class="team-name">2,5 человека<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">19</td><td></td></tr>
+    <tr><td class="pos"> 8</td><td class="team-name">Овечка Долли<span class="uk-badge">UK</span></td><td class="town">Эдинбург</td><td class="score">15</td><td></td></tr>
+    <tr><td class="pos"> 9.5</td><td class="team-name">Стрела<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">13</td><td></td></tr>
+    <tr><td class="pos"> 9.5</td><td class="team-name">Бар и бал<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">13</td><td></td></tr>
+    <tr><td class="pos"> 11.5</td><td class="team-name">Сложновато<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">11</td><td></td></tr>
+    <tr><td class="pos"> 11.5</td><td class="team-name">Ахиллесова Пьета<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">11</td><td></td></tr>
+    <tr><td class="pos"> 13</td><td class="team-name">Король червей<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">10</td><td></td></tr>
+    <tr><td class="pos"> 14</td><td class="team-name">Gap the mind<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">9</td><td></td></tr>
+    <tr><td class="pos"> 15</td><td class="team-name">Йоркширский пудинг<span class="uk-badge">UK</span></td><td class="town">Лидс</td><td class="score">4</td><td></td></tr>
+</table></div>
+
+<div class="card">
+  <h3>Чемпионат Великобритании 2021</h3>
+  <p style="color:var(--text-muted);font-size:13px">15 команд | 48 вопросов | ID 6114</p>
+  <table>
+    <tr><th>М</th><th>Команда</th><th>Город</th><th>Взято</th><th></th></tr>
+
+    <tr><td class="pos">🥇 1</td><td class="team-name">2,5 человека<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">31</td><td></td></tr>
+    <tr><td class="pos">🥈 2</td><td class="team-name">Совет в Финчлях<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">30</td><td></td></tr>
+    <tr><td class="pos">🥉 3</td><td class="team-name">SteamPug<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">28</td><td></td></tr>
+    <tr><td class="pos"> 4</td><td class="team-name">Жрецы Хамона<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">24</td><td></td></tr>
+    <tr><td class="pos"> 5</td><td class="team-name">Порапопабам<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">23</td><td></td></tr>
+    <tr><td class="pos"> 6.5</td><td class="team-name">Бар и бал<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">21</td><td></td></tr>
+    <tr><td class="pos"> 6.5</td><td class="team-name">Ахиллесова Пьета<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">21</td><td></td></tr>
+    <tr><td class="pos"> 8</td><td class="team-name">6 жён Генриха 8<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">19</td><td></td></tr>
+    <tr><td class="pos"> 9.5</td><td class="team-name">Стрела<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">18</td><td></td></tr>
+    <tr><td class="pos"> 9.5</td><td class="team-name">Три топора<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">18</td><td></td></tr>
+    <tr><td class="pos"> 11</td><td class="team-name">Король червей<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">16</td><td></td></tr>
+    <tr><td class="pos"> 12</td><td class="team-name">Британские учёные<span class="uk-badge">UK</span></td><td class="town">Кембридж</td><td class="score">13</td><td></td></tr>
+    <tr><td class="pos"> 13.5</td><td class="team-name">Gap the mind<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">12</td><td></td></tr>
+    <tr><td class="pos"> 13.5</td><td class="team-name">Йоркширский пудинг<span class="uk-badge">UK</span></td><td class="town">Лидс</td><td class="score">12</td><td></td></tr>
+    <tr><td class="pos"> 15</td><td class="team-name">Пабло Дискобар<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">8</td><td></td></tr>
+</table></div>
+
+<div class="card">
+  <h3>Чемпионат Великобритании 2022</h3>
+  <p style="color:var(--text-muted);font-size:13px">16 команд | 60 вопросов | ID 7805</p>
+  <table>
+    <tr><th>М</th><th>Команда</th><th>Город</th><th>Взято</th><th></th></tr>
+
+    <tr><td class="pos">🥇 1</td><td class="team-name">Стэнфордский эксперимент</td><td class="town">Стэнфорд</td><td class="score">37</td><td></td></tr>
+    <tr><td class="pos">🥈 2</td><td class="team-name">Жрецы Хамона<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">36</td><td></td></tr>
+    <tr><td class="pos">🥉 3</td><td class="team-name">Совет в Финчлях<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">35</td><td></td></tr>
+    <tr><td class="pos"> 4</td><td class="team-name">SteamPug<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">30</td><td></td></tr>
+    <tr><td class="pos"> 5</td><td class="team-name">2,5 человека<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">29</td><td></td></tr>
+    <tr><td class="pos"> 6.5</td><td class="team-name">Британские учёные<span class="uk-badge">UK</span></td><td class="town">Кембридж</td><td class="score">27</td><td></td></tr>
+    <tr><td class="pos"> 6.5</td><td class="team-name">Ахиллесова Пьета<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">27</td><td></td></tr>
+    <tr><td class="pos"> 8</td><td class="team-name">Бар и бал<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">26</td><td></td></tr>
+    <tr><td class="pos"> 10.5</td><td class="team-name">Три топора<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">19</td><td></td></tr>
+    <tr><td class="pos"> 10.5</td><td class="team-name">Gap the mind<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">19</td><td></td></tr>
+    <tr><td class="pos"> 10.5</td><td class="team-name">Король червей<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">19</td><td></td></tr>
+    <tr><td class="pos"> 10.5</td><td class="team-name">Пабло Дискобар<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">19</td><td></td></tr>
+    <tr><td class="pos"> 14.5</td><td class="team-name">Стрела<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">17</td><td></td></tr>
+    <tr><td class="pos"> 14.5</td><td class="team-name">6 жён Генриха 8<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">17</td><td></td></tr>
+    <tr><td class="pos"> 14.5</td><td class="team-name">Большая Солянка<span class="uk-badge">UK</span></td><td class="town">Кембридж</td><td class="score">17</td><td></td></tr>
+    <tr><td class="pos"> 14.5</td><td class="team-name">Например<span class="uk-badge">UK</span></td><td class="town">Кембридж</td><td class="score">17</td><td></td></tr>
+</table></div>
+
+<div class="card">
+  <h3>XV Открытый Чемпионат Великобритании по Интеллектуальным Играм 2023</h3>
+  <p style="color:var(--text-muted);font-size:13px">20 команд | 60 вопросов | ID 9038</p>
+  <table>
+    <tr><th>М</th><th>Команда</th><th>Город</th><th>Взято</th><th></th></tr>
+
+    <tr><td class="pos">🥇 1</td><td class="team-name">Awkward<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">37</td><td></td></tr>
+    <tr><td class="pos">🥈 2</td><td class="team-name">Совет в Финчлях<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">36</td><td></td></tr>
+    <tr><td class="pos">🥉 3</td><td class="team-name">Стэнфордский эксперимент</td><td class="town">Стэнфорд</td><td class="score">35</td><td></td></tr>
+    <tr><td class="pos"> 4.5</td><td class="team-name">SteamPug<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">31</td><td></td></tr>
+    <tr><td class="pos"> 4.5</td><td class="team-name">2,5 человека<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">31</td><td></td></tr>
+    <tr><td class="pos"> 6.5</td><td class="team-name">Жрецы Хамона<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">27</td><td></td></tr>
+    <tr><td class="pos"> 6.5</td><td class="team-name">Бар и бал<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">27</td><td></td></tr>
+    <tr><td class="pos"> 9.5</td><td class="team-name">Британские учёные<span class="uk-badge">UK</span></td><td class="town">Кембридж</td><td class="score">25</td><td></td></tr>
+    <tr><td class="pos"> 9.5</td><td class="team-name">Сборная Ирландии</td><td class="town">Дублин</td><td class="score">25</td><td></td></tr>
+    <tr><td class="pos"> 9.5</td><td class="team-name">КИТ</td><td class="town">Женева</td><td class="score">25</td><td></td></tr>
+    <tr><td class="pos"> 9.5</td><td class="team-name">Ахиллесова Пьета<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">25</td><td></td></tr>
+    <tr><td class="pos"> 12.5</td><td class="team-name">Порапопабам<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">23</td><td></td></tr>
+    <tr><td class="pos"> 12.5</td><td class="team-name">Пабло Дискобар<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">23</td><td></td></tr>
+    <tr><td class="pos"> 14</td><td class="team-name">Король червей<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">22</td><td></td></tr>
+    <tr><td class="pos"> 15</td><td class="team-name">лолька димона<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">19</td><td></td></tr>
+    <tr><td class="pos"> 16</td><td class="team-name">Сборная Севера</td><td class="town">сборная</td><td class="score">18</td><td></td></tr>
+    <tr><td class="pos"> 17.5</td><td class="team-name">Стрела<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">17</td><td></td></tr>
+    <tr><td class="pos"> 17.5</td><td class="team-name">Например<span class="uk-badge">UK</span></td><td class="town">Кембридж</td><td class="score">17</td><td></td></tr>
+    <tr><td class="pos"> 19</td><td class="team-name">Большая Солянка<span class="uk-badge">UK</span></td><td class="town">Кембридж</td><td class="score">15</td><td></td></tr>
+    <tr><td class="pos"> 20</td><td class="team-name">Nott in game<span class="uk-badge">UK</span></td><td class="town">Ноттингем</td><td class="score">10</td><td></td></tr>
+</table></div>
+
+<div class="card">
+  <h3>Чемпионат Великобритании 2024</h3>
+  <p style="color:var(--text-muted);font-size:13px">23 команд | 60 вопросов | ID 10237</p>
+  <table>
+    <tr><th>М</th><th>Команда</th><th>Город</th><th>Взято</th><th></th></tr>
+
+    <tr><td class="pos">🥇 1</td><td class="team-name">Олеги Литвы</td><td class="town">сборная</td><td class="score">46</td><td></td></tr>
+    <tr><td class="pos">🥈 2</td><td class="team-name">Совет в Финчлях<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">45</td><td></td></tr>
+    <tr><td class="pos">🥉 3</td><td class="team-name">X-promt</td><td class="town">Рига</td><td class="score">44</td><td></td></tr>
+    <tr><td class="pos"> 4</td><td class="team-name">Council faces the wrath of the tulip grove defende</td><td class="town">сборная</td><td class="score">39</td><td></td></tr>
+    <tr><td class="pos"> 5</td><td class="team-name">2,5 человека<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">39</td><td></td></tr>
+    <tr><td class="pos"> 6</td><td class="team-name">Awkward<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">39</td><td></td></tr>
+    <tr><td class="pos"> 7</td><td class="team-name">Coward<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">38</td><td></td></tr>
+    <tr><td class="pos"> 8</td><td class="team-name">Коммандария</td><td class="town">сборная</td><td class="score">37</td><td></td></tr>
+    <tr><td class="pos"> 9</td><td class="team-name">Стэнфордский эксперимент</td><td class="town">Стэнфорд</td><td class="score">31</td><td></td></tr>
+    <tr><td class="pos"> 10</td><td class="team-name">Жрецы Хамона<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">30</td><td></td></tr>
+    <tr><td class="pos"> 11</td><td class="team-name">Порапопабам<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">29</td><td></td></tr>
+    <tr><td class="pos"> 12.5</td><td class="team-name">Британские учёные<span class="uk-badge">UK</span></td><td class="town">Кембридж</td><td class="score">27</td><td></td></tr>
+    <tr><td class="pos"> 12.5</td><td class="team-name">лолька димона<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">27</td><td></td></tr>
+    <tr><td class="pos"> 14</td><td class="team-name">Ахиллесова Пьета<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">26</td><td></td></tr>
+    <tr><td class="pos"> 15</td><td class="team-name">SteamPug<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">25</td><td></td></tr>
+    <tr><td class="pos"> 18</td><td class="team-name">Сборная Ирландии</td><td class="town">Дублин</td><td class="score">24</td><td></td></tr>
+    <tr><td class="pos"> 18</td><td class="team-name">Бар и бал<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">24</td><td></td></tr>
+    <tr><td class="pos"> 18</td><td class="team-name">Три топора<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">24</td><td></td></tr>
+    <tr><td class="pos"> 18</td><td class="team-name">Король червей<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">24</td><td></td></tr>
+    <tr><td class="pos"> 18</td><td class="team-name">Пабло Дискобар<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">24</td><td></td></tr>
+    <tr><td class="pos"> 21</td><td class="team-name">Оксфордская кома<span class="uk-badge">UK</span></td><td class="town">Оксфорд</td><td class="score">17</td><td></td></tr>
+    <tr><td class="pos"> 22</td><td class="team-name">Стрела<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">15</td><td></td></tr>
+    <tr><td class="pos"> 23</td><td class="team-name">Десептиконы в эмиграции<span class="uk-badge">UK</span></td><td class="town">Кембридж</td><td class="score">12</td><td></td></tr>
+</table></div>
+
+<div class="card">
+  <h3>Чемпионат Великобритании 2025</h3>
+  <p style="color:var(--text-muted);font-size:13px">22 команд | 90 вопросов | ID 11919</p>
+  <table>
+    <tr><th>М</th><th>Команда</th><th>Город</th><th>Взято</th><th></th></tr>
+
+    <tr><td class="pos">🥇 1</td><td class="team-name">Acquired Taste<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">57</td><td></td></tr>
+    <tr><td class="pos">🥈 2</td><td class="team-name">Совет в Финчлях<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">56</td><td></td></tr>
+    <tr><td class="pos">🥉 3</td><td class="team-name">Council faces the wrath of the tulip grove defende</td><td class="town">сборная</td><td class="score">54</td><td></td></tr>
+    <tr><td class="pos"> 4</td><td class="team-name">2,5 человека<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">52</td><td></td></tr>
+    <tr><td class="pos"> 5</td><td class="team-name">Коммандария</td><td class="town">сборная</td><td class="score">49</td><td></td></tr>
+    <tr><td class="pos"> 6.5</td><td class="team-name">Олеги Литвы</td><td class="town">сборная</td><td class="score">48</td><td></td></tr>
+    <tr><td class="pos"> 6.5</td><td class="team-name">Awkward<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">48</td><td></td></tr>
+    <tr><td class="pos"> 8</td><td class="team-name">Кто оставил кролика с Борджиа?<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">46</td><td></td></tr>
+    <tr><td class="pos"> 9</td><td class="team-name">Кладбище Пьер Ришар</td><td class="town">Лимасол</td><td class="score">42</td><td></td></tr>
+    <tr><td class="pos"> 10</td><td class="team-name">Бар и бал<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">41</td><td></td></tr>
+    <tr><td class="pos"> 11</td><td class="team-name">Жрецы Хамона<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">40</td><td></td></tr>
+    <tr><td class="pos"> 12</td><td class="team-name">Пабло Дискобар<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">39</td><td></td></tr>
+    <tr><td class="pos"> 13</td><td class="team-name">Британские учёные<span class="uk-badge">UK</span></td><td class="town">Кембридж</td><td class="score">38</td><td></td></tr>
+    <tr><td class="pos"> 14</td><td class="team-name">Томагавк</td><td class="town">Дублин</td><td class="score">37</td><td></td></tr>
+    <tr><td class="pos"> 15</td><td class="team-name">Порапопабам<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">36</td><td></td></tr>
+    <tr><td class="pos"> 16</td><td class="team-name">лолька димона<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">35</td><td></td></tr>
+    <tr><td class="pos"> 17</td><td class="team-name">подушка без опасности<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">30</td><td></td></tr>
+    <tr><td class="pos"> 18</td><td class="team-name">Три топора<span class="uk-badge">UK</span></td><td class="town">Лондон</td><td class="score">28</td><td></td></tr>
+    <tr><td class="pos"> 19.5</td><td class="team-name">Ásatrúarfélagið</td><td class="town">Стокгольм</td><td class="score">20</td><td></td></tr>
+    <tr><td class="pos"> 19.5</td><td class="team-name">Оксфордская кома<span class="uk-badge">UK</span></td><td class="town">Оксфорд</td><td class="score">20</td><td></td></tr>
+    <tr><td class="pos"> 21</td><td class="team-name">Nott in game<span class="uk-badge">UK</span></td><td class="town">Ноттингем</td><td class="score">13</td><td></td></tr>
+    <tr><td class="pos"> 22</td><td class="team-name">Мантии не жмут<span class="uk-badge">UK</span></td><td class="town">Оксфорд</td><td class="score">11</td><td></td></tr>
+</table></div>
+</section>
+
+</div>
+<footer style="text-align:center;padding:40px 20px;color:var(--text-muted);font-size:13px">
+  Данные: <a href="https://rating.chgk.info" style="color:var(--accent)">rating.chgk.info</a> API |
+  Собрано автоматически | 2026
+</footer>
+
+<script>
+function toggleTheme() {
+  const html = document.documentElement;
+  const current = html.getAttribute('data-theme');
+  const next = current === 'light' ? 'dark' : 'light';
+  html.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+}
+(function() {
+  const saved = localStorage.getItem('theme');
+  if (saved) document.documentElement.setAttribute('data-theme', saved);
+})();
+
+document.querySelectorAll('nav a').forEach(a => {
+  a.addEventListener('click', function() {
+    document.querySelectorAll('nav a').forEach(x => x.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
