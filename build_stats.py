@@ -219,16 +219,16 @@ def build_html(stats):
 
     def player_link(pid, name=None):
         n = name or pn.get(pid, "?")
-        return f'<a href="{RATING}/players/{pid}" target="_blank" class="entity-link">{n}</a>'
+        return f'<a href="{RATING}/player/{pid}" target="_blank" class="entity-link">{n}</a>'
 
     def team_link(name, team_id=None):
         t_id = team_id or tid_map.get(name)
         if t_id:
-            return f'<a href="{RATING}/teams/{t_id}" target="_blank" class="entity-link">{name}</a>'
+            return f'<a href="{RATING}/team/{t_id}" target="_blank" class="entity-link">{name}</a>'
         return name
 
     def tournament_link(tid, text):
-        return f'<a href="{RATING}/tournaments/{tid}" target="_blank" class="entity-link">{text}</a>'
+        return f'<a href="{RATING}/tournament/{tid}" target="_blank" class="entity-link">{text}</a>'
 
     def year_filter_pills(section_id):
         pills = [f'<button class="yfp" data-section="{section_id}" data-year="all" onclick="filterYear(this)">Все</button>']
