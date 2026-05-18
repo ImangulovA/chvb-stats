@@ -9,8 +9,17 @@ DATA_PATH = Path(__file__).parent / "data" / "chvb_results.json"
 OUTPUT_PATH = Path(__file__).parent / "chvb_stats.html"
 
 UK_TOWN_IDS = {178, 1686, 1736, 1737, 1760, 1767, 1770, 1806, 1917, 1924, 2281}
-TOURNAMENT_IDS = [333, 444, 619, 1821, 2091, 2347, 2823, 3214, 3797, 4255, 4856, 5448, 6114, 7805, 9038, 10237, 11919]
-# 13612 (2026) excluded -- not played yet
+TOURNAMENT_IDS = [333, 444, 619, 1821, 2091, 2347, 2823, 3214, 3797, 4255, 4856, 5448, 6114, 7805, 9038, 10237, 11919, 13612]
+
+CHST_FLAG_ID = 50  # "Зачёт чемпионата страны"
+
+# 2026: flags not yet set in API; manual overrides
+VNE_ZACHETA = {
+    13612: {79988},  # Совет в Финчлях -- вне зачёта
+}
+V_ZACHETE = {
+    13612: {98778},  # Tulip Grove Defenders -- в зачёте ЧВБ (город "сборная", но играли в зачёт)
+}
 
 
 def load_data():
@@ -30,6 +39,34 @@ def get_town_name(team):
 
 def is_uk(team):
     return get_town_id(team) in UK_TOWN_IDS
+
+
+def in_chvb_zachet(result, tournament_id):
+    """Determine if a team is in ЧВБ standings for this tournament.
+
+    Priority:
+    1. Manual overrides (VNE_ZACHETA) -- known вне зачёта teams
+    2. ЧСт flag (id=50) in API -- authoritative when present
+    3. Fallback to UK town filter -- for older tournaments without flags
+    """
+    team_id = result["team"]["id"]
+    flags = result.get("flags", [])
+    flag_ids = {f["id"] for f in flags}
+
+    if tournament_id in VNE_ZACHETA and team_id in VNE_ZACHETA[tournament_id]:
+        return False
+    if tournament_id in V_ZACHETE and team_id in V_ZACHETE[tournament_id]:
+        return True
+
+    all_flags_in_tournament = any(CHST_FLAG_ID in {f["id"] for f in r.get("flags", [])}
+                                   for r in _current_results)
+    if all_flags_in_tournament:
+        return CHST_FLAG_ID in flag_ids
+
+    return is_uk(result["team"])
+
+
+_current_results = []
 
 
 def compute_stats(data):
@@ -56,27 +93,29 @@ def compute_stats(data):
 
         results.sort(key=lambda x: float(x.get("position") or 999))
 
-        uk_results = [r for r in results if is_uk(r["team"])]
+        global _current_results
+        _current_results = results
 
-        # Tournament summary
+        chvb_results = [r for r in results if in_chvb_zachet(r, tid)]
+
         overall_winner = results[0]["team"]["name"] if results else "?"
-        uk_winner = uk_results[0]["team"]["name"] if uk_results else "?"
+        chvb_winner = chvb_results[0]["team"]["name"] if chvb_results else "?"
         overall_winner_score = results[0].get("questionsTotal") or 0
-        uk_winner_score = uk_results[0].get("questionsTotal") or 0
-        uk_winner_overall_pos = float(uk_results[0].get("position") or 0) if uk_results else 0
+        chvb_winner_score = chvb_results[0].get("questionsTotal") or 0
+        chvb_winner_overall_pos = float(chvb_results[0].get("position") or 0) if chvb_results else 0
 
         tournaments_summary.append({
             "id": tid,
             "year": year,
             "name": info["name"],
             "teams_total": len(results),
-            "teams_uk": len(uk_results),
+            "teams_uk": len(chvb_results),
             "questions": q_total,
             "overall_winner": overall_winner,
             "overall_winner_score": overall_winner_score,
-            "uk_winner": uk_winner,
-            "uk_winner_score": uk_winner_score,
-            "uk_winner_overall_pos": uk_winner_overall_pos,
+            "uk_winner": chvb_winner,
+            "uk_winner_score": chvb_winner_score,
+            "uk_winner_overall_pos": chvb_winner_overall_pos,
             "results": [],
         })
 
@@ -85,14 +124,14 @@ def compute_stats(data):
             town_name = get_town_name(team)
             pos = r.get("position") or 999
             total = r.get("questionsTotal") or 0
-            uk_flag = is_uk(team)
+            in_zachet = in_chvb_zachet(r, tid)
 
             tournaments_summary[-1]["results"].append({
                 "pos": pos,
                 "team": team["name"],
                 "town": town_name,
                 "total": total,
-                "is_uk": uk_flag,
+                "is_uk": in_zachet,
             })
 
             team_participations[team["name"]].append(year)
@@ -116,15 +155,15 @@ def compute_stats(data):
                 for m in r.get("teamMembers", []):
                     player_podiums_overall[m["player"]["id"]].append((year, r["team"]["name"], float(r.get("position") or 999)))
 
-        # UK winner / podium
-        if uk_results:
-            best_pos = float(uk_results[0].get("position") or 999)
-            for r in uk_results:
+        # ЧВБ winner / podium
+        if chvb_results:
+            best_pos = float(chvb_results[0].get("position") or 999)
+            for r in chvb_results:
                 if float(r.get("position") or 999) == best_pos:
                     team_wins_uk[r["team"]["name"]].append(year)
                     for m in r.get("teamMembers", []):
                         player_wins_uk[m["player"]["id"]].append((year, r["team"]["name"]))
-            for i, r in enumerate(uk_results[:3], 1):
+            for i, r in enumerate(chvb_results[:3], 1):
                 for m in r.get("teamMembers", []):
                     player_podiums_uk[m["player"]["id"]].append((year, r["team"]["name"], i))
 
@@ -331,7 +370,7 @@ section h2 { padding: 20px 0 10px; font-size: 1.4em; }
     html.append("""
 <header>
   <h1>🏆 <span>ЧВБ</span> -- Чемпионат Великобритании по ЧГК</h1>
-  <p>Полная статистика 2008--2025 | rating.chgk.info</p>
+  <p>Полная статистика 2008--2026 | rating.chgk.info</p>
 </header>
 
 <nav>

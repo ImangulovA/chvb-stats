@@ -1,0 +1,2456 @@
+[
+  {
+    "idtown": 178,
+    "type": {
+      "id": 2,
+      "name": "Обычный",
+      "shortName": "Т"
+    },
+    "id": 333,
+    "name": "Чемпионат Великобритании",
+    "longName": "I чемпионат Великобритании",
+    "lastEditDate": "2023-03-06T19:47:48+00:00",
+    "dateStart": "2008-04-27T09:00:00+00:00",
+    "dateEnd": "2008-04-27T13:00:00+00:00",
+    "paymentCategories": [],
+    "idseason": 7,
+    "orgcommittee": [
+      {
+        "id": 21235,
+        "name": "Ирина",
+        "patronymic": "Вячеславовна",
+        "surname": "Михлина",
+        "gotQuestionsTag": 1691
+      }
+    ],
+    "languages": [
+      {
+        "name": "Русский",
+        "id": "ru"
+      }
+    ],
+    "editors": [
+      {
+        "id": 4063,
+        "name": "Дмитрий",
+        "patronymic": "Владимирович",
+        "surname": "Борок",
+        "gotQuestionsTag": 234
+      },
+      {
+        "id": 7533,
+        "name": "Денис",
+        "patronymic": "Андреевич",
+        "surname": "Гончар",
+        "gotQuestionsTag": 26
+      }
+    ],
+    "gameJury": [
+      {
+        "id": 16837,
+        "name": "Наталья",
+        "patronymic": "Алексеевна",
+        "surname": "Кудряшова",
+        "gotQuestionsTag": 705
+      }
+    ],
+    "appealJury": [
+      {
+        "id": 7244,
+        "name": "Владислав",
+        "patronymic": "",
+        "surname": "Говердовский",
+        "gotQuestionsTag": 298
+      },
+      {
+        "id": 25359,
+        "name": "Алекс",
+        "patronymic": "",
+        "surname": "Покрас",
+        "gotQuestionsTag": 305
+      },
+      {
+        "id": 26671,
+        "name": "Илья",
+        "patronymic": "Моисеевич",
+        "surname": "Ратнер",
+        "gotQuestionsTag": 242
+      },
+      {
+        "id": 27235,
+        "name": "Игорь",
+        "patronymic": "Соломонович",
+        "surname": "Рубанов",
+        "gotQuestionsTag": 1640
+      }
+    ],
+    "maiiRating": false,
+    "regulationsUrl": "https://web.archive.org/web/20150514202639/http://london.chgk.info/docs/championship?task=view",
+    "rating": false,
+    "questionQty": {
+      "1": 12,
+      "2": 12,
+      "3": 12,
+      "4": 12
+    },
+    "_town_name": "Лондон"
+  },
+  {
+    "idtown": 178,
+    "type": {
+      "id": 2,
+      "name": "Обычный",
+      "shortName": "Т"
+    },
+    "id": 393,
+    "name": "Rule, Britannia!",
+    "longName": "",
+    "lastEditDate": "2008-10-17T20:00:00+00:00",
+    "dateStart": "2008-10-17T20:00:00+00:00",
+    "dateEnd": "2008-10-18T20:00:00+00:00",
+    "paymentCategories": [],
+    "idseason": 8,
+    "orgcommittee": [],
+    "languages": [
+      {
+        "name": "Русский",
+        "id": "ru"
+      }
+    ],
+    "editors": [],
+    "gameJury": [],
+    "appealJury": [],
+    "ratingSystems": [
+      "mak"
+    ],
+    "maiiRating": false,
+    "regulationsUrl": "",
+    "rating": false,
+    "_town_name": "Лондон"
+  },
+  {
+    "idtown": 178,
+    "type": {
+      "id": 2,
+      "name": "Обычный",
+      "shortName": "Т"
+    },
+    "id": 444,
+    "name": "Чемпионат Великобритании",
+    "longName": "II чемпионат Великобритании",
+    "lastEditDate": "2023-03-06T19:36:44+00:00",
+    "dateStart": "2009-03-27T21:00:00+00:00",
+    "dateEnd": "2009-03-27T21:00:00+00:00",
+    "paymentCategories": [],
+    "idseason": 8,
+    "orgcommittee": [
+      {
+        "id": 21235,
+        "name": "Ирина",
+        "patronymic": "Вячеславовна",
+        "surname": "Михлина",
+        "gotQuestionsTag": 1691
+      }
+    ],
+    "languages": [
+      {
+        "name": "Русский",
+        "id": "ru"
+      }
+    ],
+    "editors": [
+      {
+        "id": 4063,
+        "name": "Дмитрий",
+        "patronymic": "Владимирович",
+        "surname": "Борок",
+        "gotQuestionsTag": 234
+      },
+      {
+        "id": 7533,
+        "name": "Денис",
+        "patronymic": "Андреевич",
+        "surname": "Гончар",
+        "gotQuestionsTag": 26
+      }
+    ],
+    "gameJury": [
+      {
+        "id": 21428,
+        "name": "Вадим",
+        "patronymic": "Семёнович",
+        "surname": "Молдавский",
+        "gotQuestionsTag": 3023
+      }
+    ],
+    "appealJury": [
+      {
+        "id": 7244,
+        "name": "Владислав",
+        "patronymic": "",
+        "surname": "Говердовский",
+        "gotQuestionsTag": 298
+      },
+      {
+        "id": 27235,
+        "name": "Игорь",
+        "patronymic": "Соломонович",
+        "surname": "Рубанов",
+        "gotQuestionsTag": 1640
+      },
+      {
+        "id": 29784,
+        "name": "Сергей",
+        "patronymic": "Сергеевич",
+        "surname": "Снегирёв",
+        "gotQuestionsTag": 8470
+      }
+    ],
+    "maiiRating": false,
+    "regulationsUrl": "",
+    "rating": false,
+    "questionQty": {
+      "1": 12,
+      "2": 12,
+      "3": 12,
+      "4": 12
+    },
+    "_town_name": "Лондон"
+  },
+  {
+    "idtown": 178,
+    "type": {
+      "id": 2,
+      "name": "Обычный",
+      "shortName": "Т"
+    },
+    "id": 619,
+    "name": "Чемпионат Великобритании",
+    "longName": "III чемпионат Великобритании",
+    "lastEditDate": "2023-03-06T19:38:26+00:00",
+    "dateStart": "2010-04-24T20:00:00+00:00",
+    "dateEnd": "2010-04-24T20:00:00+00:00",
+    "paymentCategories": [],
+    "idseason": 9,
+    "orgcommittee": [
+      {
+        "id": 21235,
+        "name": "Ирина",
+        "patronymic": "Вячеславовна",
+        "surname": "Михлина",
+        "gotQuestionsTag": 1691
+      }
+    ],
+    "languages": [
+      {
+        "name": "Русский",
+        "id": "ru"
+      }
+    ],
+    "editors": [
+      {
+        "id": 133,
+        "name": "Андрей",
+        "patronymic": "Леонидович",
+        "surname": "Абрамов",
+        "gotQuestionsTag": 222
+      },
+      {
+        "id": 3671,
+        "name": "Алексей",
+        "patronymic": "Алексеевич",
+        "surname": "Богословский",
+        "gotQuestionsTag": 68
+      },
+      {
+        "id": 4063,
+        "name": "Дмитрий",
+        "patronymic": "Владимирович",
+        "surname": "Борок",
+        "gotQuestionsTag": 234
+      },
+      {
+        "id": 10660,
+        "name": "Сергей",
+        "patronymic": "Геннадиевич",
+        "surname": "Ефимов",
+        "gotQuestionsTag": 1818,
+        "comment": "Отчество именно такое"
+      }
+    ],
+    "gameJury": [
+      {
+        "id": 21428,
+        "name": "Вадим",
+        "patronymic": "Семёнович",
+        "surname": "Молдавский",
+        "gotQuestionsTag": 3023
+      }
+    ],
+    "appealJury": [
+      {
+        "id": 10473,
+        "name": "Вадим",
+        "patronymic": "Валерьевич",
+        "surname": "Ермак",
+        "gotQuestionsTag": 4830
+      },
+      {
+        "id": 29784,
+        "name": "Сергей",
+        "patronymic": "Сергеевич",
+        "surname": "Снегирёв",
+        "gotQuestionsTag": 8470
+      },
+      {
+        "id": 33307,
+        "name": "Евгений",
+        "patronymic": "",
+        "surname": "Финкель",
+        "gotQuestionsTag": 9399
+      }
+    ],
+    "maiiRating": false,
+    "regulationsUrl": "https://web.archive.org/web/20181026171929/http://london.chgk.info/docs/championship",
+    "rating": false,
+    "questionQty": {
+      "1": 12,
+      "2": 12,
+      "3": 12,
+      "4": 12
+    },
+    "_town_name": "Лондон"
+  },
+  {
+    "idtown": 178,
+    "type": {
+      "id": 2,
+      "name": "Обычный",
+      "shortName": "Т"
+    },
+    "id": 1821,
+    "name": "Чемпионат Великобритании",
+    "longName": "IV чемпионат Великобритании",
+    "lastEditDate": "2023-03-06T19:52:24+00:00",
+    "dateStart": "2011-05-22T09:00:00+00:00",
+    "dateEnd": "2011-05-22T13:00:00+00:00",
+    "paymentCategories": [],
+    "idseason": 16,
+    "orgcommittee": [
+      {
+        "id": 21235,
+        "name": "Ирина",
+        "patronymic": "Вячеславовна",
+        "surname": "Михлина",
+        "gotQuestionsTag": 1691
+      }
+    ],
+    "languages": [
+      {
+        "name": "Русский",
+        "id": "ru"
+      }
+    ],
+    "editors": [
+      {
+        "id": 932,
+        "name": "Григорий",
+        "patronymic": "Эдуардович",
+        "surname": "Алхазов",
+        "gotQuestionsTag": 555
+      },
+      {
+        "id": 10660,
+        "name": "Сергей",
+        "patronymic": "Геннадиевич",
+        "surname": "Ефимов",
+        "gotQuestionsTag": 1818,
+        "comment": "Отчество именно такое"
+      }
+    ],
+    "gameJury": [
+      {
+        "id": 8121,
+        "name": "Марк",
+        "patronymic": "Владимирович",
+        "surname": "Григорян"
+      }
+    ],
+    "appealJury": [
+      {
+        "id": 4878,
+        "name": "Сергей",
+        "patronymic": "Владимирович",
+        "surname": "Вакуленко",
+        "gotQuestionsTag": 1630
+      },
+      {
+        "id": 7244,
+        "name": "Владислав",
+        "patronymic": "",
+        "surname": "Говердовский",
+        "gotQuestionsTag": 298
+      },
+      {
+        "id": 27235,
+        "name": "Игорь",
+        "patronymic": "Соломонович",
+        "surname": "Рубанов",
+        "gotQuestionsTag": 1640
+      }
+    ],
+    "maiiRating": false,
+    "regulationsUrl": "https://web.archive.org/web/20191230055319/http://london.chgk.info/docs/championship",
+    "rating": false,
+    "questionQty": {
+      "1": 12,
+      "2": 12,
+      "3": 12,
+      "4": 12
+    },
+    "_town_name": "Лондон"
+  },
+  {
+    "idtown": 178,
+    "type": {
+      "id": 2,
+      "name": "Обычный",
+      "shortName": "Т"
+    },
+    "id": 2091,
+    "name": "Чемпионат Великобритании",
+    "longName": "V чемпионат Великобритании",
+    "lastEditDate": "2023-03-06T20:16:38+00:00",
+    "dateStart": "2012-04-28T20:00:00+00:00",
+    "dateEnd": "2012-04-28T20:00:00+00:00",
+    "paymentCategories": [],
+    "idseason": 37,
+    "orgcommittee": [
+      {
+        "id": 21235,
+        "name": "Ирина",
+        "patronymic": "Вячеславовна",
+        "surname": "Михлина",
+        "gotQuestionsTag": 1691
+      }
+    ],
+    "languages": [
+      {
+        "name": "Русский",
+        "id": "ru"
+      }
+    ],
+    "editors": [
+      {
+        "id": 10660,
+        "name": "Сергей",
+        "patronymic": "Геннадиевич",
+        "surname": "Ефимов",
+        "gotQuestionsTag": 1818,
+        "comment": "Отчество именно такое"
+      }
+    ],
+    "gameJury": [
+      {
+        "id": 8121,
+        "name": "Марк",
+        "patronymic": "Владимирович",
+        "surname": "Григорян"
+      }
+    ],
+    "appealJury": [],
+    "maiiRating": false,
+    "regulationsUrl": "https://web.archive.org/web/20181026171929/http://london.chgk.info/docs/championship",
+    "rating": false,
+    "questionQty": {
+      "1": 12,
+      "2": 12,
+      "3": 12,
+      "4": 12
+    },
+    "_town_name": "Лондон"
+  },
+  {
+    "idtown": 178,
+    "type": {
+      "id": 2,
+      "name": "Обычный",
+      "shortName": "Т"
+    },
+    "id": 2347,
+    "name": "Чемпионат Великобритании",
+    "longName": "VI чемпионат Великобритании",
+    "lastEditDate": "2023-03-07T09:05:04+00:00",
+    "dateStart": "2013-04-21T10:00:00+00:00",
+    "dateEnd": "2013-04-21T14:00:00+00:00",
+    "paymentCategories": [],
+    "idseason": 44,
+    "orgcommittee": [
+      {
+        "id": 21235,
+        "name": "Ирина",
+        "patronymic": "Вячеславовна",
+        "surname": "Михлина",
+        "gotQuestionsTag": 1691
+      }
+    ],
+    "languages": [
+      {
+        "name": "Русский",
+        "id": "ru"
+      }
+    ],
+    "editors": [
+      {
+        "id": 4064,
+        "name": "Алексей",
+        "patronymic": "Владимирович",
+        "surname": "Бороненко",
+        "gotQuestionsTag": 101
+      },
+      {
+        "id": 22331,
+        "name": "Константин",
+        "patronymic": "Владимирович",
+        "surname": "Науменко",
+        "gotQuestionsTag": 567
+      },
+      {
+        "id": 22799,
+        "name": "Сергей",
+        "patronymic": "Игоревич",
+        "surname": "Николенко",
+        "gotQuestionsTag": 3318
+      },
+      {
+        "id": 29981,
+        "name": "Андрей",
+        "patronymic": "Владимирович",
+        "surname": "Солдатов",
+        "gotQuestionsTag": 55
+      }
+    ],
+    "gameJury": [
+      {
+        "id": 2545,
+        "name": "Светлана",
+        "patronymic": "Евгеньевна",
+        "surname": "Барская",
+        "gotQuestionsTag": 9782
+      },
+      {
+        "id": 2547,
+        "name": "Дмитрий",
+        "patronymic": "Борисович",
+        "surname": "Барский"
+      },
+      {
+        "id": 18332,
+        "name": "Александр",
+        "patronymic": "Витальевич",
+        "surname": "Либер",
+        "gotQuestionsTag": 220
+      }
+    ],
+    "appealJury": [
+      {
+        "id": 2545,
+        "name": "Светлана",
+        "patronymic": "Евгеньевна",
+        "surname": "Барская",
+        "gotQuestionsTag": 9782
+      },
+      {
+        "id": 2547,
+        "name": "Дмитрий",
+        "patronymic": "Борисович",
+        "surname": "Барский"
+      },
+      {
+        "id": 18332,
+        "name": "Александр",
+        "patronymic": "Витальевич",
+        "surname": "Либер",
+        "gotQuestionsTag": 220
+      }
+    ],
+    "maiiRating": false,
+    "regulationsUrl": "https://web.archive.org/web/20181026171929/http://london.chgk.info/docs/championship",
+    "rating": false,
+    "questionQty": {
+      "1": 12,
+      "2": 12,
+      "3": 12,
+      "4": 12
+    },
+    "_town_name": "Лондон"
+  },
+  {
+    "idtown": 178,
+    "type": {
+      "id": 2,
+      "name": "Обычный",
+      "shortName": "Т"
+    },
+    "id": 2823,
+    "name": "Чемпионат Великобритании",
+    "longName": "VII чемпионат Великобритании",
+    "lastEditDate": "2023-03-07T09:11:15+00:00",
+    "dateStart": "2014-03-16T10:00:00+00:00",
+    "dateEnd": "2014-03-16T14:00:00+00:00",
+    "paymentCategories": [],
+    "idseason": 45,
+    "orgcommittee": [
+      {
+        "id": 21235,
+        "name": "Ирина",
+        "patronymic": "Вячеславовна",
+        "surname": "Михлина",
+        "gotQuestionsTag": 1691
+      }
+    ],
+    "languages": [
+      {
+        "name": "Русский",
+        "id": "ru"
+      }
+    ],
+    "editors": [
+      {
+        "id": 3671,
+        "name": "Алексей",
+        "patronymic": "Алексеевич",
+        "surname": "Богословский",
+        "gotQuestionsTag": 68
+      }
+    ],
+    "gameJury": [
+      {
+        "id": 2547,
+        "name": "Дмитрий",
+        "patronymic": "Борисович",
+        "surname": "Барский"
+      }
+    ],
+    "appealJury": [
+      {
+        "id": 2547,
+        "name": "Дмитрий",
+        "patronymic": "Борисович",
+        "surname": "Барский"
+      }
+    ],
+    "maiiRating": false,
+    "regulationsUrl": "https://web.archive.org/web/20181026171929/http://london.chgk.info/docs/championship",
+    "rating": false,
+    "questionQty": {
+      "1": 12,
+      "2": 12,
+      "3": 12,
+      "4": 12
+    },
+    "_town_name": "Лондон"
+  },
+  {
+    "idtown": 178,
+    "type": {
+      "id": 2,
+      "name": "Обычный",
+      "shortName": "Т"
+    },
+    "id": 3214,
+    "name": "Чемпионат Великобритании",
+    "longName": "VIII чемпионат Великобритании",
+    "lastEditDate": "2025-02-28T07:44:08+00:00",
+    "dateStart": "2015-03-29T11:00:00+00:00",
+    "dateEnd": "2015-03-29T15:00:00+00:00",
+    "paymentCategories": [],
+    "idseason": 48,
+    "orgcommittee": [
+      {
+        "id": 21235,
+        "name": "Ирина",
+        "patronymic": "Вячеславовна",
+        "surname": "Михлина",
+        "gotQuestionsTag": 1691
+      }
+    ],
+    "languages": [
+      {
+        "name": "Русский",
+        "id": "ru"
+      }
+    ],
+    "editors": [
+      {
+        "id": 133,
+        "name": "Андрей",
+        "patronymic": "Леонидович",
+        "surname": "Абрамов",
+        "gotQuestionsTag": 222
+      },
+      {
+        "id": 10660,
+        "name": "Сергей",
+        "patronymic": "Геннадиевич",
+        "surname": "Ефимов",
+        "gotQuestionsTag": 1818,
+        "comment": "Отчество именно такое"
+      },
+      {
+        "id": 13638,
+        "name": "Михаил",
+        "patronymic": "Анатольевич",
+        "surname": "Карпук",
+        "gotQuestionsTag": 416
+      },
+      {
+        "id": 29981,
+        "name": "Андрей",
+        "patronymic": "Владимирович",
+        "surname": "Солдатов",
+        "gotQuestionsTag": 55
+      }
+    ],
+    "gameJury": [
+      {
+        "id": 83344,
+        "name": "Михаил",
+        "patronymic": "",
+        "surname": "Крюк"
+      }
+    ],
+    "appealJury": [
+      {
+        "id": 7839,
+        "name": "Руслан",
+        "patronymic": "Александрович",
+        "surname": "Горусев",
+        "gotQuestionsTag": 702
+      },
+      {
+        "id": 10448,
+        "name": "Павел",
+        "patronymic": "Владимирович",
+        "surname": "Ерёмин",
+        "gotQuestionsTag": 6515
+      },
+      {
+        "id": 17127,
+        "name": "Дмитрий",
+        "patronymic": "Викторович",
+        "surname": "Кукленко",
+        "gotQuestionsTag": 1306
+      }
+    ],
+    "maiiRating": false,
+    "regulationsUrl": "https://web.archive.org/web/20181026171929/http://london.chgk.info/docs/championship",
+    "rating": false,
+    "questionQty": {
+      "1": 12,
+      "2": 12,
+      "3": 12,
+      "4": 12
+    },
+    "_town_name": "Лондон"
+  },
+  {
+    "idtown": 178,
+    "type": {
+      "id": 2,
+      "name": "Обычный",
+      "shortName": "Т"
+    },
+    "id": 3797,
+    "name": "Чемпионат Великобритании",
+    "longName": "IX чемпионат Великобритании",
+    "lastEditDate": "2023-03-07T09:29:55+00:00",
+    "dateStart": "2016-05-22T11:00:00+00:00",
+    "dateEnd": "2016-05-22T15:00:00+00:00",
+    "paymentCategories": [],
+    "idseason": 49,
+    "orgcommittee": [
+      {
+        "id": 21235,
+        "name": "Ирина",
+        "patronymic": "Вячеславовна",
+        "surname": "Михлина",
+        "gotQuestionsTag": 1691
+      },
+      {
+        "id": 74520,
+        "name": "Михаил",
+        "patronymic": "Сергеевич",
+        "surname": "Карташов"
+      }
+    ],
+    "languages": [
+      {
+        "name": "Русский",
+        "id": "ru"
+      }
+    ],
+    "editors": [
+      {
+        "id": 3671,
+        "name": "Алексей",
+        "patronymic": "Алексеевич",
+        "surname": "Богословский",
+        "gotQuestionsTag": 68
+      },
+      {
+        "id": 4063,
+        "name": "Дмитрий",
+        "patronymic": "Владимирович",
+        "surname": "Борок",
+        "gotQuestionsTag": 234
+      },
+      {
+        "id": 22331,
+        "name": "Константин",
+        "patronymic": "Владимирович",
+        "surname": "Науменко",
+        "gotQuestionsTag": 567
+      }
+    ],
+    "gameJury": [
+      {
+        "id": 2547,
+        "name": "Дмитрий",
+        "patronymic": "Борисович",
+        "surname": "Барский"
+      }
+    ],
+    "appealJury": [
+      {
+        "id": 7737,
+        "name": "Евгений",
+        "patronymic": "Семёнович",
+        "surname": "Горелик",
+        "gotQuestionsTag": 10669
+      },
+      {
+        "id": 10473,
+        "name": "Вадим",
+        "patronymic": "Валерьевич",
+        "surname": "Ермак",
+        "gotQuestionsTag": 4830
+      },
+      {
+        "id": 34683,
+        "name": "Константин",
+        "patronymic": "Юрьевич",
+        "surname": "Чекушин",
+        "gotQuestionsTag": 7599
+      }
+    ],
+    "trueDL": 5.7,
+    "maiiRating": false,
+    "regulationsUrl": "https://web.archive.org/web/20181026171929/http://london.chgk.info/docs/championship",
+    "rating": false,
+    "questionQty": {
+      "1": 12,
+      "2": 12,
+      "3": 12,
+      "4": 12
+    },
+    "_town_name": "Лондон"
+  },
+  {
+    "idtown": 178,
+    "type": {
+      "id": 2,
+      "name": "Обычный",
+      "shortName": "Т"
+    },
+    "id": 5448,
+    "name": "Чемпионат Великобритании",
+    "longName": "12-й Открытый Чемпионат Великобритании",
+    "lastEditDate": "2023-03-08T13:28:15+00:00",
+    "dateStart": "2019-05-05T10:00:00+00:00",
+    "dateEnd": "2019-05-05T15:00:00+00:00",
+    "paymentCategories": [],
+    "idseason": 52,
+    "orgcommittee": [
+      {
+        "id": 21235,
+        "name": "Ирина",
+        "patronymic": "Вячеславовна",
+        "surname": "Михлина",
+        "gotQuestionsTag": 1691
+      },
+      {
+        "id": 29896,
+        "name": "Василий",
+        "patronymic": "Александрович",
+        "surname": "Соколов"
+      },
+      {
+        "id": 74520,
+        "name": "Михаил",
+        "patronymic": "Сергеевич",
+        "surname": "Карташов"
+      },
+      {
+        "id": 75296,
+        "name": "Александра",
+        "patronymic": "Дмитриевна",
+        "surname": "Генкина"
+      },
+      {
+        "id": 124489,
+        "name": "Алексей",
+        "patronymic": "Михайлович",
+        "surname": "Комаров"
+      }
+    ],
+    "languages": [
+      {
+        "name": "Русский",
+        "id": "ru"
+      }
+    ],
+    "editors": [
+      {
+        "id": 3671,
+        "name": "Алексей",
+        "patronymic": "Алексеевич",
+        "surname": "Богословский",
+        "gotQuestionsTag": 68
+      }
+    ],
+    "gameJury": [
+      {
+        "id": 2547,
+        "name": "Дмитрий",
+        "patronymic": "Борисович",
+        "surname": "Барский"
+      },
+      {
+        "id": 3671,
+        "name": "Алексей",
+        "patronymic": "Алексеевич",
+        "surname": "Богословский",
+        "gotQuestionsTag": 68
+      }
+    ],
+    "appealJury": [
+      {
+        "id": 2466,
+        "name": "Александр",
+        "patronymic": "Томазович",
+        "surname": "Барбакадзе",
+        "gotQuestionsTag": 3663
+      },
+      {
+        "id": 2547,
+        "name": "Дмитрий",
+        "patronymic": "Борисович",
+        "surname": "Барский"
+      },
+      {
+        "id": 17780,
+        "name": "Эвита",
+        "patronymic": "Вилнисовна",
+        "surname": "Савицкая"
+      }
+    ],
+    "trueDL": 5.8,
+    "maiiRating": false,
+    "regulationsUrl": "http://london.chgk.info/docs/championship",
+    "rating": false,
+    "questionQty": {
+      "1": 12,
+      "2": 12,
+      "3": 12,
+      "4": 12
+    },
+    "_town_name": "Лондон"
+  },
+  {
+    "idtown": 178,
+    "type": {
+      "id": 2,
+      "name": "Обычный",
+      "shortName": "Т"
+    },
+    "id": 6114,
+    "name": "Чемпионат Великобритании",
+    "longName": "XIII открытый чемпионат Великобритании по игре \"Что? Где? Когда?\"",
+    "lastEditDate": "2021-09-14T09:04:10+00:00",
+    "dateStart": "2021-09-11T11:00:00+00:00",
+    "dateEnd": "2021-09-11T17:00:00+00:00",
+    "paymentCategories": [],
+    "idseason": 56,
+    "orgcommittee": [
+      {
+        "id": 22896,
+        "name": "Алексей",
+        "patronymic": "Георгиевич",
+        "surname": "Новаков",
+        "gotQuestionsTag": 8260
+      },
+      {
+        "id": 23367,
+        "name": "Борис",
+        "patronymic": "Леонидович",
+        "surname": "Окунь",
+        "gotQuestionsTag": 588
+      },
+      {
+        "id": 29896,
+        "name": "Василий",
+        "patronymic": "Александрович",
+        "surname": "Соколов"
+      },
+      {
+        "id": 75296,
+        "name": "Александра",
+        "patronymic": "Дмитриевна",
+        "surname": "Генкина"
+      },
+      {
+        "id": 124489,
+        "name": "Алексей",
+        "patronymic": "Михайлович",
+        "surname": "Комаров"
+      }
+    ],
+    "languages": [
+      {
+        "name": "Русский",
+        "id": "ru"
+      }
+    ],
+    "editors": [
+      {
+        "id": 5290,
+        "name": "Александр",
+        "patronymic": "Борисович",
+        "surname": "Ведехин",
+        "gotQuestionsTag": 795
+      },
+      {
+        "id": 20700,
+        "name": "Максим",
+        "patronymic": "Петрович",
+        "surname": "Мерзляков",
+        "gotQuestionsTag": 267
+      },
+      {
+        "id": 22331,
+        "name": "Константин",
+        "patronymic": "Владимирович",
+        "surname": "Науменко",
+        "gotQuestionsTag": 567
+      },
+      {
+        "id": 36120,
+        "name": "Серафим",
+        "patronymic": "Александрович",
+        "surname": "Шибанов",
+        "gotQuestionsTag": 336
+      }
+    ],
+    "gameJury": [
+      {
+        "id": 72978,
+        "name": "Александр",
+        "patronymic": "",
+        "surname": "Смотров"
+      },
+      {
+        "id": 75681,
+        "name": "Тимур",
+        "patronymic": "Петрович",
+        "surname": "Юшко"
+      }
+    ],
+    "appealJury": [
+      {
+        "id": 13273,
+        "name": "Екатерина",
+        "patronymic": "Александровна",
+        "surname": "Коваль",
+        "gotQuestionsTag": 6980
+      },
+      {
+        "id": 22482,
+        "name": "Роман",
+        "patronymic": "Борисович",
+        "surname": "Немучинский",
+        "gotQuestionsTag": 2171
+      },
+      {
+        "id": 31630,
+        "name": "Анастасия",
+        "patronymic": "Витальевна",
+        "surname": "Тимофеева",
+        "gotQuestionsTag": 7354
+      }
+    ],
+    "trueDL": 4.2,
+    "difficultyForecast": 5,
+    "ratingSystems": [
+      "chgkgg"
+    ],
+    "maiiRating": true,
+    "regulationsUrl": "http://london.chgk.info/chv-2020-rules/",
+    "rating": true,
+    "questionQty": {
+      "1": 12,
+      "2": 12,
+      "3": 12,
+      "4": 12
+    },
+    "_town_name": "Лондон"
+  },
+  {
+    "idtown": 178,
+    "type": {
+      "id": 2,
+      "name": "Обычный",
+      "shortName": "Т"
+    },
+    "id": 9862,
+    "name": "Fourth Raven",
+    "longName": "Fourth Raven - Зеркало Четвертого Ворона в Лондоне",
+    "lastEditDate": "2023-10-02T11:51:52+00:00",
+    "dateStart": "2023-10-01T09:30:00+00:00",
+    "dateEnd": "2023-10-01T14:30:00+00:00",
+    "paymentCategories": [],
+    "idseason": 58,
+    "orgcommittee": [
+      {
+        "id": 16581,
+        "name": "Андрей",
+        "patronymic": "Викторович",
+        "surname": "Кругов",
+        "gotQuestionsTag": 6800
+      },
+      {
+        "id": 67304,
+        "name": "Антон",
+        "patronymic": "Алексеевич",
+        "surname": "Малютин",
+        "gotQuestionsTag": 13429
+      }
+    ],
+    "languages": [
+      {
+        "name": "Русский",
+        "id": "ru"
+      }
+    ],
+    "editors": [
+      {
+        "id": 21487,
+        "name": "Борис",
+        "patronymic": "Яковлевич",
+        "surname": "Моносов",
+        "gotQuestionsTag": 71
+      },
+      {
+        "id": 36120,
+        "name": "Серафим",
+        "patronymic": "Александрович",
+        "surname": "Шибанов",
+        "gotQuestionsTag": 336
+      },
+      {
+        "id": 86795,
+        "name": "Павел",
+        "patronymic": "Сергеевич",
+        "surname": "Казначеев",
+        "gotQuestionsTag": 103
+      },
+      {
+        "id": 90455,
+        "name": "Сергей",
+        "patronymic": "Сергеевич",
+        "surname": "Никольский",
+        "gotQuestionsTag": 12163
+      },
+      {
+        "id": 118142,
+        "name": "Сергей",
+        "patronymic": "Юрьевич",
+        "surname": "Донецков",
+        "gotQuestionsTag": 324
+      }
+    ],
+    "gameJury": [
+      {
+        "id": 21487,
+        "name": "Борис",
+        "patronymic": "Яковлевич",
+        "surname": "Моносов",
+        "gotQuestionsTag": 71
+      },
+      {
+        "id": 36120,
+        "name": "Серафим",
+        "patronymic": "Александрович",
+        "surname": "Шибанов",
+        "gotQuestionsTag": 336
+      },
+      {
+        "id": 86795,
+        "name": "Павел",
+        "patronymic": "Сергеевич",
+        "surname": "Казначеев",
+        "gotQuestionsTag": 103
+      },
+      {
+        "id": 90455,
+        "name": "Сергей",
+        "patronymic": "Сергеевич",
+        "surname": "Никольский",
+        "gotQuestionsTag": 12163
+      },
+      {
+        "id": 118142,
+        "name": "Сергей",
+        "patronymic": "Юрьевич",
+        "surname": "Донецков",
+        "gotQuestionsTag": 324
+      }
+    ],
+    "appealJury": [
+      {
+        "id": 486,
+        "name": "Яна",
+        "patronymic": "Исаевна",
+        "surname": "Азриэль",
+        "gotQuestionsTag": 156
+      }
+    ],
+    "trueDL": 4.8494,
+    "difficultyForecast": 5,
+    "ratingSystems": [
+      "chgkgg"
+    ],
+    "maiiRating": true,
+    "regulationsUrl": "https://rating.chgk.info/tournament/9862/regulations",
+    "rating": true,
+    "questionQty": {
+      "1": 12,
+      "2": 12,
+      "3": 12,
+      "4": 12,
+      "5": 12
+    },
+    "_town_name": "Лондон"
+  },
+  {
+    "idtown": 178,
+    "type": {
+      "id": 2,
+      "name": "Обычный",
+      "shortName": "Т"
+    },
+    "id": 10237,
+    "name": "Чемпионат Великобритании",
+    "longName": "XVI Открытый Чемпионат Великобритании по Интеллектуальным Играм",
+    "lastEditDate": "2024-07-23T07:07:21+00:00",
+    "dateStart": "2024-05-04T09:30:00+00:00",
+    "dateEnd": "2024-05-04T17:00:00+00:00",
+    "paymentCategories": [],
+    "idseason": 58,
+    "orgcommittee": [
+      {
+        "id": 22896,
+        "name": "Алексей",
+        "patronymic": "Георгиевич",
+        "surname": "Новаков",
+        "gotQuestionsTag": 8260
+      },
+      {
+        "id": 23367,
+        "name": "Борис",
+        "patronymic": "Леонидович",
+        "surname": "Окунь",
+        "gotQuestionsTag": 588
+      },
+      {
+        "id": 124489,
+        "name": "Алексей",
+        "patronymic": "Михайлович",
+        "surname": "Комаров"
+      },
+      {
+        "id": 139801,
+        "name": "Тигран",
+        "patronymic": "Артурович",
+        "surname": "Нагапетян"
+      },
+      {
+        "id": 188961,
+        "name": "Дмитрий",
+        "patronymic": "Олегович",
+        "surname": "Матов"
+      }
+    ],
+    "languages": [
+      {
+        "name": "Русский",
+        "id": "ru"
+      }
+    ],
+    "editors": [
+      {
+        "id": 13638,
+        "name": "Михаил",
+        "patronymic": "Анатольевич",
+        "surname": "Карпук",
+        "gotQuestionsTag": 416
+      },
+      {
+        "id": 20700,
+        "name": "Максим",
+        "patronymic": "Петрович",
+        "surname": "Мерзляков",
+        "gotQuestionsTag": 267
+      },
+      {
+        "id": 46788,
+        "name": "Александр",
+        "patronymic": "Владимирович",
+        "surname": "Мерзликин",
+        "gotQuestionsTag": 365
+      },
+      {
+        "id": 86795,
+        "name": "Павел",
+        "patronymic": "Сергеевич",
+        "surname": "Казначеев",
+        "gotQuestionsTag": 103
+      },
+      {
+        "id": 90455,
+        "name": "Сергей",
+        "patronymic": "Сергеевич",
+        "surname": "Никольский",
+        "gotQuestionsTag": 12163
+      }
+    ],
+    "gameJury": [
+      {
+        "id": 13638,
+        "name": "Михаил",
+        "patronymic": "Анатольевич",
+        "surname": "Карпук",
+        "gotQuestionsTag": 416
+      },
+      {
+        "id": 20700,
+        "name": "Максим",
+        "patronymic": "Петрович",
+        "surname": "Мерзляков",
+        "gotQuestionsTag": 267
+      },
+      {
+        "id": 46788,
+        "name": "Александр",
+        "patronymic": "Владимирович",
+        "surname": "Мерзликин",
+        "gotQuestionsTag": 365
+      },
+      {
+        "id": 86795,
+        "name": "Павел",
+        "patronymic": "Сергеевич",
+        "surname": "Казначеев",
+        "gotQuestionsTag": 103
+      },
+      {
+        "id": 90455,
+        "name": "Сергей",
+        "patronymic": "Сергеевич",
+        "surname": "Никольский",
+        "gotQuestionsTag": 12163
+      },
+      {
+        "id": 244096,
+        "name": "Александра",
+        "patronymic": "",
+        "surname": "Ветрова"
+      }
+    ],
+    "appealJury": [
+      {
+        "id": 11084,
+        "name": "Павел",
+        "patronymic": "Олегович",
+        "surname": "Забавский",
+        "gotQuestionsTag": 290
+      },
+      {
+        "id": 27936,
+        "name": "Тимур",
+        "patronymic": "Ильдарович",
+        "surname": "Сайфуллин",
+        "gotQuestionsTag": 647
+      },
+      {
+        "id": 222641,
+        "name": "Георгий",
+        "patronymic": "Борисович",
+        "surname": "Талисайнен",
+        "gotQuestionsTag": 12268
+      }
+    ],
+    "trueDL": 5.46921,
+    "difficultyForecast": 6,
+    "ratingSystems": [
+      "chgkgg"
+    ],
+    "maiiRating": true,
+    "regulationsUrl": "",
+    "rating": true,
+    "questionQty": {
+      "1": 12,
+      "2": 12,
+      "3": 12,
+      "4": 12,
+      "5": 12
+    },
+    "_town_name": "Лондон"
+  },
+  {
+    "idtown": 178,
+    "type": {
+      "id": 2,
+      "name": "Обычный",
+      "shortName": "Т"
+    },
+    "id": 11919,
+    "name": "Чемпионат Великобритании",
+    "longName": "XVII Открытый чемпионат Великобритании по интеллектуальным играм",
+    "lastEditDate": "2025-05-25T17:08:36+00:00",
+    "dateStart": "2025-05-17T09:00:00+00:00",
+    "dateEnd": "2025-05-18T15:00:00+00:00",
+    "paymentCategories": [],
+    "idseason": 59,
+    "orgcommittee": [
+      {
+        "id": 22896,
+        "name": "Алексей",
+        "patronymic": "Георгиевич",
+        "surname": "Новаков",
+        "gotQuestionsTag": 8260
+      },
+      {
+        "id": 23367,
+        "name": "Борис",
+        "patronymic": "Леонидович",
+        "surname": "Окунь",
+        "gotQuestionsTag": 588
+      },
+      {
+        "id": 124489,
+        "name": "Алексей",
+        "patronymic": "Михайлович",
+        "surname": "Комаров"
+      },
+      {
+        "id": 139801,
+        "name": "Тигран",
+        "patronymic": "Артурович",
+        "surname": "Нагапетян"
+      },
+      {
+        "id": 188961,
+        "name": "Дмитрий",
+        "patronymic": "Олегович",
+        "surname": "Матов"
+      }
+    ],
+    "languages": [
+      {
+        "name": "Русский",
+        "id": "ru"
+      }
+    ],
+    "editors": [
+      {
+        "id": 5224,
+        "name": "Тарас",
+        "patronymic": "Зиновьевич",
+        "surname": "Вахрив",
+        "gotQuestionsTag": 366
+      },
+      {
+        "id": 12160,
+        "name": "Михаил",
+        "patronymic": "Андреевич",
+        "surname": "Иванов",
+        "gotQuestionsTag": 40
+      },
+      {
+        "id": 13638,
+        "name": "Михаил",
+        "patronymic": "Анатольевич",
+        "surname": "Карпук",
+        "gotQuestionsTag": 416
+      },
+      {
+        "id": 16799,
+        "name": "Александр",
+        "patronymic": "Александрович",
+        "surname": "Кудрявцев",
+        "gotQuestionsTag": 47
+      },
+      {
+        "id": 20700,
+        "name": "Максим",
+        "patronymic": "Петрович",
+        "surname": "Мерзляков",
+        "gotQuestionsTag": 267
+      },
+      {
+        "id": 46788,
+        "name": "Александр",
+        "patronymic": "Владимирович",
+        "surname": "Мерзликин",
+        "gotQuestionsTag": 365
+      }
+    ],
+    "gameJury": [
+      {
+        "id": 5224,
+        "name": "Тарас",
+        "patronymic": "Зиновьевич",
+        "surname": "Вахрив",
+        "gotQuestionsTag": 366
+      },
+      {
+        "id": 12160,
+        "name": "Михаил",
+        "patronymic": "Андреевич",
+        "surname": "Иванов",
+        "gotQuestionsTag": 40
+      },
+      {
+        "id": 13638,
+        "name": "Михаил",
+        "patronymic": "Анатольевич",
+        "surname": "Карпук",
+        "gotQuestionsTag": 416
+      },
+      {
+        "id": 16799,
+        "name": "Александр",
+        "patronymic": "Александрович",
+        "surname": "Кудрявцев",
+        "gotQuestionsTag": 47
+      },
+      {
+        "id": 20700,
+        "name": "Максим",
+        "patronymic": "Петрович",
+        "surname": "Мерзляков",
+        "gotQuestionsTag": 267
+      },
+      {
+        "id": 46788,
+        "name": "Александр",
+        "patronymic": "Владимирович",
+        "surname": "Мерзликин",
+        "gotQuestionsTag": 365
+      }
+    ],
+    "appealJury": [
+      {
+        "id": 1387,
+        "name": "Георгий",
+        "patronymic": "Звиадович",
+        "surname": "Арабули",
+        "gotQuestionsTag": 208
+      },
+      {
+        "id": 17230,
+        "name": "Егор",
+        "patronymic": "Юрьевич",
+        "surname": "Куликов",
+        "gotQuestionsTag": 12501
+      },
+      {
+        "id": 22482,
+        "name": "Роман",
+        "patronymic": "Борисович",
+        "surname": "Немучинский",
+        "gotQuestionsTag": 2171
+      }
+    ],
+    "trueDL": 5.90984,
+    "difficultyForecast": 5,
+    "ratingSystems": [
+      "chgkgg"
+    ],
+    "maiiRating": true,
+    "regulationsUrl": "",
+    "rating": true,
+    "questionQty": {
+      "1": 15,
+      "2": 15,
+      "3": 15,
+      "4": 15,
+      "5": 15,
+      "6": 15
+    },
+    "_town_name": "Лондон"
+  },
+  {
+    "idtown": 178,
+    "type": {
+      "id": 2,
+      "name": "Обычный",
+      "shortName": "Т"
+    },
+    "id": 13134,
+    "name": "The Mirror",
+    "longName": "The Mirror: Зеркало Открытого Чемпионата Эстонии в Лондоне",
+    "lastEditDate": "2026-02-23T16:36:22+00:00",
+    "dateStart": "2026-02-21T16:00:00+00:00",
+    "dateEnd": "2026-02-23T03:00:00+00:00",
+    "paymentCategories": [],
+    "idseason": 60,
+    "orgcommittee": [
+      {
+        "id": 22896,
+        "name": "Алексей",
+        "patronymic": "Георгиевич",
+        "surname": "Новаков",
+        "gotQuestionsTag": 8260
+      },
+      {
+        "id": 23367,
+        "name": "Борис",
+        "patronymic": "Леонидович",
+        "surname": "Окунь",
+        "gotQuestionsTag": 588
+      },
+      {
+        "id": 115212,
+        "name": "Дарья",
+        "patronymic": "Сергеевна",
+        "surname": "Мамаева"
+      },
+      {
+        "id": 139801,
+        "name": "Тигран",
+        "patronymic": "Артурович",
+        "surname": "Нагапетян"
+      },
+      {
+        "id": 188961,
+        "name": "Дмитрий",
+        "patronymic": "Олегович",
+        "surname": "Матов"
+      },
+      {
+        "id": 217479,
+        "name": "Аслан",
+        "patronymic": "Жексенбаевич",
+        "surname": "Сисекенов"
+      }
+    ],
+    "languages": [
+      {
+        "name": "Русский",
+        "id": "ru"
+      }
+    ],
+    "editors": [
+      {
+        "id": 13638,
+        "name": "Михаил",
+        "patronymic": "Анатольевич",
+        "surname": "Карпук",
+        "gotQuestionsTag": 416
+      },
+      {
+        "id": 21487,
+        "name": "Борис",
+        "patronymic": "Яковлевич",
+        "surname": "Моносов",
+        "gotQuestionsTag": 71
+      },
+      {
+        "id": 31493,
+        "name": "Сергей",
+        "patronymic": "Александрович",
+        "surname": "Терентьев",
+        "gotQuestionsTag": 6
+      },
+      {
+        "id": 32901,
+        "name": "Наиль",
+        "patronymic": "Евгеньевич",
+        "surname": "Фарукшин",
+        "gotQuestionsTag": 484
+      },
+      {
+        "id": 90455,
+        "name": "Сергей",
+        "patronymic": "Сергеевич",
+        "surname": "Никольский",
+        "gotQuestionsTag": 12163
+      },
+      {
+        "id": 145557,
+        "name": "Алексей",
+        "patronymic": "Николаевич",
+        "surname": "Кураев",
+        "gotQuestionsTag": 12305
+      }
+    ],
+    "gameJury": [
+      {
+        "id": 244096,
+        "name": "Александра",
+        "patronymic": "",
+        "surname": "Ветрова"
+      }
+    ],
+    "appealJury": [
+      {
+        "id": 11084,
+        "name": "Павел",
+        "patronymic": "Олегович",
+        "surname": "Забавский",
+        "gotQuestionsTag": 290
+      },
+      {
+        "id": 22482,
+        "name": "Роман",
+        "patronymic": "Борисович",
+        "surname": "Немучинский",
+        "gotQuestionsTag": 2171
+      },
+      {
+        "id": 27936,
+        "name": "Тимур",
+        "patronymic": "Ильдарович",
+        "surname": "Сайфуллин",
+        "gotQuestionsTag": 647
+      }
+    ],
+    "trueDL": 5.40834,
+    "difficultyForecast": 5,
+    "ratingSystems": [
+      "chgkgg"
+    ],
+    "maiiRating": true,
+    "regulationsUrl": "",
+    "rating": true,
+    "questionQty": {
+      "1": 15,
+      "2": 15,
+      "3": 15,
+      "4": 15,
+      "5": 15,
+      "6": 15
+    },
+    "_town_name": "Лондон"
+  },
+  {
+    "idtown": 178,
+    "type": {
+      "id": 2,
+      "name": "Обычный",
+      "shortName": "Т"
+    },
+    "id": 13612,
+    "name": "Чемпионат Великобритании",
+    "longName": "XVIII Открытый чемпионат Великобритании по интеллектуальным играм",
+    "lastEditDate": "2026-05-18T08:58:42+00:00",
+    "dateStart": "2026-05-16T07:00:00+00:00",
+    "dateEnd": "2026-05-17T14:00:00+00:00",
+    "paymentCategories": [],
+    "idseason": 60,
+    "orgcommittee": [
+      {
+        "id": 22896,
+        "name": "Алексей",
+        "patronymic": "Георгиевич",
+        "surname": "Новаков",
+        "gotQuestionsTag": 8260
+      },
+      {
+        "id": 23367,
+        "name": "Борис",
+        "patronymic": "Леонидович",
+        "surname": "Окунь",
+        "gotQuestionsTag": 588
+      },
+      {
+        "id": 115212,
+        "name": "Дарья",
+        "patronymic": "Сергеевна",
+        "surname": "Мамаева"
+      },
+      {
+        "id": 124489,
+        "name": "Алексей",
+        "patronymic": "Михайлович",
+        "surname": "Комаров"
+      },
+      {
+        "id": 139801,
+        "name": "Тигран",
+        "patronymic": "Артурович",
+        "surname": "Нагапетян"
+      },
+      {
+        "id": 188961,
+        "name": "Дмитрий",
+        "patronymic": "Олегович",
+        "surname": "Матов"
+      },
+      {
+        "id": 217479,
+        "name": "Аслан",
+        "patronymic": "Жексенбаевич",
+        "surname": "Сисекенов"
+      }
+    ],
+    "languages": [
+      {
+        "name": "Русский",
+        "id": "ru"
+      }
+    ],
+    "editors": [
+      {
+        "id": 4270,
+        "name": "Александра",
+        "patronymic": "Владимировна",
+        "surname": "Брутер",
+        "gotQuestionsTag": 769
+      },
+      {
+        "id": 12160,
+        "name": "Михаил",
+        "patronymic": "Андреевич",
+        "surname": "Иванов",
+        "gotQuestionsTag": 40
+      },
+      {
+        "id": 16799,
+        "name": "Александр",
+        "patronymic": "Александрович",
+        "surname": "Кудрявцев",
+        "gotQuestionsTag": 47
+      },
+      {
+        "id": 19468,
+        "name": "Виктория",
+        "patronymic": "Михайловна",
+        "surname": "Маландина",
+        "gotQuestionsTag": 196
+      },
+      {
+        "id": 20700,
+        "name": "Максим",
+        "patronymic": "Петрович",
+        "surname": "Мерзляков",
+        "gotQuestionsTag": 267
+      },
+      {
+        "id": 27403,
+        "name": "Максим",
+        "patronymic": "Михайлович",
+        "surname": "Руссо",
+        "gotQuestionsTag": 295
+      },
+      {
+        "id": 28751,
+        "name": "Иван",
+        "patronymic": "Николаевич",
+        "surname": "Семушин",
+        "gotQuestionsTag": 474
+      },
+      {
+        "id": 46788,
+        "name": "Александр",
+        "patronymic": "Владимирович",
+        "surname": "Мерзликин",
+        "gotQuestionsTag": 365
+      }
+    ],
+    "gameJury": [
+      {
+        "id": 4270,
+        "name": "Александра",
+        "patronymic": "Владимировна",
+        "surname": "Брутер",
+        "gotQuestionsTag": 769
+      },
+      {
+        "id": 12160,
+        "name": "Михаил",
+        "patronymic": "Андреевич",
+        "surname": "Иванов",
+        "gotQuestionsTag": 40
+      },
+      {
+        "id": 16799,
+        "name": "Александр",
+        "patronymic": "Александрович",
+        "surname": "Кудрявцев",
+        "gotQuestionsTag": 47
+      },
+      {
+        "id": 19468,
+        "name": "Виктория",
+        "patronymic": "Михайловна",
+        "surname": "Маландина",
+        "gotQuestionsTag": 196
+      },
+      {
+        "id": 20700,
+        "name": "Максим",
+        "patronymic": "Петрович",
+        "surname": "Мерзляков",
+        "gotQuestionsTag": 267
+      },
+      {
+        "id": 27403,
+        "name": "Максим",
+        "patronymic": "Михайлович",
+        "surname": "Руссо",
+        "gotQuestionsTag": 295
+      },
+      {
+        "id": 28751,
+        "name": "Иван",
+        "patronymic": "Николаевич",
+        "surname": "Семушин",
+        "gotQuestionsTag": 474
+      },
+      {
+        "id": 46788,
+        "name": "Александр",
+        "patronymic": "Владимирович",
+        "surname": "Мерзликин",
+        "gotQuestionsTag": 365
+      }
+    ],
+    "appealJury": [
+      {
+        "id": 22482,
+        "name": "Роман",
+        "patronymic": "Борисович",
+        "surname": "Немучинский",
+        "gotQuestionsTag": 2171
+      },
+      {
+        "id": 31848,
+        "name": "Александр",
+        "patronymic": "Маркович",
+        "surname": "Тобенгауз",
+        "gotQuestionsTag": 1121
+      },
+      {
+        "id": 32901,
+        "name": "Наиль",
+        "patronymic": "Евгеньевич",
+        "surname": "Фарукшин",
+        "gotQuestionsTag": 484
+      }
+    ],
+    "difficultyForecast": 5.5,
+    "ratingSystems": [
+      "chgkgg"
+    ],
+    "maiiRating": true,
+    "regulationsUrl": "https://docs.google.com/document/d/1FseIahmBT7Y6P3gA5sDp_IrGVvwmdcdnKmrFnKIoWec",
+    "rating": true,
+    "questionQty": {
+      "1": 15,
+      "2": 15,
+      "3": 15,
+      "4": 15,
+      "5": 15,
+      "6": 15
+    },
+    "_town_name": "Лондон"
+  },
+  {
+    "idtown": 1686,
+    "type": {
+      "id": 2,
+      "name": "Обычный",
+      "shortName": "Т"
+    },
+    "id": 4255,
+    "name": "Чемпионат Великобритании",
+    "longName": "X чемпионат Великобритании",
+    "lastEditDate": "2023-03-08T14:04:12+00:00",
+    "dateStart": "2017-04-09T11:00:00+00:00",
+    "dateEnd": "2017-04-09T15:00:00+00:00",
+    "paymentCategories": [],
+    "idseason": 50,
+    "orgcommittee": [
+      {
+        "id": 21235,
+        "name": "Ирина",
+        "patronymic": "Вячеславовна",
+        "surname": "Михлина",
+        "gotQuestionsTag": 1691
+      },
+      {
+        "id": 74520,
+        "name": "Михаил",
+        "patronymic": "Сергеевич",
+        "surname": "Карташов"
+      }
+    ],
+    "languages": [
+      {
+        "name": "Русский",
+        "id": "ru"
+      }
+    ],
+    "editors": [
+      {
+        "id": 15727,
+        "name": "Александр",
+        "patronymic": "Геннадьевич",
+        "surname": "Коробейников",
+        "gotQuestionsTag": 72
+      }
+    ],
+    "gameJury": [
+      {
+        "id": 15727,
+        "name": "Александр",
+        "patronymic": "Геннадьевич",
+        "surname": "Коробейников",
+        "gotQuestionsTag": 72
+      }
+    ],
+    "appealJury": [],
+    "trueDL": 4.9,
+    "maiiRating": false,
+    "regulationsUrl": "http://london.chgk.info/docs/championship",
+    "rating": false,
+    "questionQty": {
+      "1": 12,
+      "2": 12,
+      "3": 12,
+      "4": 12
+    },
+    "_town_name": "Кембридж"
+  },
+  {
+    "idtown": 1686,
+    "type": {
+      "id": 2,
+      "name": "Обычный",
+      "shortName": "Т"
+    },
+    "id": 4856,
+    "name": "Чемпионат Великобритании",
+    "longName": "11-й Чемпионат Великобритании ",
+    "lastEditDate": "2018-04-05T21:00:00+00:00",
+    "dateStart": "2018-04-14T10:00:00+00:00",
+    "dateEnd": "2018-04-14T14:00:00+00:00",
+    "paymentCategories": [],
+    "idseason": 51,
+    "orgcommittee": [
+      {
+        "id": 21235,
+        "name": "Ирина",
+        "patronymic": "Вячеславовна",
+        "surname": "Михлина",
+        "gotQuestionsTag": 1691
+      },
+      {
+        "id": 29896,
+        "name": "Василий",
+        "patronymic": "Александрович",
+        "surname": "Соколов"
+      },
+      {
+        "id": 74520,
+        "name": "Михаил",
+        "patronymic": "Сергеевич",
+        "surname": "Карташов"
+      },
+      {
+        "id": 75296,
+        "name": "Александра",
+        "patronymic": "Дмитриевна",
+        "surname": "Генкина"
+      },
+      {
+        "id": 124489,
+        "name": "Алексей",
+        "patronymic": "Михайлович",
+        "surname": "Комаров"
+      }
+    ],
+    "languages": [
+      {
+        "name": "Русский",
+        "id": "ru"
+      }
+    ],
+    "editors": [
+      {
+        "id": 133,
+        "name": "Андрей",
+        "patronymic": "Леонидович",
+        "surname": "Абрамов",
+        "gotQuestionsTag": 222
+      },
+      {
+        "id": 3159,
+        "name": "Илья",
+        "patronymic": "Леонидович",
+        "surname": "Бер",
+        "gotQuestionsTag": 582
+      },
+      {
+        "id": 3671,
+        "name": "Алексей",
+        "patronymic": "Алексеевич",
+        "surname": "Богословский",
+        "gotQuestionsTag": 68
+      },
+      {
+        "id": 25882,
+        "name": "Максим",
+        "patronymic": "Оскарович",
+        "surname": "Поташев",
+        "gotQuestionsTag": 198,
+        "comment": "Фамилия произносится как Поташёв"
+      }
+    ],
+    "gameJury": [
+      {
+        "id": 2547,
+        "name": "Дмитрий",
+        "patronymic": "Борисович",
+        "surname": "Барский"
+      }
+    ],
+    "appealJury": [
+      {
+        "id": 13273,
+        "name": "Екатерина",
+        "patronymic": "Александровна",
+        "surname": "Коваль",
+        "gotQuestionsTag": 6980
+      },
+      {
+        "id": 16799,
+        "name": "Александр",
+        "patronymic": "Александрович",
+        "surname": "Кудрявцев",
+        "gotQuestionsTag": 47
+      },
+      {
+        "id": 56587,
+        "name": "Олег",
+        "patronymic": "Витальевич",
+        "surname": "Овчинников",
+        "gotQuestionsTag": 821
+      }
+    ],
+    "trueDL": 5.7,
+    "ratingSystems": [
+      "mak"
+    ],
+    "maiiRating": false,
+    "regulationsUrl": "http://london.chgk.info/docs/championship",
+    "rating": false,
+    "questionQty": {
+      "1": 12,
+      "2": 12,
+      "3": 12,
+      "4": 12
+    },
+    "_town_name": "Кембридж"
+  },
+  {
+    "idtown": 1686,
+    "type": {
+      "id": 2,
+      "name": "Обычный",
+      "shortName": "Т"
+    },
+    "id": 7805,
+    "name": "Чемпионат Великобритании",
+    "longName": "XIV открытый чемпионат Великобритании",
+    "lastEditDate": "2022-05-25T09:23:17+00:00",
+    "dateStart": "2022-05-21T09:00:00+00:00",
+    "dateEnd": "2022-05-21T15:00:00+00:00",
+    "paymentCategories": [],
+    "idseason": 56,
+    "orgcommittee": [
+      {
+        "id": 22896,
+        "name": "Алексей",
+        "patronymic": "Георгиевич",
+        "surname": "Новаков",
+        "gotQuestionsTag": 8260
+      },
+      {
+        "id": 23294,
+        "name": "Руслан",
+        "patronymic": "Валентинович",
+        "surname": "Огородник",
+        "gotQuestionsTag": 3888
+      },
+      {
+        "id": 23367,
+        "name": "Борис",
+        "patronymic": "Леонидович",
+        "surname": "Окунь",
+        "gotQuestionsTag": 588
+      },
+      {
+        "id": 124489,
+        "name": "Алексей",
+        "patronymic": "Михайлович",
+        "surname": "Комаров"
+      },
+      {
+        "id": 139801,
+        "name": "Тигран",
+        "patronymic": "Артурович",
+        "surname": "Нагапетян"
+      }
+    ],
+    "languages": [
+      {
+        "name": "Русский",
+        "id": "ru"
+      }
+    ],
+    "editors": [
+      {
+        "id": 5224,
+        "name": "Тарас",
+        "patronymic": "Зиновьевич",
+        "surname": "Вахрив",
+        "gotQuestionsTag": 366
+      },
+      {
+        "id": 16799,
+        "name": "Александр",
+        "patronymic": "Александрович",
+        "surname": "Кудрявцев",
+        "gotQuestionsTag": 47
+      },
+      {
+        "id": 46788,
+        "name": "Александр",
+        "patronymic": "Владимирович",
+        "surname": "Мерзликин",
+        "gotQuestionsTag": 365
+      },
+      {
+        "id": 51715,
+        "name": "Анвар",
+        "patronymic": "Саматович",
+        "surname": "Мухаметкалиев",
+        "gotQuestionsTag": 48
+      }
+    ],
+    "gameJury": [
+      {
+        "id": 139801,
+        "name": "Тигран",
+        "patronymic": "Артурович",
+        "surname": "Нагапетян"
+      },
+      {
+        "id": 168451,
+        "name": "Александра",
+        "patronymic": "",
+        "surname": "Ветрова"
+      }
+    ],
+    "appealJury": [
+      {
+        "id": 28948,
+        "name": "Евгений",
+        "patronymic": "Олегович",
+        "surname": "Сибиряк",
+        "gotQuestionsTag": 898
+      },
+      {
+        "id": 29516,
+        "name": "Дмитрий",
+        "patronymic": "Сергеевич",
+        "surname": "Слободянюк",
+        "gotQuestionsTag": 359
+      },
+      {
+        "id": 30879,
+        "name": "Андрей",
+        "patronymic": "Александрович",
+        "surname": "Супранович",
+        "gotQuestionsTag": 10247
+      }
+    ],
+    "trueDL": 5.21858,
+    "difficultyForecast": 5,
+    "ratingSystems": [
+      "chgkgg"
+    ],
+    "maiiRating": true,
+    "regulationsUrl": "http://london.chgk.info/chv_regl_2022/",
+    "rating": true,
+    "questionQty": {
+      "1": 15,
+      "2": 15,
+      "3": 15,
+      "4": 15
+    },
+    "_town_name": "Кембридж"
+  },
+  {
+    "idtown": 1686,
+    "type": {
+      "id": 2,
+      "name": "Обычный",
+      "shortName": "Т"
+    },
+    "id": 9038,
+    "name": "XV Открытый Чемпионат Великобритании по Интеллектуальным Играм",
+    "longName": "XV Чемпионат Великобритании по Интеллектуальным Играм",
+    "lastEditDate": "2024-01-16T23:04:29+00:00",
+    "dateStart": "2023-05-27T08:00:00+00:00",
+    "dateEnd": "2023-05-27T15:00:00+00:00",
+    "paymentCategories": [],
+    "idseason": 57,
+    "orgcommittee": [
+      {
+        "id": 22896,
+        "name": "Алексей",
+        "patronymic": "Георгиевич",
+        "surname": "Новаков",
+        "gotQuestionsTag": 8260
+      },
+      {
+        "id": 23367,
+        "name": "Борис",
+        "patronymic": "Леонидович",
+        "surname": "Окунь",
+        "gotQuestionsTag": 588
+      },
+      {
+        "id": 124489,
+        "name": "Алексей",
+        "patronymic": "Михайлович",
+        "surname": "Комаров"
+      },
+      {
+        "id": 139801,
+        "name": "Тигран",
+        "patronymic": "Артурович",
+        "surname": "Нагапетян"
+      },
+      {
+        "id": 188961,
+        "name": "Дмитрий",
+        "patronymic": "Олегович",
+        "surname": "Матов"
+      }
+    ],
+    "languages": [
+      {
+        "name": "Русский",
+        "id": "ru"
+      }
+    ],
+    "editors": [
+      {
+        "id": 133,
+        "name": "Андрей",
+        "patronymic": "Леонидович",
+        "surname": "Абрамов",
+        "gotQuestionsTag": 222
+      },
+      {
+        "id": 3159,
+        "name": "Илья",
+        "patronymic": "Леонидович",
+        "surname": "Бер",
+        "gotQuestionsTag": 582
+      },
+      {
+        "id": 3671,
+        "name": "Алексей",
+        "patronymic": "Алексеевич",
+        "surname": "Богословский",
+        "gotQuestionsTag": 68
+      },
+      {
+        "id": 21487,
+        "name": "Борис",
+        "patronymic": "Яковлевич",
+        "surname": "Моносов",
+        "gotQuestionsTag": 71
+      }
+    ],
+    "gameJury": [
+      {
+        "id": 72978,
+        "name": "Александр",
+        "patronymic": "",
+        "surname": "Смотров"
+      },
+      {
+        "id": 244096,
+        "name": "Александра",
+        "patronymic": "",
+        "surname": "Ветрова"
+      }
+    ],
+    "appealJury": [
+      {
+        "id": 22482,
+        "name": "Роман",
+        "patronymic": "Борисович",
+        "surname": "Немучинский",
+        "gotQuestionsTag": 2171
+      },
+      {
+        "id": 28948,
+        "name": "Евгений",
+        "patronymic": "Олегович",
+        "surname": "Сибиряк",
+        "gotQuestionsTag": 898
+      },
+      {
+        "id": 29516,
+        "name": "Дмитрий",
+        "patronymic": "Сергеевич",
+        "surname": "Слободянюк",
+        "gotQuestionsTag": 359
+      }
+    ],
+    "trueDL": 5.28267,
+    "difficultyForecast": 5,
+    "ratingSystems": [
+      "chgkgg"
+    ],
+    "maiiRating": true,
+    "regulationsUrl": "",
+    "rating": true,
+    "questionQty": {
+      "1": 15,
+      "2": 15,
+      "3": 15,
+      "4": 15
+    },
+    "_town_name": "Кембридж"
+  }
+]

@@ -20221,7 +20221,7 @@
       "id": 13612,
       "name": "Чемпионат Великобритании",
       "longName": "XVIII Открытый чемпионат Великобритании по интеллектуальным играм",
-      "lastEditDate": "2026-05-16T03:05:02+00:00",
+      "lastEditDate": "2026-05-18T08:58:42+00:00",
       "dateStart": "2026-05-16T07:00:00+00:00",
       "dateEnd": "2026-05-17T14:00:00+00:00",
       "paymentCategories": [],
@@ -20436,166 +20436,166 @@
     "results": [
       {
         "team": {
-          "id": 6651,
-          "name": "Жрецы Хамона",
+          "id": 79988,
+          "name": "Совет в Финчлях",
           "town": {
             "id": 178,
             "name": "Лондон"
           }
         },
         "current": {
-          "name": "Жрецы Хамона",
+          "name": "Совет в Финчлях",
           "town": {
             "id": 178,
             "name": "Лондон"
           }
         },
-        "questionsTotal": null,
+        "questionsTotal": 65,
         "synchRequest": null,
-        "position": 9999,
+        "position": 1,
         "flags": [],
         "teamMembers": [
           {
-            "flag": "Б",
-            "rating": 5983,
+            "flag": null,
+            "rating": 7568,
             "player": {
-              "id": 118126,
-              "name": "Дмитрий",
+              "id": 42945,
+              "name": "Никита",
               "patronymic": "Юрьевич",
-              "surname": "Былинович"
+              "surname": "Иоффе"
             }
           },
           {
             "flag": "Б",
-            "rating": 6383,
+            "rating": 10031,
             "player": {
-              "id": 83268,
-              "name": "Мария",
-              "patronymic": "Николаевна",
-              "surname": "Тимохова"
+              "id": 29943,
+              "name": "Ирина",
+              "patronymic": "Сергеевна",
+              "surname": "Соколова"
             }
           },
           {
             "flag": "Б",
-            "rating": 5966,
+            "rating": 10782,
             "player": {
-              "id": 72498,
-              "name": "Алёна",
-              "patronymic": "Алексеевна",
-              "surname": "Тарасова"
+              "id": 23367,
+              "name": "Борис",
+              "patronymic": "Леонидович",
+              "surname": "Окунь"
             }
           },
           {
             "flag": "Б",
-            "rating": 6447,
+            "rating": 11501,
             "player": {
-              "id": 54758,
-              "name": "Дарья",
-              "patronymic": "Андреевна",
-              "surname": "Румянцева"
+              "id": 18540,
+              "name": "Константин",
+              "patronymic": "Михайлович",
+              "surname": "Лихоманов"
+            }
+          },
+          {
+            "flag": null,
+            "rating": 9308,
+            "player": {
+              "id": 18132,
+              "name": "Николай",
+              "patronymic": "Леонидович",
+              "surname": "Лёгенький"
             }
           },
           {
             "flag": "Б",
-            "rating": 6383,
+            "rating": 10470,
             "player": {
-              "id": 30460,
-              "name": "Дмитрий",
-              "patronymic": "Петрович",
-              "surname": "Степаненко"
-            }
-          },
-          {
-            "flag": "Б",
-            "rating": 6155,
-            "player": {
-              "id": 21603,
-              "name": "Даниэлла",
-              "patronymic": "Андреевна",
-              "surname": "Лернер"
+              "id": 11627,
+              "name": "Андрей",
+              "patronymic": "Илдарович",
+              "surname": "Зеленеев"
             }
           }
         ]
       },
       {
         "team": {
-          "id": 39258,
-          "name": "Британские учёные",
+          "id": 98778,
+          "name": "Council faces the wrath of the tulip grove defende",
           "town": {
-            "id": 1686,
-            "name": "Кембридж"
+            "id": 449,
+            "name": "сборная"
           }
         },
         "current": {
-          "name": "Британские учёные",
+          "name": "Tulip grove defenders",
           "town": {
-            "id": 1686,
-            "name": "Кембридж"
+            "id": 449,
+            "name": "сборная"
           }
         },
-        "questionsTotal": null,
+        "questionsTotal": 61,
         "synchRequest": null,
-        "position": 9999,
+        "position": 2,
         "flags": [],
         "teamMembers": [
           {
-            "flag": "Б",
-            "rating": 8776,
+            "flag": null,
+            "rating": 10463,
             "player": {
-              "id": 131120,
-              "name": "Филипп",
+              "id": 77673,
+              "name": "Михаил",
+              "patronymic": "Константинович",
+              "surname": "Папков"
+            }
+          },
+          {
+            "flag": null,
+            "rating": 10898,
+            "player": {
+              "id": 71907,
+              "name": "Елизавета",
+              "patronymic": "Алексеевна",
+              "surname": "Короткова"
+            }
+          },
+          {
+            "flag": null,
+            "rating": 11007,
+            "player": {
+              "id": 54136,
+              "name": "Амаль",
+              "patronymic": "Бахтиёрович",
+              "surname": "Имангулов"
+            }
+          },
+          {
+            "flag": "Л",
+            "rating": 9353,
+            "player": {
+              "id": 26911,
+              "name": "Александр",
               "patronymic": "Александрович",
-              "surname": "Устинов"
+              "surname": "Фингеров"
             }
           },
           {
-            "flag": "Б",
-            "rating": 8412,
+            "flag": null,
+            "rating": 3256,
             "player": {
-              "id": 128087,
-              "name": "Руслан",
-              "patronymic": "Алексеевич",
-              "surname": "Котляров"
+              "id": 21428,
+              "name": "Вадим",
+              "patronymic": "Семёнович",
+              "surname": "Молдавский"
             }
           },
           {
-            "flag": "Б",
-            "rating": 8802,
+            "flag": null,
+            "rating": 11036,
             "player": {
-              "id": 125555,
-              "name": "Татьяна",
-              "patronymic": "Юрьевна",
-              "surname": "Устинова"
-            }
-          },
-          {
-            "flag": "Б",
-            "rating": 9102,
-            "player": {
-              "id": 96552,
-              "name": "Илья",
-              "patronymic": "Сергеевич",
-              "surname": "Кайсин"
-            }
-          },
-          {
-            "flag": "Б",
-            "rating": 8796,
-            "player": {
-              "id": 26166,
-              "name": "Станислав",
-              "patronymic": "Игоревич",
-              "surname": "Протасов"
-            }
-          },
-          {
-            "flag": "Б",
-            "rating": 9280,
-            "player": {
-              "id": 5056,
-              "name": "Юлия",
-              "patronymic": "Александровна",
-              "surname": "Затуловская"
+              "id": 19428,
+              "name": "Николай",
+              "patronymic": "Викторович",
+              "surname": "Максимов"
             }
           }
         ]
@@ -20616,9 +20616,9 @@
             "name": "Лондон"
           }
         },
-        "questionsTotal": null,
+        "questionsTotal": 61,
         "synchRequest": null,
-        "position": 9999,
+        "position": 3,
         "flags": [],
         "teamMembers": [
           {
@@ -20685,352 +20685,435 @@
       },
       {
         "team": {
-          "id": 52101,
-          "name": "Бар и бал",
+          "id": 105990,
+          "name": "Надо подкачаться",
           "town": {
-            "id": 178,
-            "name": "Лондон"
+            "id": 449,
+            "name": "сборная"
           }
         },
         "current": {
-          "name": "Бар и бал",
+          "name": "Надо подкачаться",
           "town": {
-            "id": 178,
-            "name": "Лондон"
+            "id": 449,
+            "name": "сборная"
           }
         },
-        "questionsTotal": null,
+        "questionsTotal": 60,
         "synchRequest": null,
-        "position": 9999,
+        "position": 4,
         "flags": [],
         "teamMembers": [
           {
-            "flag": "Б",
-            "rating": 8592,
+            "flag": null,
+            "rating": 9665,
             "player": {
-              "id": 197676,
-              "name": "Максим",
-              "patronymic": "Сергеевич",
-              "surname": "Волнухин"
-            }
-          },
-          {
-            "flag": "Б",
-            "rating": 7687,
-            "player": {
-              "id": 181811,
-              "name": "Эрика",
-              "patronymic": "",
-              "surname": "Кириченко"
-            }
-          },
-          {
-            "flag": "Б",
-            "rating": 8745,
-            "player": {
-              "id": 140910,
-              "name": "Илья",
-              "patronymic": "Александрович",
-              "surname": "Лопатин"
-            }
-          },
-          {
-            "flag": "Б",
-            "rating": 7984,
-            "player": {
-              "id": 86751,
-              "name": "Роман",
-              "patronymic": "Викторович",
-              "surname": "Шаповалов"
-            }
-          },
-          {
-            "flag": "Б",
-            "rating": 7987,
-            "player": {
-              "id": 62312,
-              "name": "Александр",
-              "patronymic": "Александрович",
-              "surname": "Воронов"
-            }
-          },
-          {
-            "flag": "Б",
-            "rating": 8659,
-            "player": {
-              "id": 20891,
-              "name": "Ирина",
-              "patronymic": "Борисовна",
-              "surname": "Миндлина"
-            }
-          },
-          {
-            "flag": "Б",
-            "rating": 6264,
-            "player": {
-              "id": 9056,
-              "name": "Ольга",
-              "patronymic": "Никифоровна",
-              "surname": "Демидова"
-            }
-          }
-        ]
-      },
-      {
-        "team": {
-          "id": 53559,
-          "name": "Фантомас разбушевался",
-          "town": {
-            "id": 1709,
-            "name": "Париж"
-          }
-        },
-        "current": {
-          "name": "Фантомас разбушевался",
-          "town": {
-            "id": 1709,
-            "name": "Париж"
-          }
-        },
-        "questionsTotal": null,
-        "synchRequest": null,
-        "position": 9999,
-        "flags": [],
-        "teamMembers": [
-          {
-            "flag": "Б",
-            "rating": 5708,
-            "player": {
-              "id": 126000,
-              "name": "Никита",
-              "patronymic": "Александрович",
-              "surname": "Лепейко"
-            }
-          },
-          {
-            "flag": "Б",
-            "rating": 6222,
-            "player": {
-              "id": 41111,
-              "name": "Антон",
-              "patronymic": "Олегович",
-              "surname": "Стародинов"
-            }
-          },
-          {
-            "flag": "Б",
-            "rating": 6873,
-            "player": {
-              "id": 39055,
-              "name": "Ксения",
-              "patronymic": "Валерьевна",
-              "surname": "Крондо"
-            }
-          },
-          {
-            "flag": "Б",
-            "rating": 6152,
-            "player": {
-              "id": 16208,
-              "name": "Вячеслав",
-              "patronymic": "Анатольевич",
-              "surname": "Кочурко"
-            }
-          },
-          {
-            "flag": "Б",
-            "rating": 6172,
-            "player": {
-              "id": 12245,
-              "name": "Лилия",
-              "patronymic": "Альбертовна",
-              "surname": "Иванова"
+              "id": 217114,
+              "name": "Николай",
+              "patronymic": "Андреевич",
+              "surname": "Арчак"
             }
           },
           {
             "flag": null,
-            "rating": 6732,
+            "rating": 9115,
             "player": {
-              "id": 9059,
-              "name": "Фёдор",
-              "patronymic": "Валерьевич",
-              "surname": "Демидович"
-            }
-          }
-        ]
-      },
-      {
-        "team": {
-          "id": 58915,
-          "name": "Томагавк",
-          "town": {
-            "id": 1925,
-            "name": "Дублин"
-          }
-        },
-        "current": {
-          "name": "Сборная Ирландии",
-          "town": {
-            "id": 1925,
-            "name": "Дублин"
-          }
-        },
-        "questionsTotal": null,
-        "synchRequest": null,
-        "position": 9999,
-        "flags": [],
-        "teamMembers": [
-          {
-            "flag": "Б",
-            "rating": 6347,
-            "player": {
-              "id": 273847,
-              "name": "Степан",
-              "patronymic": "Сергеевич",
-              "surname": "Колесников"
+              "id": 175797,
+              "name": "Екатерина",
+              "patronymic": "Александровна",
+              "surname": "Александровская"
             }
           },
           {
             "flag": "Л",
-            "rating": 5848,
+            "rating": 9738,
             "player": {
-              "id": 138858,
-              "name": "Денис",
-              "patronymic": "Александрович",
-              "surname": "Вшивков"
+              "id": 31400,
+              "name": "Дмитрий",
+              "patronymic": "Борисович",
+              "surname": "Тейтельман"
             }
           },
           {
-            "flag": "Б",
-            "rating": 6948,
+            "flag": "Л",
+            "rating": 9343,
             "player": {
-              "id": 26274,
+              "id": 29521,
+              "name": "Дмитрий",
+              "patronymic": "Александрович",
+              "surname": "Слоущ"
+            }
+          },
+          {
+            "flag": "Л",
+            "rating": 9451,
+            "player": {
+              "id": 18277,
               "name": "Елена",
               "patronymic": "Александровна",
-              "surname": "Пугачёва"
-            }
-          },
-          {
-            "flag": "Б",
-            "rating": 6848,
-            "player": {
-              "id": 26269,
-              "name": "Александр",
-              "patronymic": "Юрьевич",
-              "surname": "Пугачёв"
-            }
-          },
-          {
-            "flag": "Б",
-            "rating": 6948,
-            "player": {
-              "id": 24146,
-              "name": "Артур",
-              "patronymic": "Михайлович",
-              "surname": "Панюков"
+              "surname": "Лесных"
             }
           },
           {
             "flag": "Л",
-            "rating": 4469,
+            "rating": 9575,
             "player": {
-              "id": 14419,
-              "name": "Алексей",
-              "patronymic": "Владимирович",
-              "surname": "Климов"
+              "id": 2033,
+              "name": "Вардан",
+              "patronymic": "Петрович",
+              "surname": "Багирян"
             }
           }
         ]
       },
       {
         "team": {
-          "id": 59746,
-          "name": "Три топора",
+          "id": 98414,
+          "name": "Acquired Taste",
           "town": {
             "id": 178,
             "name": "Лондон"
           }
         },
         "current": {
-          "name": "Три топора",
+          "name": "Acquired Taste",
           "town": {
             "id": 178,
             "name": "Лондон"
           }
         },
-        "questionsTotal": null,
+        "questionsTotal": 51,
         "synchRequest": null,
-        "position": 9999,
+        "position": 5,
         "flags": [],
         "teamMembers": [
           {
             "flag": "Б",
-            "rating": 2106,
+            "rating": 8895,
             "player": {
-              "id": 310265,
+              "id": 194916,
+              "name": "Андрей",
+              "patronymic": "Алексеевич",
+              "surname": "Колосов"
+            }
+          },
+          {
+            "flag": "Б",
+            "rating": 9618,
+            "player": {
+              "id": 140465,
+              "name": "Михаил",
+              "patronymic": "Валентинович",
+              "surname": "Пенкин"
+            }
+          },
+          {
+            "flag": "Б",
+            "rating": 9656,
+            "player": {
+              "id": 95648,
+              "name": "Лидия",
+              "patronymic": "Дмитриевна",
+              "surname": "Колесниченко"
+            }
+          },
+          {
+            "flag": "Б",
+            "rating": 9606,
+            "player": {
+              "id": 86903,
+              "name": "Анастасия",
+              "patronymic": "Вячеславовна",
+              "surname": "Максимовских"
+            }
+          },
+          {
+            "flag": "Б",
+            "rating": 8936,
+            "player": {
+              "id": 71033,
+              "name": "Анастасия",
+              "patronymic": "Владимировна",
+              "surname": "Гордеева"
+            }
+          },
+          {
+            "flag": "Б",
+            "rating": 6459,
+            "player": {
+              "id": 7861,
+              "name": "Максим",
+              "patronymic": "Максимович",
+              "surname": "Горюнов"
+            }
+          }
+        ]
+      },
+      {
+        "team": {
+          "id": 107646,
+          "name": "Инвертированный вингер",
+          "town": {
+            "id": 178,
+            "name": "Лондон"
+          }
+        },
+        "current": {
+          "name": "Инвертированный вингер",
+          "town": {
+            "id": 178,
+            "name": "Лондон"
+          }
+        },
+        "questionsTotal": 50,
+        "synchRequest": null,
+        "position": 6,
+        "flags": [],
+        "teamMembers": [
+          {
+            "flag": "Л",
+            "rating": 9675,
+            "player": {
+              "id": 74413,
+              "name": "Елизавета",
+              "patronymic": "Сергеевна",
+              "surname": "Вахранёва"
+            }
+          },
+          {
+            "flag": null,
+            "rating": 9556,
+            "player": {
+              "id": 67304,
               "name": "Антон",
-              "patronymic": "Петрович",
-              "surname": "Цветов"
+              "patronymic": "Алексеевич",
+              "surname": "Малютин"
             }
           },
           {
             "flag": "Л",
-            "rating": 6455,
+            "rating": 10579,
             "player": {
-              "id": 269405,
+              "id": 26988,
+              "name": "Дмитрий",
+              "patronymic": "Александрович",
+              "surname": "Родионов"
+            }
+          },
+          {
+            "flag": null,
+            "rating": 2856,
+            "player": {
+              "id": 11418,
+              "name": "Ольга",
+              "patronymic": "Викторовна",
+              "surname": "Родионова"
+            }
+          },
+          {
+            "flag": null,
+            "rating": 9749,
+            "player": {
+              "id": 8915,
               "name": "Михаил",
-              "patronymic": "Андреевич",
-              "surname": "Кольцов"
+              "patronymic": "Эдуардович",
+              "surname": "Дворкин"
             }
           },
           {
-            "flag": "Б",
-            "rating": 2012,
+            "flag": "Л",
+            "rating": 9807,
             "player": {
-              "id": 154374,
-              "name": "Яна",
-              "patronymic": "Юрьевна",
-              "surname": "Волнова"
+              "id": 3438,
+              "name": "Игорь",
+              "patronymic": "Владимирович",
+              "surname": "Биткин"
+            }
+          }
+        ]
+      },
+      {
+        "team": {
+          "id": 80378,
+          "name": "Кладбище Пьер Ришар",
+          "town": {
+            "id": 2154,
+            "name": "Лимасол"
+          }
+        },
+        "current": {
+          "name": "Кладбище Пьер Ришар",
+          "town": {
+            "id": 2154,
+            "name": "Лимасол"
+          }
+        },
+        "questionsTotal": 47,
+        "synchRequest": null,
+        "position": 7,
+        "flags": [],
+        "teamMembers": [
+          {
+            "flag": "Л",
+            "rating": 8796,
+            "player": {
+              "id": 298781,
+              "name": "Софья",
+              "patronymic": "Дмитриевна",
+              "surname": "Евдокимова"
             }
           },
           {
-            "flag": "Б",
-            "rating": 2212,
+            "flag": "Л",
+            "rating": 9201,
             "player": {
-              "id": 154372,
-              "name": "Сергей",
-              "patronymic": "Евгеньевич",
-              "surname": "Волнов"
-            }
-          },
-          {
-            "flag": "Б",
-            "rating": 3385,
-            "player": {
-              "id": 129435,
-              "name": "Георгий",
-              "patronymic": "Евгеньевич",
-              "surname": "Горохов"
-            }
-          },
-          {
-            "flag": "Б",
-            "rating": 3977,
-            "player": {
-              "id": 31200,
-              "name": "Мария",
-              "patronymic": "Сергеевна",
-              "surname": "Танатар"
-            }
-          },
-          {
-            "flag": "Б",
-            "rating": 2940,
-            "player": {
-              "id": 14332,
-              "name": "Евгений",
+              "id": 185610,
+              "name": "Станислав",
               "patronymic": "",
-              "surname": "Клебанов"
+              "surname": "Керженцев"
+            }
+          },
+          {
+            "flag": "Б",
+            "rating": 9524,
+            "player": {
+              "id": 166429,
+              "name": "Александр",
+              "patronymic": "",
+              "surname": "Чернецкий"
+            }
+          },
+          {
+            "flag": "Б",
+            "rating": 9524,
+            "player": {
+              "id": 150950,
+              "name": "Кирилл",
+              "patronymic": "Сергеевич",
+              "surname": "Люшинский"
+            }
+          },
+          {
+            "flag": "Л",
+            "rating": 8330,
+            "player": {
+              "id": 144312,
+              "name": "Александр",
+              "patronymic": "Алексеевич",
+              "surname": "Рябов"
+            }
+          },
+          {
+            "flag": "Б",
+            "rating": 10092,
+            "player": {
+              "id": 54316,
+              "name": "Евгений",
+              "patronymic": "Валерьевич",
+              "surname": "Елесин"
+            }
+          }
+        ]
+      },
+      {
+        "team": {
+          "id": 92213,
+          "name": "Awkward",
+          "town": {
+            "id": 178,
+            "name": "Лондон"
+          }
+        },
+        "current": {
+          "name": "Awkward",
+          "town": {
+            "id": 178,
+            "name": "Лондон"
+          }
+        },
+        "questionsTotal": 46,
+        "synchRequest": null,
+        "position": 8,
+        "flags": [],
+        "teamMembers": [
+          {
+            "flag": null,
+            "rating": 0,
+            "player": {
+              "id": 344902,
+              "name": "Вадим",
+              "patronymic": "",
+              "surname": "Великодный"
+            }
+          },
+          {
+            "flag": "Л",
+            "rating": 5187,
+            "player": {
+              "id": 332545,
+              "name": "Марк",
+              "patronymic": "Александрович",
+              "surname": "Недашковский"
+            }
+          },
+          {
+            "flag": null,
+            "rating": 8019,
+            "player": {
+              "id": 149757,
+              "name": "Анастасия",
+              "patronymic": "Анатольевна",
+              "surname": "Шведова"
+            }
+          },
+          {
+            "flag": null,
+            "rating": 6054,
+            "player": {
+              "id": 147545,
+              "name": "Любава",
+              "patronymic": "Викторовна",
+              "surname": "Малышева"
+            }
+          },
+          {
+            "flag": null,
+            "rating": 7273,
+            "player": {
+              "id": 139801,
+              "name": "Тигран",
+              "patronymic": "Артурович",
+              "surname": "Нагапетян"
+            }
+          },
+          {
+            "flag": "Л",
+            "rating": 3006,
+            "player": {
+              "id": 61750,
+              "name": "Галина",
+              "patronymic": "Германовна",
+              "surname": "Полтаева"
+            }
+          },
+          {
+            "flag": "Б",
+            "rating": 9287,
+            "player": {
+              "id": 48340,
+              "name": "Юлия",
+              "patronymic": "Сергеевна",
+              "surname": "Мещерякова"
+            }
+          },
+          {
+            "flag": "Б",
+            "rating": 10045,
+            "player": {
+              "id": 2888,
+              "name": "Айдар",
+              "patronymic": "Маратович",
+              "surname": "Бекчинтаев"
             }
           }
         ]
@@ -21051,9 +21134,9 @@
             "name": "Лондон"
           }
         },
-        "questionsTotal": null,
+        "questionsTotal": 43,
         "synchRequest": null,
-        "position": 9999,
+        "position": 9,
         "flags": [],
         "teamMembers": [
           {
@@ -21130,166 +21213,425 @@
       },
       {
         "team": {
-          "id": 79988,
-          "name": "Совет в Финчлях",
+          "id": 53559,
+          "name": "Фантомас разбушевался",
           "town": {
-            "id": 178,
-            "name": "Лондон"
+            "id": 1709,
+            "name": "Париж"
           }
         },
         "current": {
-          "name": "Совет в Финчлях",
+          "name": "Фантомас разбушевался",
           "town": {
-            "id": 178,
-            "name": "Лондон"
+            "id": 1709,
+            "name": "Париж"
           }
         },
-        "questionsTotal": null,
+        "questionsTotal": 42,
         "synchRequest": null,
-        "position": 9999,
+        "position": 10,
         "flags": [],
         "teamMembers": [
           {
-            "flag": null,
-            "rating": 7568,
+            "flag": "Б",
+            "rating": 5708,
             "player": {
-              "id": 42945,
+              "id": 126000,
               "name": "Никита",
-              "patronymic": "Юрьевич",
-              "surname": "Иоффе"
+              "patronymic": "Александрович",
+              "surname": "Лепейко"
             }
           },
           {
             "flag": "Б",
-            "rating": 10031,
+            "rating": 6222,
             "player": {
-              "id": 29943,
-              "name": "Ирина",
-              "patronymic": "Сергеевна",
-              "surname": "Соколова"
+              "id": 41111,
+              "name": "Антон",
+              "patronymic": "Олегович",
+              "surname": "Стародинов"
             }
           },
           {
             "flag": "Б",
-            "rating": 10782,
+            "rating": 6873,
             "player": {
-              "id": 23367,
-              "name": "Борис",
-              "patronymic": "Леонидович",
-              "surname": "Окунь"
+              "id": 39055,
+              "name": "Ксения",
+              "patronymic": "Валерьевна",
+              "surname": "Крондо"
             }
           },
           {
             "flag": "Б",
-            "rating": 11501,
+            "rating": 6152,
             "player": {
-              "id": 18540,
-              "name": "Константин",
-              "patronymic": "Михайлович",
-              "surname": "Лихоманов"
+              "id": 16208,
+              "name": "Вячеслав",
+              "patronymic": "Анатольевич",
+              "surname": "Кочурко"
+            }
+          },
+          {
+            "flag": "Б",
+            "rating": 6172,
+            "player": {
+              "id": 12245,
+              "name": "Лилия",
+              "patronymic": "Альбертовна",
+              "surname": "Иванова"
             }
           },
           {
             "flag": null,
-            "rating": 9308,
+            "rating": 6732,
             "player": {
-              "id": 18132,
-              "name": "Николай",
-              "patronymic": "Леонидович",
-              "surname": "Лёгенький"
-            }
-          },
-          {
-            "flag": "Б",
-            "rating": 10464,
-            "player": {
-              "id": 11627,
-              "name": "Андрей",
-              "patronymic": "Илдарович",
-              "surname": "Зеленеев"
+              "id": 9059,
+              "name": "Фёдор",
+              "patronymic": "Валерьевич",
+              "surname": "Демидович"
             }
           }
         ]
       },
       {
         "team": {
-          "id": 80378,
-          "name": "Кладбище Пьер Ришар",
+          "id": 6651,
+          "name": "Жрецы Хамона",
           "town": {
-            "id": 2154,
-            "name": "Лимасол"
+            "id": 178,
+            "name": "Лондон"
           }
         },
         "current": {
-          "name": "Кладбище Пьер Ришар",
+          "name": "Жрецы Хамона",
           "town": {
-            "id": 2154,
-            "name": "Лимасол"
+            "id": 178,
+            "name": "Лондон"
           }
         },
-        "questionsTotal": null,
+        "questionsTotal": 41,
         "synchRequest": null,
-        "position": 9999,
+        "position": 11,
         "flags": [],
         "teamMembers": [
           {
-            "flag": "Л",
+            "flag": "Б",
+            "rating": 5983,
+            "player": {
+              "id": 118126,
+              "name": "Дмитрий",
+              "patronymic": "Юрьевич",
+              "surname": "Былинович"
+            }
+          },
+          {
+            "flag": "Б",
+            "rating": 6383,
+            "player": {
+              "id": 83268,
+              "name": "Мария",
+              "patronymic": "Николаевна",
+              "surname": "Тимохова"
+            }
+          },
+          {
+            "flag": "Б",
+            "rating": 5966,
+            "player": {
+              "id": 72498,
+              "name": "Алёна",
+              "patronymic": "Алексеевна",
+              "surname": "Тарасова"
+            }
+          },
+          {
+            "flag": "Б",
+            "rating": 6447,
+            "player": {
+              "id": 54758,
+              "name": "Дарья",
+              "patronymic": "Андреевна",
+              "surname": "Румянцева"
+            }
+          },
+          {
+            "flag": "Б",
+            "rating": 6383,
+            "player": {
+              "id": 30460,
+              "name": "Дмитрий",
+              "patronymic": "Петрович",
+              "surname": "Степаненко"
+            }
+          },
+          {
+            "flag": "Б",
+            "rating": 6155,
+            "player": {
+              "id": 21603,
+              "name": "Даниэлла",
+              "patronymic": "Андреевна",
+              "surname": "Лернер"
+            }
+          }
+        ]
+      },
+      {
+        "team": {
+          "id": 99541,
+          "name": "Кто оставил кролика с Борджиа?",
+          "town": {
+            "id": 178,
+            "name": "Лондон"
+          }
+        },
+        "current": {
+          "name": "Кто оставил кролика с Борджиа?",
+          "town": {
+            "id": 178,
+            "name": "Лондон"
+          }
+        },
+        "questionsTotal": 39,
+        "synchRequest": null,
+        "position": 12,
+        "flags": [],
+        "teamMembers": [
+          {
+            "flag": "Б",
+            "rating": 8296,
+            "player": {
+              "id": 171183,
+              "name": "Антон",
+              "patronymic": "Андреевич",
+              "surname": "Жидков"
+            }
+          },
+          {
+            "flag": "Б",
+            "rating": 9425,
+            "player": {
+              "id": 158747,
+              "name": "Амирлан",
+              "patronymic": "",
+              "surname": "Сексенбаев"
+            }
+          },
+          {
+            "flag": "Б",
+            "rating": 9451,
+            "player": {
+              "id": 115212,
+              "name": "Дарья",
+              "patronymic": "Сергеевна",
+              "surname": "Мамаева"
+            }
+          },
+          {
+            "flag": "Б",
+            "rating": 8447,
+            "player": {
+              "id": 89279,
+              "name": "Эльмира",
+              "patronymic": "Расул гызы",
+              "surname": "Раджабли"
+            }
+          },
+          {
+            "flag": "Б",
+            "rating": 8969,
+            "player": {
+              "id": 84258,
+              "name": "Александра",
+              "patronymic": "Юрьевна",
+              "surname": "Удальцова"
+            }
+          },
+          {
+            "flag": "Б",
+            "rating": 8464,
+            "player": {
+              "id": 7089,
+              "name": "Марина",
+              "patronymic": "Геннадьевна",
+              "surname": "Гладких"
+            }
+          }
+        ]
+      },
+      {
+        "team": {
+          "id": 39258,
+          "name": "Британские учёные",
+          "town": {
+            "id": 1686,
+            "name": "Кембридж"
+          }
+        },
+        "current": {
+          "name": "Британские учёные",
+          "town": {
+            "id": 1686,
+            "name": "Кембридж"
+          }
+        },
+        "questionsTotal": 38,
+        "synchRequest": null,
+        "position": 14,
+        "flags": [],
+        "teamMembers": [
+          {
+            "flag": "Б",
+            "rating": 8776,
+            "player": {
+              "id": 131120,
+              "name": "Филипп",
+              "patronymic": "Александрович",
+              "surname": "Устинов"
+            }
+          },
+          {
+            "flag": "Б",
+            "rating": 8412,
+            "player": {
+              "id": 128087,
+              "name": "Руслан",
+              "patronymic": "Алексеевич",
+              "surname": "Котляров"
+            }
+          },
+          {
+            "flag": "Б",
+            "rating": 8802,
+            "player": {
+              "id": 125555,
+              "name": "Татьяна",
+              "patronymic": "Юрьевна",
+              "surname": "Устинова"
+            }
+          },
+          {
+            "flag": "Б",
+            "rating": 9102,
+            "player": {
+              "id": 96552,
+              "name": "Илья",
+              "patronymic": "Сергеевич",
+              "surname": "Кайсин"
+            }
+          },
+          {
+            "flag": "Б",
             "rating": 8796,
             "player": {
-              "id": 298781,
-              "name": "Софья",
-              "patronymic": "Дмитриевна",
-              "surname": "Евдокимова"
-            }
-          },
-          {
-            "flag": "Л",
-            "rating": 9201,
-            "player": {
-              "id": 185610,
+              "id": 26166,
               "name": "Станислав",
-              "patronymic": "",
-              "surname": "Керженцев"
+              "patronymic": "Игоревич",
+              "surname": "Протасов"
             }
           },
           {
             "flag": "Б",
-            "rating": 9524,
+            "rating": 9280,
             "player": {
-              "id": 166429,
-              "name": "Александр",
-              "patronymic": "",
-              "surname": "Чернецкий"
+              "id": 5056,
+              "name": "Юлия",
+              "patronymic": "Александровна",
+              "surname": "Затуловская"
             }
-          },
+          }
+        ]
+      },
+      {
+        "team": {
+          "id": 52101,
+          "name": "Бар и бал",
+          "town": {
+            "id": 178,
+            "name": "Лондон"
+          }
+        },
+        "current": {
+          "name": "Бар и бал",
+          "town": {
+            "id": 178,
+            "name": "Лондон"
+          }
+        },
+        "questionsTotal": 38,
+        "synchRequest": null,
+        "position": 14,
+        "flags": [],
+        "teamMembers": [
           {
             "flag": "Б",
-            "rating": 9524,
+            "rating": 8592,
             "player": {
-              "id": 150950,
-              "name": "Кирилл",
+              "id": 197676,
+              "name": "Максим",
               "patronymic": "Сергеевич",
-              "surname": "Люшинский"
-            }
-          },
-          {
-            "flag": "Л",
-            "rating": 8330,
-            "player": {
-              "id": 144312,
-              "name": "Александр",
-              "patronymic": "Алексеевич",
-              "surname": "Рябов"
+              "surname": "Волнухин"
             }
           },
           {
             "flag": "Б",
-            "rating": 10092,
+            "rating": 7687,
             "player": {
-              "id": 54316,
-              "name": "Евгений",
-              "patronymic": "Валерьевич",
-              "surname": "Елесин"
+              "id": 181811,
+              "name": "Эрика",
+              "patronymic": "",
+              "surname": "Кириченко"
+            }
+          },
+          {
+            "flag": "Б",
+            "rating": 8745,
+            "player": {
+              "id": 140910,
+              "name": "Илья",
+              "patronymic": "Александрович",
+              "surname": "Лопатин"
+            }
+          },
+          {
+            "flag": "Б",
+            "rating": 7984,
+            "player": {
+              "id": 86751,
+              "name": "Роман",
+              "patronymic": "Викторович",
+              "surname": "Шаповалов"
+            }
+          },
+          {
+            "flag": "Б",
+            "rating": 7987,
+            "player": {
+              "id": 62312,
+              "name": "Александр",
+              "patronymic": "Александрович",
+              "surname": "Воронов"
+            }
+          },
+          {
+            "flag": "Б",
+            "rating": 8659,
+            "player": {
+              "id": 20891,
+              "name": "Ирина",
+              "patronymic": "Борисовна",
+              "surname": "Миндлина"
+            }
+          },
+          {
+            "flag": "Б",
+            "rating": 6264,
+            "player": {
+              "id": 9056,
+              "name": "Ольга",
+              "patronymic": "Никифоровна",
+              "surname": "Демидова"
             }
           }
         ]
@@ -21310,9 +21652,9 @@
             "name": "Лондон"
           }
         },
-        "questionsTotal": null,
+        "questionsTotal": 38,
         "synchRequest": null,
-        "position": 9999,
+        "position": 14,
         "flags": [],
         "teamMembers": [
           {
@@ -21379,6 +21721,182 @@
       },
       {
         "team": {
+          "id": 58915,
+          "name": "Томагавк",
+          "town": {
+            "id": 1925,
+            "name": "Дублин"
+          }
+        },
+        "current": {
+          "name": "Сборная Ирландии",
+          "town": {
+            "id": 1925,
+            "name": "Дублин"
+          }
+        },
+        "questionsTotal": 35,
+        "synchRequest": null,
+        "position": 16,
+        "flags": [],
+        "teamMembers": [
+          {
+            "flag": "Б",
+            "rating": 6347,
+            "player": {
+              "id": 273847,
+              "name": "Степан",
+              "patronymic": "Сергеевич",
+              "surname": "Колесников"
+            }
+          },
+          {
+            "flag": "Л",
+            "rating": 5854,
+            "player": {
+              "id": 138858,
+              "name": "Денис",
+              "patronymic": "Александрович",
+              "surname": "Вшивков"
+            }
+          },
+          {
+            "flag": "Б",
+            "rating": 6954,
+            "player": {
+              "id": 26274,
+              "name": "Елена",
+              "patronymic": "Александровна",
+              "surname": "Пугачёва"
+            }
+          },
+          {
+            "flag": "Б",
+            "rating": 6854,
+            "player": {
+              "id": 26269,
+              "name": "Александр",
+              "patronymic": "Юрьевич",
+              "surname": "Пугачёв"
+            }
+          },
+          {
+            "flag": "Б",
+            "rating": 6954,
+            "player": {
+              "id": 24146,
+              "name": "Артур",
+              "patronymic": "Михайлович",
+              "surname": "Панюков"
+            }
+          },
+          {
+            "flag": "Л",
+            "rating": 4469,
+            "player": {
+              "id": 14419,
+              "name": "Алексей",
+              "patronymic": "Владимирович",
+              "surname": "Климов"
+            }
+          }
+        ]
+      },
+      {
+        "team": {
+          "id": 59746,
+          "name": "Три топора",
+          "town": {
+            "id": 178,
+            "name": "Лондон"
+          }
+        },
+        "current": {
+          "name": "Три топора",
+          "town": {
+            "id": 178,
+            "name": "Лондон"
+          }
+        },
+        "questionsTotal": 33,
+        "synchRequest": null,
+        "position": 17,
+        "flags": [],
+        "teamMembers": [
+          {
+            "flag": "Б",
+            "rating": 2106,
+            "player": {
+              "id": 310265,
+              "name": "Антон",
+              "patronymic": "Петрович",
+              "surname": "Цветов"
+            }
+          },
+          {
+            "flag": "Л",
+            "rating": 6461,
+            "player": {
+              "id": 269405,
+              "name": "Михаил",
+              "patronymic": "Андреевич",
+              "surname": "Кольцов"
+            }
+          },
+          {
+            "flag": "Б",
+            "rating": 2012,
+            "player": {
+              "id": 154374,
+              "name": "Яна",
+              "patronymic": "Юрьевна",
+              "surname": "Волнова"
+            }
+          },
+          {
+            "flag": "Б",
+            "rating": 2212,
+            "player": {
+              "id": 154372,
+              "name": "Сергей",
+              "patronymic": "Евгеньевич",
+              "surname": "Волнов"
+            }
+          },
+          {
+            "flag": "Б",
+            "rating": 3385,
+            "player": {
+              "id": 129435,
+              "name": "Георгий",
+              "patronymic": "Евгеньевич",
+              "surname": "Горохов"
+            }
+          },
+          {
+            "flag": "Б",
+            "rating": 3977,
+            "player": {
+              "id": 31200,
+              "name": "Мария",
+              "patronymic": "Сергеевна",
+              "surname": "Танатар"
+            }
+          },
+          {
+            "flag": "Б",
+            "rating": 2940,
+            "player": {
+              "id": 14332,
+              "name": "Евгений",
+              "patronymic": "",
+              "surname": "Клебанов"
+            }
+          }
+        ]
+      },
+      {
+        "team": {
           "id": 87974,
           "name": "лолька димона",
           "town": {
@@ -21393,9 +21911,9 @@
             "name": "Лондон"
           }
         },
-        "questionsTotal": null,
+        "questionsTotal": 29,
         "synchRequest": null,
-        "position": 9999,
+        "position": 18,
         "flags": [],
         "teamMembers": [
           {
@@ -21462,192 +21980,6 @@
       },
       {
         "team": {
-          "id": 92213,
-          "name": "Awkward",
-          "town": {
-            "id": 178,
-            "name": "Лондон"
-          }
-        },
-        "current": {
-          "name": "Awkward",
-          "town": {
-            "id": 178,
-            "name": "Лондон"
-          }
-        },
-        "questionsTotal": null,
-        "synchRequest": null,
-        "position": 9999,
-        "flags": [],
-        "teamMembers": [
-          {
-            "flag": null,
-            "rating": 0,
-            "player": {
-              "id": 344902,
-              "name": "Вадим",
-              "patronymic": "",
-              "surname": "Великодный"
-            }
-          },
-          {
-            "flag": "Л",
-            "rating": 5187,
-            "player": {
-              "id": 332545,
-              "name": "Марк",
-              "patronymic": "Александрович",
-              "surname": "Недашковский"
-            }
-          },
-          {
-            "flag": null,
-            "rating": 8019,
-            "player": {
-              "id": 149757,
-              "name": "Анастасия",
-              "patronymic": "Анатольевна",
-              "surname": "Шведова"
-            }
-          },
-          {
-            "flag": null,
-            "rating": 6054,
-            "player": {
-              "id": 147545,
-              "name": "Любава",
-              "patronymic": "Викторовна",
-              "surname": "Малышева"
-            }
-          },
-          {
-            "flag": null,
-            "rating": 7273,
-            "player": {
-              "id": 139801,
-              "name": "Тигран",
-              "patronymic": "Артурович",
-              "surname": "Нагапетян"
-            }
-          },
-          {
-            "flag": "Л",
-            "rating": 3006,
-            "player": {
-              "id": 61750,
-              "name": "Галина",
-              "patronymic": "Германовна",
-              "surname": "Полтаева"
-            }
-          },
-          {
-            "flag": "Б",
-            "rating": 9287,
-            "player": {
-              "id": 48340,
-              "name": "Юлия",
-              "patronymic": "Сергеевна",
-              "surname": "Мещерякова"
-            }
-          },
-          {
-            "flag": "Б",
-            "rating": 10039,
-            "player": {
-              "id": 2888,
-              "name": "Айдар",
-              "patronymic": "Маратович",
-              "surname": "Бекчинтаев"
-            }
-          }
-        ]
-      },
-      {
-        "team": {
-          "id": 98414,
-          "name": "Acquired Taste",
-          "town": {
-            "id": 178,
-            "name": "Лондон"
-          }
-        },
-        "current": {
-          "name": "Acquired Taste",
-          "town": {
-            "id": 178,
-            "name": "Лондон"
-          }
-        },
-        "questionsTotal": null,
-        "synchRequest": null,
-        "position": 9999,
-        "flags": [],
-        "teamMembers": [
-          {
-            "flag": "Б",
-            "rating": 8895,
-            "player": {
-              "id": 194916,
-              "name": "Андрей",
-              "patronymic": "Алексеевич",
-              "surname": "Колосов"
-            }
-          },
-          {
-            "flag": "Б",
-            "rating": 9618,
-            "player": {
-              "id": 140465,
-              "name": "Михаил",
-              "patronymic": "Валентинович",
-              "surname": "Пенкин"
-            }
-          },
-          {
-            "flag": "Б",
-            "rating": 9656,
-            "player": {
-              "id": 95648,
-              "name": "Лидия",
-              "patronymic": "Дмитриевна",
-              "surname": "Колесниченко"
-            }
-          },
-          {
-            "flag": "Б",
-            "rating": 9606,
-            "player": {
-              "id": 86903,
-              "name": "Анастасия",
-              "patronymic": "Вячеславовна",
-              "surname": "Максимовских"
-            }
-          },
-          {
-            "flag": "Б",
-            "rating": 8936,
-            "player": {
-              "id": 71033,
-              "name": "Анастасия",
-              "patronymic": "Владимировна",
-              "surname": "Гордеева"
-            }
-          },
-          {
-            "flag": "Б",
-            "rating": 6459,
-            "player": {
-              "id": 7861,
-              "name": "Максим",
-              "patronymic": "Максимович",
-              "surname": "Горюнов"
-            }
-          }
-        ]
-      },
-      {
-        "team": {
           "id": 98702,
           "name": "Оксфордская кома",
           "town": {
@@ -21662,9 +21994,9 @@
             "name": "Оксфорд"
           }
         },
-        "questionsTotal": null,
+        "questionsTotal": 24,
         "synchRequest": null,
-        "position": 9999,
+        "position": 19,
         "flags": [],
         "teamMembers": [
           {
@@ -21755,338 +22087,6 @@
               "name": "Иван",
               "patronymic": "Владимирович",
               "surname": "Кочкин"
-            }
-          }
-        ]
-      },
-      {
-        "team": {
-          "id": 98778,
-          "name": "Council faces the wrath of the tulip grove defende",
-          "town": {
-            "id": 449,
-            "name": "сборная"
-          }
-        },
-        "current": {
-          "name": "Tulip grove defenders",
-          "town": {
-            "id": 449,
-            "name": "сборная"
-          }
-        },
-        "questionsTotal": null,
-        "synchRequest": null,
-        "position": 9999,
-        "flags": [],
-        "teamMembers": [
-          {
-            "flag": null,
-            "rating": 10463,
-            "player": {
-              "id": 77673,
-              "name": "Михаил",
-              "patronymic": "Константинович",
-              "surname": "Папков"
-            }
-          },
-          {
-            "flag": null,
-            "rating": 10898,
-            "player": {
-              "id": 71907,
-              "name": "Елизавета",
-              "patronymic": "Алексеевна",
-              "surname": "Короткова"
-            }
-          },
-          {
-            "flag": null,
-            "rating": 11001,
-            "player": {
-              "id": 54136,
-              "name": "Амаль",
-              "patronymic": "Бахтиёрович",
-              "surname": "Имангулов"
-            }
-          },
-          {
-            "flag": "Л",
-            "rating": 9353,
-            "player": {
-              "id": 26911,
-              "name": "Александр",
-              "patronymic": "Александрович",
-              "surname": "Фингеров"
-            }
-          },
-          {
-            "flag": null,
-            "rating": 3256,
-            "player": {
-              "id": 21428,
-              "name": "Вадим",
-              "patronymic": "Семёнович",
-              "surname": "Молдавский"
-            }
-          },
-          {
-            "flag": null,
-            "rating": 11036,
-            "player": {
-              "id": 19428,
-              "name": "Николай",
-              "patronymic": "Викторович",
-              "surname": "Максимов"
-            }
-          }
-        ]
-      },
-      {
-        "team": {
-          "id": 99541,
-          "name": "Кто оставил кролика с Борджиа?",
-          "town": {
-            "id": 178,
-            "name": "Лондон"
-          }
-        },
-        "current": {
-          "name": "Кто оставил кролика с Борджиа?",
-          "town": {
-            "id": 178,
-            "name": "Лондон"
-          }
-        },
-        "questionsTotal": null,
-        "synchRequest": null,
-        "position": 9999,
-        "flags": [],
-        "teamMembers": [
-          {
-            "flag": "Б",
-            "rating": 8296,
-            "player": {
-              "id": 171183,
-              "name": "Антон",
-              "patronymic": "Андреевич",
-              "surname": "Жидков"
-            }
-          },
-          {
-            "flag": "Б",
-            "rating": 9425,
-            "player": {
-              "id": 158747,
-              "name": "Амирлан",
-              "patronymic": "",
-              "surname": "Сексенбаев"
-            }
-          },
-          {
-            "flag": "Б",
-            "rating": 9445,
-            "player": {
-              "id": 115212,
-              "name": "Дарья",
-              "patronymic": "Сергеевна",
-              "surname": "Мамаева"
-            }
-          },
-          {
-            "flag": "Б",
-            "rating": 8441,
-            "player": {
-              "id": 89279,
-              "name": "Эльмира",
-              "patronymic": "Расул гызы",
-              "surname": "Раджабли"
-            }
-          },
-          {
-            "flag": "Б",
-            "rating": 8969,
-            "player": {
-              "id": 84258,
-              "name": "Александра",
-              "patronymic": "Юрьевна",
-              "surname": "Удальцова"
-            }
-          },
-          {
-            "flag": "Б",
-            "rating": 8464,
-            "player": {
-              "id": 7089,
-              "name": "Марина",
-              "patronymic": "Геннадьевна",
-              "surname": "Гладких"
-            }
-          }
-        ]
-      },
-      {
-        "team": {
-          "id": 105990,
-          "name": "Надо подкачаться",
-          "town": {
-            "id": 449,
-            "name": "сборная"
-          }
-        },
-        "current": {
-          "name": "Надо подкачаться",
-          "town": {
-            "id": 449,
-            "name": "сборная"
-          }
-        },
-        "questionsTotal": null,
-        "synchRequest": null,
-        "position": 9999,
-        "flags": [],
-        "teamMembers": [
-          {
-            "flag": null,
-            "rating": 9665,
-            "player": {
-              "id": 217114,
-              "name": "Николай",
-              "patronymic": "Андреевич",
-              "surname": "Арчак"
-            }
-          },
-          {
-            "flag": null,
-            "rating": 9115,
-            "player": {
-              "id": 175797,
-              "name": "Екатерина",
-              "patronymic": "Александровна",
-              "surname": "Александровская"
-            }
-          },
-          {
-            "flag": "Л",
-            "rating": 9738,
-            "player": {
-              "id": 31400,
-              "name": "Дмитрий",
-              "patronymic": "Борисович",
-              "surname": "Тейтельман"
-            }
-          },
-          {
-            "flag": "Л",
-            "rating": 9343,
-            "player": {
-              "id": 29521,
-              "name": "Дмитрий",
-              "patronymic": "Александрович",
-              "surname": "Слоущ"
-            }
-          },
-          {
-            "flag": "Л",
-            "rating": 9451,
-            "player": {
-              "id": 18277,
-              "name": "Елена",
-              "patronymic": "Александровна",
-              "surname": "Лесных"
-            }
-          },
-          {
-            "flag": "Л",
-            "rating": 9575,
-            "player": {
-              "id": 2033,
-              "name": "Вардан",
-              "patronymic": "Петрович",
-              "surname": "Багирян"
-            }
-          }
-        ]
-      },
-      {
-        "team": {
-          "id": 107646,
-          "name": "Инвертированный вингер",
-          "town": {
-            "id": 178,
-            "name": "Лондон"
-          }
-        },
-        "current": {
-          "name": "Инвертированный вингер",
-          "town": {
-            "id": 178,
-            "name": "Лондон"
-          }
-        },
-        "questionsTotal": null,
-        "synchRequest": null,
-        "position": 9999,
-        "flags": [],
-        "teamMembers": [
-          {
-            "flag": "Л",
-            "rating": 9675,
-            "player": {
-              "id": 74413,
-              "name": "Елизавета",
-              "patronymic": "Сергеевна",
-              "surname": "Вахранёва"
-            }
-          },
-          {
-            "flag": null,
-            "rating": 9556,
-            "player": {
-              "id": 67304,
-              "name": "Антон",
-              "patronymic": "Алексеевич",
-              "surname": "Малютин"
-            }
-          },
-          {
-            "flag": "Л",
-            "rating": 10579,
-            "player": {
-              "id": 26988,
-              "name": "Дмитрий",
-              "patronymic": "Александрович",
-              "surname": "Родионов"
-            }
-          },
-          {
-            "flag": null,
-            "rating": 2856,
-            "player": {
-              "id": 11418,
-              "name": "Ольга",
-              "patronymic": "Викторовна",
-              "surname": "Родионова"
-            }
-          },
-          {
-            "flag": null,
-            "rating": 9749,
-            "player": {
-              "id": 8915,
-              "name": "Михаил",
-              "patronymic": "Эдуардович",
-              "surname": "Дворкин"
-            }
-          },
-          {
-            "flag": "Л",
-            "rating": 9807,
-            "player": {
-              "id": 3438,
-              "name": "Игорь",
-              "patronymic": "Владимирович",
-              "surname": "Биткин"
             }
           }
         ]
