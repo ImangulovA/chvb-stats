@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🇧🇬 Чемпионат Болгарии по ЧГК -- Статистика</title>
+<style>:root {
+  --bg: #0a0e1a; --card: #151d30; --card-border: #1e2a45;
+  --text: #e0e6f0; --text-muted: #8892a8; --accent: #1877F2;
+  --gold: #f59e0b; --silver: #94a3b8; --bronze: #cd7f32;
+  --green: #02e2ac; --red: #ef4444; --purple: #a855f7; --country-badge: #1877F2;
+}
+[data-theme="light"] {
+  --bg: #f0f2f5; --card: #ffffff; --card-border: #dde1e6;
+  --text: #1c1e21; --text-muted: #65676b; --accent: #1877F2;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; }
+.container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+header { background: linear-gradient(135deg, #0a1628 0%, #162544 100%); padding: 40px 20px; text-align: center; border-bottom: 3px solid var(--accent); }
+[data-theme="light"] header { background: linear-gradient(135deg, #e8f0fe 0%, #d2e3fc 100%); }
+header h1 { font-size: 2em; margin-bottom: 8px; }
+header h1 span { color: var(--accent); }
+header p { color: var(--text-muted); font-size: 1.1em; }
+.theme-toggle { position: fixed; top: 16px; right: 16px; z-index: 100; background: var(--card); border: 1px solid var(--card-border); color: var(--text); padding: 8px 14px; border-radius: 20px; cursor: pointer; font-size: 14px; }
+nav { position: sticky; top: 0; z-index: 50; background: var(--card); border-bottom: 1px solid var(--card-border); padding: 10px 20px; display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+nav a { color: var(--text-muted); text-decoration: none; padding: 6px 14px; border-radius: 16px; font-size: 13px; transition: all 0.2s; }
+nav a:hover, nav a.active { background: var(--accent); color: #fff; }
+.card { background: var(--card); border: 1px solid var(--card-border); border-radius: 12px; padding: 24px; margin-bottom: 20px; }
+.card h2 { font-size: 1.3em; margin-bottom: 16px; color: var(--accent); }
+.card h3 { font-size: 1.1em; margin: 16px 0 8px; }
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 20px; }
+.stat-box { background: var(--bg); border-radius: 8px; padding: 16px; text-align: center; }
+.stat-box .num { font-size: 2em; font-weight: 700; color: var(--accent); }
+.stat-box .label { font-size: 0.85em; color: var(--text-muted); }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th { text-align: left; padding: 8px 10px; border-bottom: 2px solid var(--card-border); color: var(--text-muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+td { padding: 6px 10px; border-bottom: 1px solid var(--card-border); }
+tr:hover { background: rgba(24,119,242,0.05); }
+tr.hidden { display: none; }
+.pos { font-weight: 700; width: 40px; text-align: center; }
+.score { text-align: right; font-weight: 600; }
+.country-badge { display: inline-block; background: var(--country-badge); color: #fff; font-size: 10px; padding: 1px 6px; border-radius: 8px; margin-left: 4px; }
+.team-name { font-weight: 500; }
+.town { color: var(--text-muted); font-size: 13px; }
+.year-tag { display: inline-block; background: var(--bg); padding: 2px 8px; border-radius: 10px; font-size: 12px; margin: 1px; }
+.bar-row { display: flex; align-items: center; margin: 4px 0; gap: 8px; }
+.bar-row.hidden { display: none; }
+.bar-label { min-width: 180px; font-size: 13px; text-align: right; }
+.bar-track { flex: 1; height: 24px; background: var(--bg); border-radius: 4px; overflow: hidden; position: relative; }
+.bar { height: 100%; border-radius: 4px; transition: width 0.5s; }
+.bar-value { font-size: 12px; min-width: 30px; font-weight: 600; }
+section { scroll-margin-top: 60px; }
+section h2 { padding: 20px 0 10px; font-size: 1.4em; }
+.entity-link { color: var(--text); text-decoration: none; border-bottom: 1px dotted var(--text-muted); }
+.entity-link:hover { color: var(--accent); border-color: var(--accent); }
+.year-filter { display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 14px; }
+.yfp { padding: 4px 10px; border-radius: 12px; cursor: pointer; background: var(--bg); color: var(--text-muted); font-size: 12px; border: 1px solid var(--card-border); transition: all 0.15s; }
+.yfp:hover { border-color: var(--accent); color: var(--accent); }
+.yfp.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+.mode-toggle { display: flex; gap: 0; margin-bottom: 16px; justify-content: center; }
+.mode-btn { padding: 8px 20px; border: 1px solid var(--card-border); background: var(--bg); color: var(--text-muted); cursor: pointer; font-size: 13px; transition: all 0.2s; }
+.mode-btn:first-child { border-radius: 8px 0 0 8px; }
+.mode-btn:last-child { border-radius: 0 8px 8px 0; }
+.mode-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+[data-mode="overall"] .country-only { display: none; }
+[data-mode="country"] .overall-only { display: none; }
+.country-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+.country-card { background: var(--card); border: 1px solid var(--card-border); border-radius: 12px; padding: 20px; transition: transform 0.15s, border-color 0.15s; text-decoration: none; color: var(--text); display: block; }
+.country-card:hover { transform: translateY(-2px); border-color: var(--accent); }
+.country-card .flag { font-size: 2em; }
+.country-card .name { font-size: 1.2em; font-weight: 600; margin: 8px 0 4px; }
+.country-card .meta { color: var(--text-muted); font-size: 13px; }
+.country-card .mini-stats { display: flex; gap: 16px; margin-top: 12px; }
+.country-card .mini-stat { text-align: center; }
+.country-card .mini-stat .n { font-size: 1.4em; font-weight: 700; color: var(--accent); }
+.country-card .mini-stat .l { font-size: 11px; color: var(--text-muted); }
+.iron-badge { display: inline-block; background: var(--green); color: #000; font-size: 11px; padding: 2px 8px; border-radius: 8px; font-weight: 600; }
+.map-container { background: var(--card); border: 1px solid var(--card-border); border-radius: 12px; padding: 20px; margin-bottom: 20px; overflow: hidden; }
+.map-container svg { width: 100%; height: auto; display: block; }
+.map-country { cursor: pointer; transition: opacity 0.2s, filter 0.2s; stroke: var(--bg); stroke-width: 0.5; }
+.map-country:hover { opacity: 1 !important; filter: brightness(1.3); }
+.map-bg { fill: var(--card-border); opacity: 0.25; stroke: none; }
+.map-flag { pointer-events: none; font-size: 14px; dominant-baseline: central; text-anchor: middle; }
+footer a { color: var(--accent); }
+@media (max-width: 600px) { .bar-label { min-width: 120px; font-size: 12px; } header h1 { font-size: 1.4em; } .stats-grid { grid-template-columns: repeat(2, 1fr); } .country-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body data-mode="country">
+<button class="theme-toggle" onclick="toggleTheme()">🌙 / ☀️</button>
+<header>
+  <h1>🇧🇬 <span>Чемпионат Болгарии</span></h1>
+  <p>Статистика 2004--2004 | <a href="../index.html" style="color:var(--accent)">← Все страны</a></p>
+</header>
+<nav><a href="#overview">Обзор</a><a href="#champions">Чемпионы</a><a href="#players">Игроки</a><a href="#teams">Команды</a><a href="#tournaments">Турниры</a></nav>
+<div class="container">
+<div class="mode-toggle">
+  <button class="mode-btn" data-mode="country" onclick="setMode('country')">🏆 Зачёт ЧС</button>
+  <button class="mode-btn" data-mode="overall" onclick="setMode('overall')">🌍 Общий зачёт</button>
+</div>
+
+
+<section id="overview"><div class="card">
+  <h2>Обзор</h2>
+  <div class="stats-grid">
+    <div class="stat-box"><div class="num">1</div><div class="label">турниров</div></div>
+    <div class="stat-box"><div class="num">0</div><div class="label">игроков</div></div>
+    <div class="stat-box"><div class="num">16</div><div class="label">команд-участий</div></div>
+    <div class="stat-box"><div class="num">16</div><div class="label">макс. команд (2004)</div></div>
+  </div>
+  <h3>Рост турнира</h3>
+
+  <div class="bar-row">
+    <div class="bar-label"><a href="https://rating.chgk.info/tournament/43" target="_blank" class="entity-link">2004</a></div>
+    <div class="bar-track">
+      <div class="bar" style="width:100.0%;background:var(--accent);opacity:0.4;position:absolute"></div>
+      <div class="bar" style="width:100.0%;background:var(--accent);position:absolute"></div>
+    </div>
+    <div class="bar-value">16 (16 ЧС)</div>
+  </div>
+</div></section>
+
+<section id="champions"><div class="card">
+  <h2>Чемпионы по годам</h2>
+  <table><tr><th>Год</th><th>Чемпион (общий)</th><th>Взято</th><th>Чемпион ЧС</th><th>Взято</th><th>Место</th><th>Команд</th></tr>
+    <tr>
+      <td class="pos"><a href="https://rating.chgk.info/tournament/43" target="_blank" class="entity-link">2004</a></td>
+      <td class="team-name"><a href="https://rating.chgk.info/teams/1032" target="_blank" class="entity-link">Excalibur</a></td>
+      <td class="score">—</td>
+      <td class="team-name"><a href="https://rating.chgk.info/teams/1032" target="_blank" class="entity-link">Excalibur</a></td>
+      <td class="score">—</td>
+      <td class="pos">1</td>
+      <td class="pos">16</td></tr>
+</table></div></section>
+<section id="players"><div class="card country-only"><h2>Игроки -- победы (зачёт ЧС)</h2>
+<div class="year-filter" id="yf-pw-c"><button class="yfp" data-section="pw-c" data-year="all" onclick="filterYear(this)">Все</button><button class="yfp" data-section="pw-c" data-year="2004" onclick="filterYear(this)">2004</button></div>
+</div>
+<div class="card overall-only"><h2>Игроки -- победы (общий зачёт)</h2>
+<div class="year-filter" id="yf-pw-o"><button class="yfp" data-section="pw-o" data-year="all" onclick="filterYear(this)">Все</button><button class="yfp" data-section="pw-o" data-year="2004" onclick="filterYear(this)">2004</button></div>
+</div>
+<div class="card country-only"><h2>Игроки -- подиумы (зачёт ЧС)</h2>
+<div class="year-filter" id="yf-pp-c"><button class="yfp" data-section="pp-c" data-year="all" onclick="filterYear(this)">Все</button><button class="yfp" data-section="pp-c" data-year="2004" onclick="filterYear(this)">2004</button></div>
+<table><thead><tr><th>#</th><th>Игрок</th><th>Подиумов</th><th>Побед</th><th>Детали</th></tr></thead><tbody>
+</tbody></table></div>
+<div class="card overall-only"><h2>Игроки -- подиумы (общий зачёт)</h2>
+<div class="year-filter" id="yf-pp-o"><button class="yfp" data-section="pp-o" data-year="all" onclick="filterYear(this)">Все</button><button class="yfp" data-section="pp-o" data-year="2004" onclick="filterYear(this)">2004</button></div>
+<table><thead><tr><th>#</th><th>Игрок</th><th>Подиумов</th><th>Побед</th><th>Детали</th></tr></thead><tbody>
+</tbody></table></div>
+<div class="card"><h2>Игроки -- участия</h2>
+<div class="year-filter" id="yf-pt"><button class="yfp" data-section="pt" data-year="all" onclick="filterYear(this)">Все</button><button class="yfp" data-section="pt" data-year="2004" onclick="filterYear(this)">2004</button></div>
+<table><thead><tr><th>#</th><th>Игрок</th><th>Турниров</th><th>Годы</th></tr></thead><tbody>
+</tbody></table></div></section>
+<section id="teams"><div class="card country-only"><h2>Команды -- победы (зачёт ЧС)</h2>
+<div class="bar-row"><div class="bar-label"><a href="https://rating.chgk.info/teams/1032" target="_blank" class="entity-link">Excalibur</a></div><div class="bar-track"><div class="bar" style="width:100.0%;background:#02e2ac"></div></div><div class="bar-value">1</div></div>
+</div>
+<div class="card overall-only"><h2>Команды -- победы (общий зачёт)</h2>
+<div class="bar-row"><div class="bar-label"><a href="https://rating.chgk.info/teams/1032" target="_blank" class="entity-link">Excalibur</a></div><div class="bar-track"><div class="bar" style="width:100.0%;background:#02e2ac"></div></div><div class="bar-value">1</div></div>
+</div>
+<div class="card"><h2>Команды -- участия</h2>
+<div class="year-filter" id="yf-tp"><button class="yfp" data-section="tp" data-year="all" onclick="filterYear(this)">Все</button><button class="yfp" data-section="tp" data-year="2004" onclick="filterYear(this)">2004</button></div>
+<table><thead><tr><th>#</th><th>Команда</th><th>Турниров</th><th>Годы</th></tr></thead><tbody>
+</tbody></table></div></section>
+<section id="tournaments"><div class="card"><h2>Все турниры</h2></div>
+
+<div class="card">
+  <h3><a href="https://rating.chgk.info/tournament/43" target="_blank" class="entity-link">Чемпионат Болгарии 2004</a></h3>
+  <p style="color:var(--text-muted);font-size:13px">16 команд | 0 вопросов</p>
+  <table><tr><th>М</th><th>Команда</th><th>Город</th><th>Взято</th></tr>
+    <tr><td class="pos">🥇 1</td><td class="team-name"><a href="https://rating.chgk.info/teams/1032" target="_blank" class="entity-link">Excalibur</a><span class="country-badge">ЧС</span></td><td class="town">София</td><td class="score">—</td></tr>
+    <tr><td class="pos">🥈 2</td><td class="team-name"><a href="https://rating.chgk.info/teams/1118" target="_blank" class="entity-link">The Ring</a><span class="country-badge">ЧС</span></td><td class="town">София</td><td class="score">—</td></tr>
+    <tr><td class="pos">🥉 3</td><td class="team-name"><a href="https://rating.chgk.info/teams/1495" target="_blank" class="entity-link">Roma</a><span class="country-badge">ЧС</span></td><td class="town">София</td><td class="score">—</td></tr>
+    <tr><td class="pos"> 4</td><td class="team-name"><a href="https://rating.chgk.info/teams/1496" target="_blank" class="entity-link">Varna4eva</a><span class="country-badge">ЧС</span></td><td class="town">Варна</td><td class="score">—</td></tr>
+    <tr><td class="pos"> 5</td><td class="team-name"><a href="https://rating.chgk.info/teams/1497" target="_blank" class="entity-link">Loko</a><span class="country-badge">ЧС</span></td><td class="town">Пловдив</td><td class="score">—</td></tr>
+    <tr><td class="pos"> 6</td><td class="team-name"><a href="https://rating.chgk.info/teams/1043" target="_blank" class="entity-link">MoldIFAG</a><span class="country-badge">ЧС</span></td><td class="town">София</td><td class="score">—</td></tr>
+    <tr><td class="pos"> 7</td><td class="team-name"><a href="https://rating.chgk.info/teams/1050" target="_blank" class="entity-link">Atlas</a><span class="country-badge">ЧС</span></td><td class="town">София</td><td class="score">—</td></tr>
+    <tr><td class="pos"> 8</td><td class="team-name"><a href="https://rating.chgk.info/teams/1088" target="_blank" class="entity-link">Nike</a><span class="country-badge">ЧС</span></td><td class="town">София</td><td class="score">—</td></tr>
+    <tr><td class="pos"> 9</td><td class="team-name"><a href="https://rating.chgk.info/teams/1498" target="_blank" class="entity-link">Decathlon</a><span class="country-badge">ЧС</span></td><td class="town">Варна</td><td class="score">—</td></tr>
+    <tr><td class="pos"> 10</td><td class="team-name"><a href="https://rating.chgk.info/teams/1499" target="_blank" class="entity-link">BGK</a><span class="country-badge">ЧС</span></td><td class="town">София</td><td class="score">—</td></tr>
+    <tr><td class="pos"> 11</td><td class="team-name"><a href="https://rating.chgk.info/teams/1502" target="_blank" class="entity-link">ГУАП-2</a><span class="country-badge">ЧС</span></td><td class="town">София</td><td class="score">—</td></tr>
+    <tr><td class="pos"> 12</td><td class="team-name"><a href="https://rating.chgk.info/teams/1503" target="_blank" class="entity-link">Kotkite</a><span class="country-badge">ЧС</span></td><td class="town">София</td><td class="score">—</td></tr>
+    <tr><td class="pos"> 13</td><td class="team-name"><a href="https://rating.chgk.info/teams/1504" target="_blank" class="entity-link">Torba</a><span class="country-badge">ЧС</span></td><td class="town">София</td><td class="score">—</td></tr>
+    <tr><td class="pos"> 14</td><td class="team-name"><a href="https://rating.chgk.info/teams/1113" target="_blank" class="entity-link">Callypso</a><span class="country-badge">ЧС</span></td><td class="town">София</td><td class="score">—</td></tr>
+    <tr><td class="pos"> 15</td><td class="team-name"><a href="https://rating.chgk.info/teams/1505" target="_blank" class="entity-link">Otbor</a><span class="country-badge">ЧС</span></td><td class="town">Пловдив</td><td class="score">—</td></tr>
+    <tr><td class="pos"> 16</td><td class="team-name"><a href="https://rating.chgk.info/teams/1506" target="_blank" class="entity-link">StudGrad</a><span class="country-badge">ЧС</span></td><td class="town">София</td><td class="score">—</td></tr>
+</table></div>
+</section>
+
+</div>
+<footer style="text-align:center;padding:40px 20px;color:var(--text-muted);font-size:13px"><a href="../index.html">← Все страны</a> | Данные: <a href="https://rating.chgk.info">rating.chgk.info</a> API | Сделано <a href="mailto:imangulovamal@gmail.com" style="color:var(--accent)">Амалем Имангуловым</a></footer>
+<script>function toggleTheme() {
+  const html = document.documentElement;
+  const next = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+  html.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+}
+(function() {
+  const s = localStorage.getItem('theme');
+  if (s) document.documentElement.setAttribute('data-theme', s);
+  document.querySelectorAll('.yfp[data-year="all"]').forEach(b => b.classList.add('active'));
+})();
+document.querySelectorAll('nav a').forEach(a => {
+  a.addEventListener('click', function() {
+    document.querySelectorAll('nav a').forEach(x => x.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+function filterYear(btn) {
+  const section = btn.dataset.section;
+  const year = btn.dataset.year;
+  document.querySelectorAll(`.yfp[data-section="${section}"]`).forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll(`.filterable[data-section="${section}"]`).forEach(row => {
+    if (year === 'all') { row.classList.remove('hidden'); }
+    else { row.classList.toggle('hidden', !row.dataset.years.split(',').includes(year)); }
+  });
+}
+function setMode(mode) {
+  document.body.setAttribute('data-mode', mode);
+  document.querySelectorAll('.mode-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.mode === mode);
+  });
+  localStorage.setItem('viewMode', mode);
+}
+(function() {
+  const m = localStorage.getItem('viewMode') || 'country';
+  if (document.querySelector('.mode-btn')) setMode(m);
+})();
+</script>
+</body>
+</html>
